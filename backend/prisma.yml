@@ -1,0 +1,26 @@
+# Specifies the HTTP endpoint of your Prisma API.
+endpoint: ${env:PRISMA_ENDPOINT}
+# secret: ${env:PRISMA_SECRET}
+
+# Defines your models, each model is mapped to the database as a table.
+datamodel: datamodel.prisma
+
+# Generate a Prisma client in JavaScript and store in
+# a folder called `src/generated/prisma`
+# Specifies the language and directory for the generated Prisma client.
+generate:
+  - generator: javascript-client
+    output: ./src/generated/prisma-client
+  - generator: graphql-schema
+    output: ./src/generated/prisma-client
+
+# Ensures Prisma client is re-generated after a datamodel change.
+hooks:
+  post-deploy:
+    - prisma generate
+
+# Points to a `.graphql` file containing GraphQL
+# operations that will be executed when initially
+# deploying a service.
+# seed:
+#   import: src/database/seed.graphql

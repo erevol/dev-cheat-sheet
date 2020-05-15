@@ -1,0 +1,14 @@
+type User {
+  id: ID! @id
+  name: String!
+  email: String!
+}
+
+type Question {
+  id: ID! @id
+  answer: String!
+  title: String!
+  votes: Int
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}

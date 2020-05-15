@@ -1,0 +1,11 @@
+node_modules/
+.vscode/*
+*/.vscode/*
+.DS_Store
+*.log
+haters/
+.next/
+.build/
+layout.md
+.env
+*/.env
