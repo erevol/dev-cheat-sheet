@@ -3,7 +3,6 @@
 #### Demo
 You can see a Demo at: ...(TBD)
 
-
 ## Used Libraries
 
 * [React](https://reactjs.org/)
