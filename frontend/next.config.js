@@ -17,8 +17,8 @@ module.exports = withSourceMaps(
                 loader: 'url-loader',
                 options: {
                   limit: dev ? 256 : 8192,
-                  publicPath: '/_next/static/images/',
-                  outputPath: 'static/images/',
+                  publicPath: '/_next/static/',
+                  outputPath: 'static/',
                   name: '[name]-[hash].[ext]',
                 },
               },

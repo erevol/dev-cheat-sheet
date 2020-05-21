@@ -13,8 +13,14 @@ import { cache } from 'emotion';
 
 const injectGlobal = css`
   @font-face {
-    font-family: 'radnika_next';
+    font-family: 'Jost';
     src: url('/static/Jost-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('/static/OpenSans-Regular.ttf');
     font-weight: normal;
     font-style: normal;
   }
@@ -30,13 +36,14 @@ const injectGlobal = css`
     margin: 0;
     font-size: 1.5rem;
     line-height: 2;
-    font-family: 'radnika_next';
+    font-family: 'Open Sans';
   }
   a {
+    font-family: 'Jost';
     text-decoration: none;
     color: ${theme.black};
   }
-  button {  font-family: 'radnika_next'; }
+  button {  font-family: 'Jost'; }
 `;
 
 const globalStyles = (

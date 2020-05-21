@@ -1,0 +1,578 @@
+[
+  {
+    "_id": "5b6e46cf5e0b38d1bc933ddd",
+    "name": ".NET Core",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAARVBMVEVHcEwRChMTChUUChcSBhU2Fj5DGE5YI2VoJHlnIHhZDGxhFHJoIHluJIB4P4xYZ6yMVJmkea5EvOm3lL892PzIrc7ayd6U/d5ZAAAACnRSTlMAFBodHWSNqub6JJTiCAAAASZJREFUeNqFkwuWgyAMRbUdBcEgEXH/S52XYCtoZ8rRg3LzJ+neqx+MpXkma4a+u67HCKZLJMZHSweBU6GTCAw1NfRiLwkyNX3BU0D5Sf/kQ6F3rv6ftvx65/HUAvYJPKqynznlnKKr1UdUw6pq3FMMkXOiWr2H50IDbMN4ithwoF7g3egOSrMcYQuQiJHkz3RWzphxTEuAGufMHlHsAdx2GlcGoHXbltml3TlOeLNDdJ3azhBZtnVbgdmLcsq7WP+IkSBzFHIxXnCCcaepl9DSEVr5RCKJc5TQ3on5I7Eg4VOxTaYti3cMJZFyXsvSFDUg6UtRzyvJciW+vZLzQmH8eqE/VTvQvR3+b6bvrfi9kdX/1I7BNNyH6AiOLkN0juAE3WYEfwF9zCN4becH3QAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/600px-.NET_Core_Logo.svg.png",
+    "isActive": true,
+    "qaCount": 51
+  },
+  {
+    "_id": "5c0caab72196e1dae00672d6",
+    "name": "ADO.NET",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAIVBMVEUPCgD7owCHWABXOAAzIQDKgwCxcwDgkgD0nwD/pgD/sAAzczRXAAAACXRSTlMB+nVEIrye0urI1ITRAAABJklEQVQ4y3WSWXIDMQhExQ59/wOnJPBYsRN+VKOG4alhrVcIu1mEmbOsjxDPAlBV50i/MyS2QrTVon0C8SQwXtITRAVuVVEf4kko6BT/oVbRlMt/8nQ30FcCEWy41dC8b40Kpl3Nfl6Gvqd+eshyHjTTpWzHmGOKsS41vGRCu6QiItou4iInII1FVFVF2BL7bsgdh+WKDQEfT5X74nDNCbBO71jqOfOamaXrihdayh63Re7qDNsDl7zIg/Uev3I85IrTK835hG/w7ape877R+3PmzSL5oD/gKTK9SZcYdV3/g0yW0oPm2psaEdGbqk4XOexGVza8ybMOF4W5u1vQoaucAiHQrG/331+gZ5PVC3WhV6Fcf9tE73fTh4m9C8y7N7N8af/FD0owD5uDO2jQAAAAAElFTkSuQmCC",
+    "imageLargeUrl": "https://www.keepitsafe.com/images/default-source/icons/database.png?sfvrsn=d67ca057_2",
+    "isActive": true,
+    "qaCount": 33
+  },
+  {
+    "_id": "5bda2d0bc91c4e0015710148",
+    "name": "ASP.NET",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeBAMAAADJHrORAAAAHlBMVEVoIXpzMoSCR5FfFHLdzeHs4+6UYqGgc6uzj7zCpsqNnK/RAAAAoElEQVR42s3OsQ6CMBAG4ING5x627hBE3ZqaEEdp+gCAL0DC0Li60CcQXZnwbY3p6Svov1y+5M/dwT+EgXqPFWl3TBE5Lq/k/cW50Ts/qODtzRduGF0RDBhhGmdJmtA62bNJ2MnaKvQ3DRiZ4brlwflTGXFQulbkRW/ko4trIJdnI++d/prNoU/nchCt5EBms4CykbbSp887ADxCDhx+nxdMNRqIIHUxHAAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "https://jamesmacdonald.me/wp-content/uploads/2018/11/vb-net-icon-1.png",
+    "isActive": true,
+    "qaCount": 60
+  },
+  {
+    "_id": "5bdab222c91c4e001571018c",
+    "name": "ASP.NET MVC",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAMFBMVEVMaXGAveVzsNdwp8pbiKV7t94qP0w1T2AuRVR6tduNvt2hxt79/v6wzuHD2+vi7PKJAOITAAAACXRSTlMA/P+jatwRIBocHM6GAAABGElEQVR42oWTiZLEIAhEI2oSYdH//9tt8SBzbG3XFDo+G9TosXWmmAuUYzr3oMMcQhkKOd6vNE22JoT0pHFBnxCflN4xGXf6J0+LErQ6CKP+GdZ8FhHuddFa/cvMk9afLiZGVJrLO7NTBai900aRfC8zPCANpAcZGNWjmwUB0cxD8Zi5e8FCggjz3l0+pllaQ0bSBrEfg2HuQjO02o3FpPKqjZGVGCkZbf+V7R5Lq8wqRbWW0piRh7l2d7aNoc+Vi7IS5hgm23rsx0JmqwJCQRgdONWOxQ5VCSNwEQkSVIXbcL72J8HSeizzz74x98DfLsQ1r8N3mv67TJOXd46BfD6u6qfX6Vq+a9R1XTEHfyPxcvL5BP2F/QKuzhg/wevUdQAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "data:image/png;base64,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",
+    "isActive": true,
+    "qaCount": 33
+  },
+  {
+    "_id": "5bdab4e9c91c4e001571018e",
+    "name": "ASP.NET Web API",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsSAAALEgHS3X78AAAE90lEQVRIie1WW2wUVRj+/zNnZ3d227132e1ll3KxSLnHgmK4JBolIjEU6yVgjPFNwoMaHtQoiQTFRx/0QUIi8QFNvIWQ8IKIcrEPChqgWwq00m27ONvu7qw73dmZOef4sG3ZtgvCgy+m38vMmfOf8/3ff8sAzOH/Drw3K0QARJywFmLipBC8sphmC4BEqlpywbmYZfevIITc0UFEhCl3ptbkXq69u2JCCHDO0R9xu4Kx5pBH4mWOUmG0IKQ6T9HKDqWt3CgA4pQi4lSovPihFYI448KyzEgsdDF3uXtMV0dMQIRJO3pnUokAZ1xZv+Nh+cnXP2dCfqB5fjCn99+gLJV2BZYs0z2NyqG+t7btN4b6iwAAsjfoCr999IjeuKpLHtUwFPF3L28x9x3fvvrUpMrJgNcOywSpZ9Nzq70vfHTczhttYa9sqcWR8wUqG7yuTi4M3wxQb3xP06v7dk0e823b/Xx56eYuTA8xLGb1aINyqufT9/tK2YyNkoSiKs+ziZEgcMZpS5sz1PneJ/q1vlAk4IZWn34i/cHOHa2t/hHP/EVgeQO2MabK/ocef4X6w24AAGXd1jVsVB1XTIvWReb1s4Hfeq9+c/hPAEDB2LTqqqWYAAB4n33nZWtMf0QydLt+yQLr4qH9B0ojKdOlDf7R0NII3AYo5jWb1EfWKq1LVzpjC2Qptniec3TUg4BWnUfuu/rZu6dtmwGS2TTTvxCCIDiT2h91y4mOXWZ/H+DCRfS6mj6n/X72AgDA4LlTP3n8dUBNg5fSGdALFijNy9b51m3xEt1ajLeGweELaoWfvzymXjiTAiIRwfmsXprhSqU15I0vrmSp9CoBtlkORcG8cv4HMIoMACDdffI0Lxt/U3+9ECNp1AZT4H5wUweueXpnsefSGhQSkLHBM+mvDhwFAAAxm3Q6MSIAZ4KGG4EuXN8phm7WY6hZFrKk8R+/+FoAABBKcwNXBtST338rr+hwgssjWb3XwPS3d5Z56CBmsiAEu3HryJt7y4WsBUgIiNqT43Y7IUEQTMCCVUFRHN+AmjpUDruvm4deO8h7u3srlzAGAHDz8N43fKWSbkrOZjl5idkDV4CYRanEjdx4z/EPrXTyRsWe81qkALUGiOyiRJLdwJgheNkUto1ICKkaeQIAUAjBqvuyKnIEkUggOAMAEBXF9zsvAYFI0l33ESVAlCrvhNYs4RqYeSkCADQ1NT3BOS81NTU9ZZbLmWg0ujkcDm8MBoNrKaVKLBbb0tDQ0MEY0w3DUAkh0NbWtlvT8pf8Pt+a1tbWlxwOR50sywFFUXylUmkUKzN8Svm0kYmIRAjBPB5Pwuv1xiORyFan0+l2OBwRl8u1UFXVk5RSXyAQWGEYxl+xWOyxfD6f9Hq9bYlEYrumaRcURVkJALlIJLKBEKJkMpkT2Ww2CTPSOjMsAgAgk8n8Eo/Hu1RV/a6lpaVTVdWzhBAihMgIIQzGmKnr+nWXyzUPACCRSHQVCoVUNBrdRil1+v3+5cPDw8dyuVyPJElKrVBPUzxRCFAsFgfS6fTlVCp1mlLans/nk6VSSXO5XO22bQ+ZpjnudrtjY2NjvwIAlMtlPZlM7onH4884HI7mnp6ej/P5fJ8kSWEhhFYt6l6BVSGSCCHKRK4oIjpr2GAlY0iwUnD3jwkCnHhW/X/cfp+xN0lYnctqp+Ywhzn8N/gHm/En0cAS0FYAAAAASUVORK5CYII=",
+    "imageLargeUrl": "https://raw.githubusercontent.com/CAST-Extend/resources/master/com.castsoftware.webapi.png",
+    "isActive": true,
+    "qaCount": 33
+  },
+  {
+    "_id": "5b86291048a802001459c180",
+    "name": "AWS",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeBAMAAADJHrORAAAAKlBMVEVHcEzwvgXptQr2vA32vA1oTQbyug71vg/4vw/5vw/7whD+xhD+vg//xRAzUGflAAAADXRSTlMABRM1Tlh0jp+3zub8lMbCbQAAAQdJREFUKM+1x79OwlAUB+DfBcN8S0nnFgxFujQhaRilLMy+AoPpDP6Jq064Njj4ABrRVUsiL4Dnrk24PeddHDD4AvptH5QG4ADKAeA4QP38MgUAlVxNdR3DlZFq6aO1MCLPKbpvTFWuVH0hYooYZ7XsaeRee7mfvMxqE8gy8IebnSfrUbv1KCAp+0y7BhsZGCYQlRHTrsFkxkx/dm9/A8NlRPJ+9ClmzGKRvJZRdRcEnRsZy0cKuPPeaTPbzvzh4FYDDoBwI0aKGIAGlG52MiN23vYdAABO8qD7EHfuY71/X9bT2mRTHc5sQ+av35MNmf7t3optyFL4+OFmtmcvDlVaJccpFAB8A/eKusNzqLlIAAAAAElFTkSuQmCC",
+    "imageLargeUrl": "http://www.sclance.com/pngs/aws-logo-png/aws_logo_png_72744.jpg",
+    "isActive": true,
+    "qaCount": 44
+  },
+  {
+    "_id": "5b6e463b5e0b38d1bc933dda",
+    "name": "Agile & Scrum",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAeCAMAAADn2eWTAAAAS1BMVEVMaXEAUUwBZV4DZ2EBf3UAkIMAe3QFraADwrUDp5sNpZgDtKcfqp4FoZMBqp4Oq58DvrAwsKVHtatvwbiRzsev29bK5eLj7u39/f2INLXPAAAADXRSTlMABSlMaHiQxNv9/v7+FEoX4wAAAVxJREFUeNqNk1l2wyAMReshwQKJGcH+V1pBHJOk+eizDejcowGBf160DE37jc3VN7as237bt7UvP+GyK2e898aoXax3uB2GEEkDWGuOreMJbx6wtFbQWRD5veMJnS41xloFW/vAV1gPOjQkSoxaqHB/BV8P6DSQIwyawHXvY1nOuAasox651Faz0x2bM/ZyWCl0VNW4cGPsplXLcF2NWNYBthpJcjcWZ9nXOujuB6XcIqHDMYtzL1ue+6AQaovi5CC0TE7o7YXq2FqEnsGd9H5RJxFLlsAyp57h4XvmJZHWfaBQmSLqkfdRM+Zyqcq2Gode89ivcprbh9ipZ68sxPymmrH36tlnyZkycUk5S5YgzVQvZ6QRK5ecCzMyB9D9jOb5UqpcS+UxxHm+ZzcjYoxJ3hRTeCa9givvZLsA8hm1XnDeycMba/yhNrH+3vXzPn+/78tcfNXjP/q3fgFIhhu10ID28wAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "http://www.impactus.ch/clients/sts/newsletter/images/agilemanagment.png",
+    "isActive": true,
+    "qaCount": 52
+  },
+  {
+    "_id": "5e0c3b2726880d4a5f9041f3",
+    "name": "Android",
+    "imageUrl": "http://aux.iconspalace.com/uploads/android-flat-circle-icon-256.png",
+    "imageLargeUrl": "http://aux.iconspalace.com/uploads/android-flat-circle-icon-256.png",
+    "isActive": true,
+    "qaCount": 113
+  },
+  {
+    "_id": "5b6e464a5e0b38d1bc933ddb",
+    "name": "Angular",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAeCAMAAADn2eWTAAAAflBMVEVMaXFUEBNKExNSEhKlJCZnFxmSISSmKSvVMDSuKy3eNDntMznJMTX+OD3+OD7LOj6zLTDhMjfdMTW6MTS1LjHjMTb///+xEhTDMDP8+PjhExe4OTviNjviIyfosbLkPkKyIybpMzjpW17wysv04+PTgoLuhof2NTvEUVLGYmIMb4bkAAAAFHRSTlMABA0hOj5Yfomtuc7a3/j6/f39/kTjRxAAAAG2SURBVHjaXZIHsqMwEERJBoEJAgkQQSba4Ptf8LcCtnenKKrQU/cExjHhunj5YZKSwFOf5vSLvJBkyyI4S6Kbaw/tPS8gWV6XZSko56xIo6+DG5D7cZQVoCxmzimlQqREOwTRPa8XkLoe5bq3nGvOuEAKJ8tLhVRM/aN5z4ybC5yK1LmPBmlp12ztwG1QFjvJAvqRds0b+KLEIaBWWnegj5ZdlEc/tH81DfCJzDZCJ6wvZ0j3R/OTmQVOMBo8QQrbvelOeGvj1Hf8/BIDrO1TXRm+NNN0kpBufTFr8aBp4jre3Wjl3jRrL4yYaRpjlIkdYgPj9TzfaGuY9bSIoaqmTXWjoutMZioiUDQMCOknIEbPtApBw7zCJFSjr9fridhM2bS4GTrKCYK67/sWwTotpqkPegPV0n6aJjEMQ4uPZzvQVO9ahrxItsqxrrE5bD5hxNT/UzuVYf77tkmJP632is+PfX+2RawXi+RLWUmJiWiqMKWDSFRRypscRzX+UIqlCT27zqgsVvtqKZ408nBuseLJUVeKQsci/2KX3g3vR4VtZ0X8YV+MJ8oWIeKbZf9xVV7yL/sDUJg4yhvLTUQAAAAASUVORK5CYII=",
+    "imageLargeUrl": "https://angular.io/assets/images/logos/angular/angular.png",
+    "isActive": true,
+    "qaCount": 120
+  },
+  {
+    "_id": "5b6e467d5e0b38d1bc933ddc",
+    "name": "AngularJS",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAkFBMVEVMaXFfWlpbUlJuZWVhYWGgnZ20s7KAiYmxtba0u7vBycrS2dne5+fp4uLU2Ne3NjbLzs3aPzq+xcW3BwfeHAzdJyK4RkfWWE64W1u4HRzdKgHdMQu3IiLdEAO3GBi3EBDv+PjAurrIs7Ls6unag4LBl5a7eXnkxMK7hYXCbm6/paXjnJm4KyrgbGXarajdNhsyGqA+AAAAGXRSTlMABBc3TWeChpW0w9Lg9/r9/f7+/v7+/v7+QU+gPAAAAd9JREFUeNpl0mnbqiAQBuDcyiQ3wAUFEXdt+///7h0oT9ep+VJ5z0MMcviUZVn7x0+ZZ7br+65lfv2Y5ZxQNG4ROjmfDvNF2/EcPdaUsnhVUXB07L1Bm4eSbkgpFcNCpIynLkFHWMOgF1yM0fqZhR3jTJImnvS/2MBOOBZU0Kqua3FvcU44Nx35EjoQtlEhgKqqqunc461hujgnJbKtg3VAq9BY6XCvdBw6Gi4ndNB8HnaeNY+SNTpOlrPh04PWRou+nRescmnisju9eM7AgR9tm94wXoAbWGF+sZsAw75SCFM5YhXreHNLXMNOlAI/xbVt70LmGE+Ew87iyDFsG64yCKdpHG9YQZjLPLIP5vDN4BDuwzBUUBA3Y79PNbjTmmZh30JhKAVxTqazZj34VTzF0Pbz9XpdlmlUeCU3MsLYhv0HzbKw7TMhBCGEKbxx1mz+m70ug/NsB/Gsa85vZMW4JKzzdlYZhbDZP9MTK6xko3Z2kpQOQ1Hpo9Vvq8nLksSJ82YbdYUQkDXcwJEQWSr0GlvfUD96FHBboEG/aSnLLjr+U31lzuGY6gUYXJR8DH376yK7QTRkomIkHqPA0c/+b7BclKyUTUngWm/8avAuXXfxdvxtsI+wow/+NnzhH+v4N22KPaKoAAAAAElFTkSuQmCC",
+    "imageLargeUrl": "https://startupsac.com/wp-content/uploads/2015/10/AngularJS-Logo.jpg",
+    "isActive": true,
+    "qaCount": 62
+  },
+  {
+    "_id": "5b6e46e15e0b38d1bc933dde",
+    "name": "Azure",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAPFBMVEVMaXEkd/8pZP4kff8dfP4qcv0qff8pef8pef9flP8ccv8xff8NbP6Jq/9Dhv8oev+owP/P3P/09f/////yuQvgAAAAD3RSTlMAEihZf57H5Pf+/v7+/v7xzCZhAAAA4ElEQVR42s2SwRKDIAxEq6iFBAiQ///XbtBRrIdeu5cw87I7IfD6B83roPmBNxm0fVMnfpC4O5028XCxREbxsk03vOyUYsnExpfbXICd1iKZ7OzH6Vb0g+baqKbY7esw154cmqasjXe7G+cyb9NKVbV0+zWd69GxqIag0DGdO8xvMQpSI/Itgy3+PV1YLDYQockqd3yGc0xmZiZU2Hv4ORr7jNRMFCP6mtrlrsU5XColRHJGbWqd7Ia1sPnAyqFA632pzCzoOUR+fj6JXbDL8/J80FPXyn5/h9+f6fkV/0AfjIkTgXFYKk0AAAAASUVORK5CYII=",
+    "imageLargeUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0CY2sUXBASRpB_Z0AgGiuaFsdEhYZVAL5BkNwzag4pMSay3Dd",
+    "isActive": true,
+    "qaCount": 58
+  },
+  {
+    "_id": "5b6e46f45e0b38d1bc933ddf",
+    "name": "Behavioral",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAARVBMVEVMaXHj7/7///////////////////////////+/zvL3+//r9/8Eq+oCsusQsusqte1KvvBsyvOS1/Ww4vjM6fn0+v7///9YzT6gAAAADXRSTlMABBseIFdnjJ2sz+X99FJyPgAAAVZJREFUeNqFUwGSgyAMBK2VCgKByP+fepuAenftTLc1kqwbQgAzYM20uM0z+80tk7HWXBBnWn2hnGJMmYpfZ4nd7NNTCiHsAF6J/PPk8bZrTSHGfSDGkKqzF+/KSd4flJc14PEIu/8DeCc05q3CvvP1KfzkU9R8sOMfNZD8A8lXUnGIQUy3QeW0Qrx1ceGy7+U4YDEc8tksWlfIrbUkpuUkJmh1i3EUJDW1oxEJTRnDEXRmyzpRPqAuQpd0tCNrOXkzPvVO1saYQfMyhtrf5A3rmomh5lwgztzawaRrZ9BSg8iYCxgYFg8Vg0ZyaRCqEVIgA7hoJZJLaTFIvoL0AzJkhPPWF5aJcm0Xqvi6sLMtOzJcYLijLbPsCH4R83dg3oiA7knfEl3kL+zXlnT5O1T87Th8O0x47Kt+OIoOxDjI7vNB/nYNLn7+e4keJ3t/cF/BGYEe/wHXzCsKQErM/wAAAABJRU5ErkJggg==",
+    "isActive": true,
+    "qaCount": 112
+  },
+  {
+    "_id": "5c00ffe2c06f8500211f27bd",
+    "name": "Big Data",
+    "imageUrl": "/assets/images/topics/default.png",
+    "qaCount": 8
+  },
+  {
+    "_id": "5d96929d0adffc0402b743e0",
+    "name": "Blockchain",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsSAAALEgHS3X78AAAFTUlEQVRIiY2XW2yURRTHfzPft9/SNqULEmqXFqpovBAjRrAKEiXRCArxoUbiAxaDAhrig5cHEolGjYRHxahAlFCIJETDS4GigRijCSRc4iWkEFMQSGuRSinby36734wPM7OXb3eNJ9ns7syc//+cMzPnnBET29LUEA9QgAamAsuBFcCDQCvQYNeNAVeAk8BB4DAwCghAAlE1cFGFuFRhBvA6sBZIWyNEDUPd3ADwFfAxcC3mQEHkf5CuBvqAzUCLVXafuJTOtQDvAOeAFy2WjBtcSuwmNLAd6AamAXk7Jq31RkdIkL5TLZ3TVicF7AZ2lHhbIJexAQHsB9YBOTvmV0ZGQJhBj1+zmCqO6SzKAa9YzFKOAqCz9HOgEwiBRDmhAOmBTEA0ib/kPRKPf2SWyABUSJVtTFisTuCzksgVwhcBL1lP80BAXKIQPXEdPTYEXoB3XxfeHSsgyhKs3EPw7D67UMc1A4u5HlhjuTzf/mgGttiFXpmaEJCfJPHkJxA0oc4fADQimSJ/ejtaRci2JagrP0EUgl8PuuIGOcwtmOs25PZioyXPU9wfE14VQTAVOWsRoqkdb+7yYizbFpOo32oC0t+LzgwjUvXGWF3mubDYt1quzWJiWzoFnAHaqXVPhTThves5Eku3GlDh8IyKHrlA9Nsu8r98CSoHXhAnd9gXgQck8JQlLTuaFTI2hBo4bg0R6Ov95I5sIOr7BnJjiNRt+EveJ+g8AEGjiVQ5nLAc7cAyiUmFzqLqIiQa8GYvLQypwRPkT28nd2gt2f1PozMDoBWy5SH8+evR4U2Q8fxU4FgmgQX2T8Wq4nKNEBKRXlgkvvA9eAmom4668CPq4jGbR0Ck2uPeOnEcC3ygrSahgTF7VjcDOfP+4uj0O5EtCyG8iZzXibx9WdHO4T5q7JwbaBMT29Iul9bglRBmkOkOglW9VGS/KCxLn2rgOGFPF0zesGNVd1DVJnQifbTKG+8sYfTHQcKeLqLzByDKFnN2doTc0TfRmUHwg1qkBhbI1GbVkL2BiEJEuqNobv9hol+7CXvWkN39MOrSD2YimSJY2Y1oaDaRqAy1syQjgcuxQftPg/CRbY8hWhcjW+wZjELUX6cQjc2Ihmb06CVyx962OhEiNddEJzdeOGxV5LKP6RzmYU6DSW3Cg3AE755VJJbvBJU32QjQ41chP2nGxq+CCpGzHikxFshnC+tj4jhO+kAv0FUeF23IEw3o4T5E0xzw6wCNaGwlufpn1PA59OglRNCIbF1kEob00aOXUVfP2Jxd0TM4jt7aKVMIEy7pI6ZMx3/0Xbx7XzBkDc3gJWOYRjX33Uai37shmYoXi7KU6QMjwF5MuxLhioTWkGgAIVEj/eBPASC77wn8jrfw568jOvs1+PWIumnosb+Jzu5D/XkMkk3VKpTD3guMuEr0KfAypnoUvdYaVIhobEXOXor+5xxkBvHSHZCfIHf0DciOgp9ERyFCJkyergyxtqRDlgvfbvYQsAnYVeY12oQ8Cskd2WAA626BqXNQAyfMHa6faU5zII2hlZ6WervJcnmuvXVdyBeYTiEk3oWEGbSQiEQ9TEkhvKQpDKJmdipoWqwdFlsCyoXaJdbXML10J6ZRK3aVySYTfx3B+DU02vRatUmVdSYAvgVepVjACzlal3w/D+zENGpgOgeFjophlAlT6GvkYauDxdhhMUs5yopDafZfh7nbI5i9cUU8Mt863l2UzCGsznVMQ7+e8p6dOLGbcNmlG7gb+BAYtGtlFR1ic4PAB1Z3DzWeMNXeTk6qPdqewTQO1R5tp4Ae/uej7V8aEvttWCH3LwAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "https://en.bitcoin.it/w/images/en/2/29/BC_Logo_.png",
+    "isActive": true,
+    "qaCount": 42
+  },
+  {
+    "_id": "5b6e47085e0b38d1bc933de0",
+    "name": "Bootstrap",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAaCAMAAACXfxyGAAAAe1BMVEVHcEw/HXBXNZk2E2x3SsIcCzh8S8pHK3o1E2JOIJJ9SsY7Fm9gLqwyE16ETdREGn2QVuNNH5I0E2R7RcmETtCKVNo7Fm9AGHxMB6pJG4tQH5dcFbVVIp9bJqliLq9vKsNpNLZvO7x2P8SYcM+qh9jAqeHX0Ovq5/T5+/rCOl9zAAAAGHRSTlMABB0zTk9vdIynrb3E09To6vj8/f7+/v50KHudAAABaUlEQVR42mWSiXKDMAxESSApCc1RDHZ8YTCX//8Lu7Kb0jQ7jJH0pEUDZJt2WbYvin0MNm10d7y37f2I4B3usv21jbrukb2Ptm2Dq8Hxa7CNnok4hwMNZxj83QlPBWymqfHADBv8bhhHGfNuCssaRucZ1GwGxRW5Z/M6Or3MrEkN1yLNHhsPuSWM2rF1XcLio1iR0YqffiC5OczjOjvtwqyp5D8j/kh40OMapofTDWwoZx8R57YfemjQ/RymbgqTHpD1Nk/m1nR95J0eQ1i9pqQzNpmfrFFo6Do0PfrJ2h4JlU7J/MsYpWwXZR/xVMqYr2ReSqmMksaSgCzcqCDLiCsphEQaGwhSO9WqiA83KbhQiqqAdFcoyNshvda8EoJziXoUAs6FqPDon29dEhdPHOPy+c3pll8Er3miCMQFxru/v0PJeY26oJOXr/8TJYcLCIm/jG4GVaLVv9HnBjCoa4w+d3o3yPPX0W9zHi1vuoSaeAAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBvC2beU7pDLfm90QSpVNpyPJtzF3YKYgCU1N0IjuyeBhmRB9P",
+    "isActive": true,
+    "qaCount": 38
+  },
+  {
+    "_id": "5bdceae1ebb9850015af02fd",
+    "name": "C#",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAeCAMAAAAIG46tAAAAnFBMVEVMaXFoRqdcPoepc907Gnemft48HnuUbt7IR+o8GHMkAoimfdw3GW+kedy0meKked8yDHoyB3CghuGaaNageNwoAGY5Ao9OLKAvBm3////9/P4yBnyXZdWke96cbdmfctry8Pg9CZYpBo4ZC2+uiuHT0N4UCF6Mia7l3vCRW9EzKpy+o+TBtdtNRYl7SsCkncZvY7MuJH5iS6yEfr1Wx4onAAAAGXRSTlMAAxMsLUxQc3Z8hYuhq6/CyOn6+vz9/v7+B0FGCwAAAY9JREFUeNpl0ol26iAQBuAmtaa29dYlZgMGSECzx7bv/253hhDtMueIR74wP2Ae7hUEy/i3cPLp3/bJ8V963AopxPYRf/ym8PUgYiwRv4Zu4h4WRAfhTGLFUYBz97B3JBFLADQc3inaGYYZIgBhjOAc4AiA0QEZdsQoKbtaFYWqO2TO+TEKqKUhA1PnvmrRoPFxjW0jg/sAo/KiKHI3KNHAmCYviM8H2iVZvnyKJk0S7VHwPsdp1QnRKfyedKK1RzycQlQSsxpQ/bVtS72sxESKMo3kIMe2tbb/hrxzC/EMTarLz9ra9pYpPQL/TEpdXmu3MlnQ0BHkqBljiLaeysRjDDymDfUVw6qmrzRNvyHwmo43fVTVx5TnfYu24FHyq3JXY+18GcOyMhIw6uoy3958f5dzxjzylKIuBO4BstMpYxvEcFe6jQx2/lPsgIa1Cx9IN3un1XDBGs4nsv0m9G/J6o2xDPlMlZG9rQg8r3cs80Ud1zPN6tiB6+hf7DtTtEMM+0G36P0t7LcSr350/A8S1zt/+xlZfQAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "https://3.bp.blogspot.com/-TVn9zpwc9VQ/WWipx278zLI/AAAAAAAABBg/OXiNaOm8J3Igo3hJ2eDEx1zfGl2pSNU1gCEwYBhgL/s1600/c-sharp-tutors-online.png",
+    "isActive": true,
+    "qaCount": 112
+  },
+  {
+    "_id": "5b6e48905e0b38d1bc933de4",
+    "name": "CSS",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAASFBMVEU8f/9BhP9HgP/Q3/9Fgv88gv83f/8ygf8sff8gdf8qff8ui/8Ra/8gd/8Pj/8ol/85nP9eoP+It/+ixv+30f/N3f/v8v/+//+F4fw3AAAADHRSTlMBDScxTnSgyuT6/f6/u3AHAAABDElEQVQ4EQXBAWLbMAwEMJBi2v3/t6kt3oDiAAAAuIb5XAAAMN9rUHUAAPDCEAFgAZQwuLiAHwAPDIEGLKAqwoB8DgDgAYbAAQCCd2mY+gIAyCkMi/Mq0VXAYsMAvrj/uiB7tyJhyB4qn3MguTfK2zDgnZkGsoZdgiEh04Bu+AM0KAsAQDAIVgAUAQxIvQ+LT+V8BIJBsL88kEAAAyo/H759nbpFiEUj+As/6d6roDwwQC0+c1PVRVJnYbAIqhoQJGi4x9wAsFuAgT18a7qb5O5WPZ1gIN4pD/m1qxrAIEBd/dfV5A1gIFu8xjUeySBQ0KdqmtfcGO7N3qAAdar6A57NTYACoKq77e4C8B/0O5w1TwGFvQAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNiBM8msdeYb0blyj7aKdM7uxhQkVNou8avxxFd5fdLXB5aG7r",
+    "isActive": true,
+    "qaCount": 50
+  },
+  {
+    "_id": "5bb77dc97957160013db9a9a",
+    "name": "Career",
+    "imageUrl": "/assets/images/topics/default.png",
+    "qaCount": 1
+  },
+  {
+    "_id": "5d81bb39b119943d9468a8e1",
+    "name": "Clojure",
+    "imageUrl": "/assets/images/topics/default.png",
+    "imageLargeUrl": "/assets/images/topics/default.png",
+    "qaCount": 4
+  },
+  {
+    "_id": "5b6e47185e0b38d1bc933de1",
+    "name": "Code Problems",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAARVBMVEVMaXFaJxpBHhmdQzS9UT/2aFPwZlHuZ1P9dFr/dF3xZVDzZlH////yX0fxVzzzbVn7a1X96un4s6n70c72lYb0fWbxRy39QudBAAAAC3RSTlMABhoyZnOQwdXs/NWlF5gAAAFlSURBVHjaZZOLloMgDEQVBB8Qwef/f+rOBJS2m9NTNTcZCAldtR4/OzjYYHt+/pgZxjmEnEOYx8Goq6X2bgZY1MKSpwGuRs2Y6a+GtzyayvGwUy7sDYCAfbiZWmYLmEzNHj9zZZXC89irtPui53FJKnygvJmXAjRrPeJ+l8gi78Ki9ErC/xgvOaWmc1/EaT3jJpLWPR43BFbigNVtxpM0HszeoL1HcOLZFu1CS1QSefnQ+bxUCkxt+OUgx+KOWEi5mqQtnmuCGrks2Su+trhdcHN/iSKJjgenNRTOohGln4iBuG7t4VekNpbQYADHwkLl947aEzZWKIbDvseSjv3eVFt2pXDzVL0eKqq9tWg9fTZFtbvOakv0XLW81vLZsqH+beiJ5NdYVv81DnUSPsdB5UPVf1jpRx0m8n+jCPoxqt+DDGXSdg38vDzXgHv27RrUDfiJd4i3aPJl2WY6k9Z5mLOmXcE/Sx0hSn/EWZsAAAAASUVORK5CYII=",
+    "imageLargeUrl": "https://images-na.ssl-images-amazon.com/images/I/51lnGsR5TAL.png",
+    "isActive": true,
+    "qaCount": 26
+  },
+  {
+    "_id": "5c04a363c21f58002135b9d9",
+    "name": "Data Science",
+    "imageUrl": "/assets/images/topics/default.png",
+    "qaCount": 5
+  },
+  {
+    "_id": "5b96034fe0ee1a0014677c84",
+    "name": "Data Structures",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsSAAALEgHS3X78AAAFIUlEQVRIie1WWWyUVRT+zrn//DOdMlOgLdPaUKTsQspmWaWCJBooSMAoIYWAbAnB8OCDD+ICwUTUYEgQEwIBRaOIoUYMKFGQYIKyRGUHsSylK6WlnWk72//f48P8LWWbFuRN78vk/nPv+c53zvnOPcB/bal/a4CUYlZKgYggIo/CqY5BmfmuPVGn7j48Y4dhzoTCYX2en1mcGshKbSi9WCpaP7TJjjGZFQDkL10+75VQXJY3Rq0VEZGJGzatc5zipAYAdC4ut91IMHV362bM+fWPM6avS38rHI6SUqanW3d717NPD64+euQvYsWi7fvS79Cze+ECgOnzpbDH9FuxGMDMOh63wGR40jP8DqWkpB4YWLQWYlahsrLQ5T3flZj+NJDhkpSsbFfNsaO/lB86+LtzLmmyjQcFBoBW0ZhpXXs0X6+pCl4qPRW+XlN+etuWD6yWFk1ELCKPqMqIiJRhsGm6AeCJpcsWLAvFJWv02KEAoEwTxacvnilYuep1AGDTdJNhGMT84HXUDjQB7BhJy+uTs6i6IVLw1uo3AYBdLg8ADHv1tRXLgjHJHD5iENCma2orjPYmO8MUImL601IGLli0zBsI5AQKRhdqy4rtnVk03o5GCURO/EmmfL37+9TsrJyKgwf2CETObNm0IXTlchURkXS6syUcJWLG5O07dr1c3SBzSyuiCyrrZdSad9cCAClltP8dtGjp/MW1IVl4rTa25EaTzD528lxqdnaaw6GNaNKqdlqiZI4dlx94asKsYFmZHW24iXBtLXKnTiv2BAJesW2LmEnshGZ7Fc2YHQsGEa6v16HyaxFfbq+Buc9NneU419YpO1fVAtLxOACB1hoQDVIGILgVOgIggGKGiEBrWyBCWnSbCtrHOSljhwXX/nb4RO3xo/vd6RnK5fOTu3s6zm3d/GHkek2YmFVC24oA4Oy2zRvZ7YbZtauZkpXlbiwtPV+2b08JAMC27U4xJmYWrXWXXo/n+PL6DanY/+M3TZXlV5uuXDlZf/rUcTYMQ1uW7Thpg4guf1uyJx5sLMwtml4cbWiovbD9k49bqqsb0ZniImYmZqPVsUmf79w75YefT6iEhOHPy8sqLquJ9pkzby4AkFIuYjbAfLd07iOne6ASIVHJCgD6zl+48KXSCuk+fGQ+ACi3xwsAw1aueufFs5eaUnvmBhLXHFAiECtFShmkDAN07wZy28fWVpc+smDEgCXL32a3YXYbkl948dOtq89/tP59UsoQrW2IiPJ6edJnOw4bXp8vWldbHrtxo+LPde+90XztamVnppG2HLfls2+/nqPWb9znSvFm2NGoxcow4jfrrzvHBCJCzMpuabEbL5We6lU0Y7EnI6OvWeA3vb17Dzow54VxdkuLdAR+q6qdxzuzYEyRSvFmhOtuRKxwi7YiEfScOn0uAIhtCzGTaG17sx/z9Rgzflqkvg5WJEzNVZVxX17fMRmjxoxsJZKM8V1/xptC9VAM0Zpty9JkKESCoXonFdRKIt7UHLbCkSCYYcfjWogMbdlWrO5mMBGb5KFuP3MJADSXl13onj90rH/AwP7K4zGs5uaG02vXLA1XVVYRM7WFOhqx7VisMXviMzPZ4yGXz8+XS75af2XnF1+CiNHBs3hn6QMicPl8nkDhpBmG359Zd+zI7tDfF8vuypmzTx/55LCugwZPbq6sOFFz6OBPYlnJ8JK5QnTHsHbnvv1RTrZPCnM/8FYdQ0QnG2OcN5cBiLRrif+vO9c/mO4+a0D/yW4AAAAASUVORK5CYII=",
+    "imageLargeUrl": "https://banner2.kisspng.com/20180804/tju/kisspng-data-structure-logo-brand-5b65ed0e0bdf44.0444072115334064780486.jpg",
+    "isActive": true,
+    "qaCount": 30
+  },
+  {
+    "_id": "5b6e48de5e0b38d1bc933de5",
+    "name": "Design Patterns",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAXVBMVEVMaXFUZ2uYT1NcW14aF3FzEk92dmxkamiYm5ylQThYTnhcbmZ9elmFhF6Fg19Td4qFgl9TiqhDmsP37B4es3LPxUL/+xwevnhAl8E2odFCnG/j2DY1rXUjuPXs4zW1N6mpAAAAHHRSTlMAEyM8P0BIVFVkbI6Tk5e+v9Hv+/v9/f3+/v7+qNz1SAAAAKhJREFUeNq90NESgiAQBVDRggSJrCwN4/8/U1llUWZppoc6D+p6vQ5Q/IcySBFx+0YtFQ+IjPtgMGS7X8uZOLa/X5q5BmSblbNall7ubDiHWzauMu9PQCkBkq+YqraETGLJ0nE3i91civioPAPXeUdV41201ufGV+onGueSfCDLIb4HEN/QEo8v5OMuWmIEsbMr11Ftu2l/XJqjfm5dAG12jPx4iIrfmgDuphpzJwAUsAAAAABJRU5ErkJggg==",
+    "isActive": true,
+    "qaCount": 45
+  },
+  {
+    "_id": "5b6e44234da485d19a4ef47a",
+    "name": "DevOps",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAUVBMVEVMaXE6hsk9isxVltMMdM5KjssFftdRltRQks9PkMz///8EdMxSk9BUmNUHYcdGis/3+Psbc8okfsyFr97q7/g4hc1pn9nX4/Omw+bA0+wBeNNurVLpAAAACnRSTlMADUN3e7jFzeX+7Iip1gAAAYdJREFUeNp1k4uSgyAMRRW1tOElAgL+/4fuDVTrdmdTtQwnNwnRDJeNYlrk8ymXSYzn3gdOUmtj+i2nLwchsft6G3ykuNPJ3Fh/Th86m9dF3XthLj59qHO7+eLipt1Trv7kLf+4mI5eOoU10lqr63gZb6EdsFupRoJen+FHiaXGb8fRKmUbKNitx4NcaM3lbo6KN5nWkIl5P51AbM4ZS6W4B12IKGuvVKsPh1+AXaButeSwBlOUUlsrbpCsTpFiiUS73z3KJ28tcyOHp8ZfAbE7kbOxuVUXHPLrJ7BOheNueEZXexYcEHpgaaDeM3ZwxRTgU3lpOL8cWs+8gQJa72JPg/Oj/OMxTMjNpZeyRuxD5yyaF5MCnltbOLy1IViTVwiRqnkdh2hNhaVNKYurZeHe5OSPxzggen9fm+JmeVZyW3vs/k7YwGGJVvR3TR5riPlzAP7wHVWU3AoT58d0cS6Ahe/Qv7lu+m/K5elvPv8eAw2Pkx/HQ/wzROk41GO+hujvCM63EfwBLNYjdve4wD4AAAAASUVORK5CYII=",
+    "imageLargeUrl": "https://cdn.pixabay.com/photo/2015/12/04/22/20/gear-1077550_960_720.png",
+    "isActive": true,
+    "qaCount": 39
+  },
+  {
+    "_id": "5c197522b8f88d0021d17294",
+    "name": "Docker",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAANlBMVEVMaXHo8vqcxedop9pTmtQcesYSdMTc5+4AYr0Ba8BBj85opdaMut2vzeXE2env8fL08/P//PcETXtSAAAACHRSTlMAEVmLo933/kCOpY4AAAErSURBVDjLhVOJssMgCDSHiIAc//+zb7RJmprXKTqjzsIqLqR02rLuGWqFvK9Lmm3ZMmIdhpi3yWGFAzs8YL2j2wc4HLY3uj/QWnH/LxYApvj1hmJzvfbj/iXfKVuU65CXx7OI+XB80R/ByKWQGktprzPBCD9uRo5gCznJwXTcfiSFxAwsRMKXN+KeBrcUIW3UlFmFVAklvBHl1NNEDX2TcwQhh3l4SS8qYRIh7rPvAMnNLLzDoq01PedYtLi7NerkGk9zNwKElPtP2dNCsdacdkQJ89ksCLtqKyKF+TQsBMe3LBmh+Ge4WbRTkw17kua3UA+5FO+atPDbo6IwXoIOUcR7Lu49JeWK73IYiiNw01KKNqaKUzF21XqVQ19wLsVfhfyrDX410bcW/APbrx4TADAK4AAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "https://image.flaticon.com/icons/png/512/919/919853.png",
+    "isActive": true,
+    "qaCount": 55
+  },
+  {
+    "_id": "5c0cae4a2196e1dae00672d8",
+    "name": "Entity Framework",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeBAMAAADJHrORAAAAG1BMVEWPAqb9+/6JAKGYGa2jMLbz4/Xlw+rFe9HQlNpxLj/iAAAAZUlEQVR42mNgGARASUlJAYjhfBcXFwMQhvEDBQUTBAUFi+D89opiwfYKJzjfSElZ0EhJAc53dmEWNECYD9RvLCgoijCvvZxZMC3NAE0/Qr0TA6r+0NBmZH5aWmpDmgGKBxgGKQAAba4TlSQkzmwAAAAASUVORK5CYII=",
+    "imageLargeUrl": "https://pbs.twimg.com/profile_images/378800000330964666/759925bf956da5d05412ce97045a508c_400x400.png",
+    "isActive": true,
+    "qaCount": 57
+  },
+  {
+    "_id": "5e0c3ba926880d4a5f9041f4",
+    "name": "Flutter",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAIAAAC0Ujn1AAAACXBIWXMAAAsSAAALEgHS3X78AAAFaklEQVRIiYWWS4gcVRSGzzn31rvrTo/dyWSEwMSQKGJwkSwUceHGlShJ3AoSEKNJxMSAC90YfCBZCIlZGkgWmrjRlREUA4IgGIPxiRmTEUMeTvdM1/RMVXU97j0uah49PT3m0ovurnu++us/95xTCOsvRPR93/M8x3GklIgIAMxcFEWWZWmapmnKzOuGD/2XiJRSYRjato2IzMzMSAIQq1siADNned6NOt1ud+gNhqBrtVqj0bBt2xizEkOk4y6bEgCBl4PZClSuTbvdSpL0Luhms1mv15nZGFM5AABIVC5EG558Lrx/l8lTQAIANlqGo+2Ln87/8p1w/Zl2u9Pp9KNk/4+xsTGlVFmWiLjCFaKYmxnffWDLS8eWd7I2sk7TF76IJ39CaRutm82mEKLdbi/vEQN6K+7KQwlRRO3xPYcm9h/TcarT3OSlTlPhuXc+//iv4/sBEYUEAGNMEATM3Ov1VqHDMGw2m/0mLHFnxvcemtj/lo57AIhCABt7NJz+8vzUySPCq6GQwAwAVbaDIOj1ekVRAAABgBCi0WgMZHlR796DEy9WXABE1qVVD/794vzUiVfJ9QEJ2PRHMXOz2az0EQCMjIxYlmXMyiakJb3rcr213MoWx3GUUgBARBSG4arzUOVtz3C91xf1irXcyhZjjFIKESkIAinlshsoRDHXHt97cGL/WzpO1+oVw3wY8MS2bc/zyPf9VXqr87CoF1dxTx4mLwASAAyIK59h2j3Pk7ZtV5Lv4u/Jw2S7XBbQn21mIERhA6w6AsxctR3JzEBUdGfGd788jHtu6sPXUEiU0lZjvJRtZkOWzWWZd6aRaEC4ZVkSEZFEGc+N7zmw5eVjRZQg0SruqaOAKAK17fWPgq07TN4DJDaaLMeU+V/vv5C1bqLj9bvPzIgoF78J2bt5veh0yfVNnoOBRR9OHUVAGahtb5xRO3aWC7nwFRtDljA6v378YPfnb2VtlI1e67io1+sIQJYTX7uy8OflxmNPke2KwJm+cG7q1FFCBF9tffPs6I6d+VyMiKxLsgQX2dW3n48ufWWpxlpudQSFUkoIwWyEH/ZuXJ3/41LziWdnLn52/cQRQYS+kofPlNt31XpxVVZk21zmV9/ZN3f5G2ukybocekLyPMdNmzbVarWqFFGIMu76Ew/mM7dNd5ZUQx45K+7fVXbnfcfa4rHt2mWeTb67L/rxa0s1hnIBgIiiKBJEVHWsyn9hu0WnBbqkDZvlK6dp205YmBeWlRU6QSs08bX39kWXL/4Pt1pRFFEcx/2NlI1BxwWjQW2gzQ9AngGSMdqyZJLri2c/mf31B7sWslm3GhGxKIokSQQzSyl9319pI8xgOXDnmvnje/HI02A7hILL4sZn5+Yjzu59OGj9TGUPSA5UCgAwsxAiiqI0TQUA5HkehmF/pwZmcAO4NWkmL4lHn+Ey++f0B8lsTwS1wh5JR7YGs78NpRNRURTT09PMLACgGq8D/Q/YgBvwzT/h7yu3b/XiTkGjY8xMpijde9KR+4LZ39fSiajVamVZBstTJssyy7I8zxugo1uDW1dx5kY68bhhRNYASDqr6LWZ34ROmRbrTkoZRVEURVX0ymxMksRxHNd1B7XbntNruXNTcfMhtmpAxMIGMNofi0e3+9GkKFNGlFJ2u91Wq7WSz4Hkbty4USmlta76wNIForKXBeO5vxG5XIxiY4RrJdNucgelFXU6/eN8EF0tpVSj0ZBSat1XwUio8yUuV/YiAkon19xutxcWFgY4w1/MpJT1ej0IAsuyKh+ZuZoMi08HAABFUS7Md+fmolUi/gddjX0AEEIEQbD8OlldZeayLPM8T5IkjmOzfu38B6ToOoGIPrK3AAAAAElFTkSuQmCC",
+    "imageLargeUrl": "https://www.codemate.com/wp-content/uploads/2016/02/flutter-logo-round.png",
+    "isActive": true,
+    "qaCount": 68
+  },
+  {
+    "_id": "5b6e48eb5e0b38d1bc933de6",
+    "name": "Git",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAIVBMVEWLLh3vTzL/WjmMMB79WThhIBXNQy3VSC7vVDPDRCrxUDPxTuvJAAAACnRSTlMB/fha0iQ3gKhmdYHzaQAAAMVJREFUeNqF09sWhCAIBVA1MuX/P3gOQuFozPjQxb0UhEpf4yjlmN9XZY69l4wROuXMHPmZTgKa73Ev8aK+axZvrej+m2Y4nqqtX1QmSZ6bxV/0Yfb8XTF0d89/VvWa+nCvjytuNY3zkeVvejNWE1xnh5s6Zzrhl54v4q68by75Izymn+AzI/924fqWujDmLbGlLNxG0e6yLEXVpOguatASjlpWquRscfeGM/XjOdHu+IyLn+hl/dSq9/WRept+/ESL/vkFP+FJCAvnSDJgAAAAAElFTkSuQmCC",
+    "imageLargeUrl": "https://3.bp.blogspot.com/-xhNpNJJyQhk/XIe4GY78RQI/AAAAAAAAItc/ouueFUj2Hqo5dntmnKqEaBJR4KQ4Q2K3ACK4BGAYYCw/s1600/logo%2Bgit%2Bicon.png",
+    "isActive": true,
+    "qaCount": 36
+  },
+  {
+    "_id": "5b6e4e6c3abc29d27626b718",
+    "name": "Golang",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAdVBMVEVMaXEaJyYOFBYUGx0hOj0tQ0grRkpvXlQ2YGdIfoiVgGBifHFXiJNcqLavmXNPmqdkr7yGurxzzNtnvct62eh+4fJkxtfv8PGV2OPD2t6NhYQoQEFszNx0zdx0zt6xua6bx8/dt4rX0MSw3+bw3NP/56v//v7lqz8eAAAAG3RSTlMAAwwiPlBgdXqKmp2vt8XZ3vf6+vz9/v7+/v4svCsiAAABEklEQVR42o2TiXKDIBRFo+AarYpsGkDUhv//xGJmIgjtNNcZYDje93gst8+VJGcbo8R1if0ipVnVdl3bZOktDbw3WOYt5phgvvOmaaGd8ijoR8EMm6i2LR/HNr2aUcfnxTCxzMxMFifX6JXi82YY1ZsxWvXAD27HGaE7m4bHY580xX0a4JwgSumyrgsVUmEYY6mE/t4GJf/AUkithbKcwCi3PCTEqyNZgCFW8gh7wN/cFjvh4rrr9Tp6WNGtvprvyAZ37jsMchPPjUgRFSZ9XMZ1/4eVw3m8LQ7HdQNv5eg8McebMzl6p75eJ4zRIYkPc3gXi+cw4pf65llE7voLgLyqqjIDae0W7v4IRhF/6/Nn9wM+RyEpeOpOWQAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "https://res.cloudinary.com/teepublic/image/private/s--WZqjwReG--/t_Preview/b_rgb:0195c3,c_limit,f_auto,h_313,q_90,w_313/v1539363145/production/designs/3308007_0",
+    "isActive": true,
+    "qaCount": 49
+  },
+  {
+    "_id": "5b6e48f85e0b38d1bc933de7",
+    "name": "GraphQL",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAQlBMVEVHcExsF03jNKnyOLRyHVbILZb/PcZcFETbM6VyHFOiKn32Obn8Or3bMqX+QtWbI3nsOLnpN7KLIWm2Ko3UL5/CLJGD3NixAAAAFnRSTlMABPv9GmroKKg4ruX7jPZDy7VgmoG5Z7xVGAAAAUJJREFUOMuFk0mWxCAMQyWbMYQhQO5/1V4kVUn1S3VryQc/LMvAJSJuWwTxKCI6VfeNE1lFND9iEgwqooEgPwlJIG5JVEW3+D66ZEYJVnNWG8ow98c2WGNLq9gCEDbUVqyxwfL40KqaXCd68YAvHewuqa4ZBIwTkbWCJg2QGMkQdRURZ3Bi54nsCAB0GfTuxMRU0Qz4tYMA0VcPZBWdhwNWJ4nQzk7YAsip9jTLrxGo5XSTiKUCcfXghVt4mXkUumGtsMVc3ptiUfV6XensNQnCOt5xnMl8OJzmrXiyrt/HSHRn0wtbSeGY0VsISexxc6ro+J2M8bLFOBHRffnQrh+eSxt7W/Z9WfZ92fbR5O15XlVT6vfitb0HeosDCZCorfRXHG5h2oyf05tQxpcoJtWUgj+7fA4ynvfgzzX4d4meVvAHwlgNQgM6BXYAAAAASUVORK5CYII=",
+    "imageLargeUrl": "https://miro.medium.com/max/887/1*fMLqM5yV0HUWBGGYK7beLw.png",
+    "isActive": true,
+    "qaCount": 24
+  },
+  {
+    "_id": "5b6e49045e0b38d1bc933de8",
+    "name": "HTML5",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAgVBMVEVMaXHLPRsIAQCmORvmTSrkTSYMAwLmSyQJAgDtTCYEAQDoTCbpTSQCAADsTiUHAQD0USjsXCzkTSYAAADuUCjkMQvkPxLoRxbxUgnoUSblVDHxXBflW0ryZyvxbjrmd2Pzf1Dnin7xoY71spzswrz51M7u5uXs9PX98fLs/f7///8vwDLaAAAAFXRSTlMAByIkLE9geJaWr7bQ0+To/P7+/v7VWP2iAAABRUlEQVQ4EQXBCXIaQQwAwB6NFjBxKv9/pwvDHiOlewDP+vzb7+kV8/V3t/0AAnB/Zr29D7e/CYAAwOGqedRB3AIIwP57ceH8OfH1AAYQKrqjO1ToQYEBEwAALCSjb3cAAOzv0RIqANwBu4IE9x0gAZ/HCxLqJIECwlmQ4Ir8DjBAfQBJ63qeYyuY4FiO1iRAV0NBNEDCQhvHHhKs+XgtSFDAyQVmvAskdBvF/GaAa933hsRoaDGZ4HedjCZAva0xJ0ChQIKaV34CBrdQv7NAAqxYdqbOqAWQaEU/5yqyR2iURgAeXSXOa1UECyBBF3h+rTGTphokaEZtZcSERoMJbNv5iTZG1HUd14x9BwkU3h1zG7WWjQIScJI+fcWM6edxAiYwRt5YdcvXEZXncVxgAEZGzj/n5qxrXXU1MAAYc+TmvHo1gP+MWrW6IhzHnwAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_960_720.png",
+    "isActive": true,
+    "qaCount": 55
+  },
+  {
+    "_id": "5e0c3d9b26880d4a5f9041f6",
+    "name": "Ionic",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAIAAAC0Ujn1AAAACXBIWXMAAAsSAAALEgHS3X78AAADI2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDAgNzkuMTYwNDUxLCAyMDE3LzA1LzA2LTAxOjA4OjIxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MjQ3NDNDMDNGNDM5MTFFNzgyNjdGMkJGNDkzODAwQzEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MjQ3NDNDMDRGNDM5MTFFNzgyNjdGMkJGNDkzODAwQzEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyNDc0M0MwMUY0MzkxMUU3ODI2N0YyQkY0OTM4MDBDMSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyNDc0M0MwMkY0MzkxMUU3ODI2N0YyQkY0OTM4MDBDMSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PhN21wkAAARASURBVEiJtZZdbBRVFMd/996dndnddgGLYPplUcC2sGKVBBQJiDGCsUDUyIOJTyYGfdAEH9RAQoJBfPDFF2Ki8QE12hBiKIkJCIJEpFEoioVFMI2l1PDRL7tfM7Nzrw9d6O66pfLQk3mYOTP3d+79nznnXrF8u2F6TE4Td3rRoamDC4TAGIzBFD3qqYS8HVoKgIyHlyeksBQC/AA/IKSIWEVR7witJBmPQJNoYOVCEg3MiSMEQynODXA8ycWruHlcDzuEkhUWISr+IUoymqG5ljfXsmJBwekHGEM4hDZIwc79dHSxpJHe66RdbAtTSqowayUZybDxEbZuwLFIDrD3Z37rYziDMVQ7tDXRUstPl/hiM4vq6RvkjT1cHiIcKqGXo29x33sBN88HB+jowvVxwlgKYCRD73WGM2xZx6J6XJ/GGjYtZ8c3OBbBZGgpyLi01rFtI3nNli85dJbZ1cRs0i5jOTBYIWZGAbIegBAAqVyFbJXPWhteexI7xPudHPqde2bi+qRyJBpZ0ogSnB/gVC+WorOb1jrWtHLkHHt+ZEaUQJegJtIoBRmPRXV8vpmefl7+GMci0AjBu+tpb8MABiE4cZFtexnJAERtYja7NtHRxf7TzCwKMFGNQuDlWbEQYN8v5HyUJOvxTjvtbQQardGGQPPYAna+iJLEbIbTtNbyUCOPzi8XZAJtDCFFogHg7GUiYdIuiQba29AGKVE3r3zAsvtZ+QCjGaodzvSR9VhcT8wu0aQEbSnmxvEDhjNYCjdPoqFQb6JYRAHQdi95jZJkXIbS1FThWOiiL4vQIEDebBfjpiZvX7deGdCmEK+yIFLgB9xIEQ4Rj5APsBTJAYCyUeOBe66gJIEmZlMTYySN6yPFRD8pSaMf0HMFoKWWrE+Vw+m/+OECUpIPCDSBJh8QUiT/5vtzVDlkPZpmE7U5P0DaK1lludYn/gBY34aSYFCS7fs41UtIIQVSEFL8eY23vybrYym8gGfbAI4lJ+8h2hC16e7jVC/L5vN0gs5u5sYZy/LqZ6xu4eEmlKSnn+96yPnEHQZTLJ3Hc0vpH+L4BWI2WldCj2saBOw+zCevsHUDlwc508fd1WjDwbN8+2shJdURqh0GU9TOYsfzALsPM5wuL0hVv3r7hCbgWFy6hhewqpknWrkyTE8/fkDMJmoTCWMpsh5jWZbO48OXaJrNVyf59BjxSHnLLkGPKx6xOHkJbVjdwtoHaa4llWMsR84nMETDtNTx+lO89Qx3VdHRxa4DRMP81ypvBVIwmmVVM1vWcd8cANfnRgptqKkqgK6O8tFBOruJ2YWy+l9oQEnGsjhhHl/ImlYW1zMrhhD8kyU5wNHzHE0ykiYexejKe+Ok6HF6oEnlMBCzcSwALz/hsVR5Iy222+3o48NmRAv3OR9AioJH69txp0AXBwCUADBMQbwD9C2707PhNB7M/gWJUMMx/BWf2AAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "https://b.thumbs.redditmedia.com/2OKLeyyh40OngWk52sHJ6gtdFeq06JgUnIh1NFf6R5I.png",
+    "isActive": true,
+    "qaCount": 29
+  },
+  {
+    "_id": "5dc2300e17b1e7002212295b",
+    "name": "JSON",
+    "imageUrl": "https://pngimage.net/wp-content/uploads/2019/05/tip-jar-icon-png-1.png",
+    "imageLargeUrl": "https://asbjornenge.com/content/images/2019/03/1200px-JSON_vector_logo.svg.png",
+    "isActive": true,
+    "qaCount": 15
+  },
+  {
+    "_id": "5b78ceb3a6f38e198d878b33",
+    "name": "Java",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAQlBMVEVMaXH7/P9kmPvZKgLk5fOpx/290/6Zvf315uZ0ovuPtPzO3f17pvyAq/zmb1LcORHzuKrhVjTX5f7rhmzllYbhRiD+gj6eAAAAFnRSTlMABP7+HXJWjw7npTrWv4/hOK4pb1zGEWZj2gAAASNJREFUeNp9UYsSgyAMa6GlHaCIj///1RW2c7oby50eXkiaVIA7EPbdXiMgbPUvPRf4w2o5/rHVzyNzhKX4ouNY3heCbfult1TeH7qUqj+1u/cVZ5v9E1p8hXmQzGJ5T0tLNqTVnmXU6/CL2vhRrd3m1rf8ywENlkst3/uPfY8wvm52hYyhRDcqSIwJlOBoK0vZuXDqEaJzMa1ElPbEIorBZfykCg93Ikszzo4u4zWJmIxD0n6f3XRrxY7NfE1BMnf2Kr7aP6JyDvi1FAwNvRAStpqXxgjiOKVmztq3dBOvKmd0hjsZ4iQJVrbVRAnUo/CZjJybwkrvT6TEMT8CnQ4h98Qv2CFHTjF+iplCpgYzF2aWydpdWgGY45Rz7gZT5PWlfQJ3FwqI/KkfdgAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "https://cdn0.iconfinder.com/data/icons/flat-round-system/512/java-512.png",
+    "isActive": true,
+    "qaCount": 147
+  },
+  {
+    "_id": "5b6e490e5e0b38d1bc933de9",
+    "name": "JavaScript",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAS1BMVEVMaXFmWCZKQhu7qUKIfS3kz0rYx0f58Fb98Vbr1k3u2U4CCCsMDSsXGy0wMzFLRzRrZDqPhD22p0PDskXWxEnx3E/34lH+6FL/+VkeRa5ZAAAAC3RSTlMAHy04Xm6jvNr7/m5P7okAAADySURBVHjavZLZDoMgEEXbuiBQUGEW//9LO6NUbOzy1psYQ05muzOXf6npelHXvIWtIWIRkWlP8GoWh04lv8VcX+ltQOuwyFkcbi+xA1k8yNJwjDcr1cRbAeHm0NWyUmKBpN0JX9oavIZRmoAoT9MMmmMPbwgV83xP8oXoZ5Y3PefvJNmGswsRELZSXcE9Vxxj1hb02R/wntz7mOTxHhPmKfiZzhg1udqew/hMXltz1o4BMAEJLq3VwQhC8CODzHWXGmWwaguIHWJWUleErrZUUx0y60DF02JqXYn6uG98X8nvhf4+h/MxfTxFllP8fsh/0gPxtxv+1EQl9wAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "https://cdn.auth0.com/blog/jsleaks/logo.png",
+    "isActive": true,
+    "qaCount": 116
+  },
+  {
+    "_id": "5e1ffac6fbce8b5da268b91e",
+    "name": "Kotlin",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsSAAALEgHS3X78AAADnUlEQVQ4jXXUS2hcVRgH8P93vnPvPDL3TibRYtXaQDV2YaUIFlFpSuLGRxcKdtNFRexKC0K1HTG1k9ooFXRhV7WrakGzcKFp3hrbgmu3hiJBKaKLWMwMM3Mf5/tc3Jk8THpX58Lhd77XOXTfZ79qX2zQlxhUEoNyQuhNDMKUUBCHuuzAc+XzbqT8McfaA4Jg46eAikKKReKPZpOa/cfLNtDaFgOCgCFoxvdiqPSFDoefcKKF7TGBKwZkx6eS2uhMMmZjo+ii2tnIEDT0Hrzkf43DwXsUSwlEAqJ0E+YErifDxkZnkjE2YAsAG1GLFHX042WawlF7Bm0pA+RgkABgELl1rLQhMgPrBM50T4yNYtWLcSsXYD/fxEk6h0R64CQPqIWqhSpDldex6c2YAmq7oFWHpg1wMP4Fn7YuQMlHajywRBAIjMnSVIErhWTHp9tbsCxDAKyClHuwv30LV1cuwoLR5h540oIaD1BABKqACwOy56catTOzWzEAsKwCx3k8Gt3GxF+XUVJF0wbwpAVnBEYIlDXBVQK2H86s1D6Ya2+LAYB1nMPueAUTt6+iT1LUbQDftSAmBwNAMk36A8+em/1z7OxC/a4YANgH4n/x5e/f4f40xqoN4UsTQrn1MSJIX96Z0ek/quPXVy5YQ54TTbZI3Sn+6rcF7Gm1cAdlGOdBJA/RHJzk4SSPnEZ6o30cP7tqCQAERhVEd/Fgd7VSrNoAnstqBsoiI0MoaUOvp8fkRnwELzxbGA09V/h+sfqOIbaq4hS6NeWWFmFdGw6KbCgJBINAmzpHr7qf9BXbyw1aaa6mTx84cVIBmVysniJiS9ugFpLfdEMVhFBbeq1w2M3x81yRBkUw8GHtnebf6TMHTrwLkE4unj69HWpF8msNECKUJdJvwxF3LT/Efa5BbRgoFAogZzvok2+dAlQnF6tVIrZQceigfHzfkVq3bqHE+k3lCTcRPsUlaVP2BlGnEJ0uEpsobqSDu4cPFnJhbml5YYGIbYcAv7HvaE2J0JsmemXHXnel/3EOJCIlghJt4tZRY6K4ng4ODA8V/LK/tDz/Qxfl1x97rVZJnV56cJe7vPNhDl1CIFqb2P/H2P03xCaKMrTol+3S8vyPRIb57b3Hzl4c6HefD+zkME1JKWvM2qR1hI3o2mHEJo7q6eDAyKGiX+al5flFdi+++f6lPRWbc46ym0EdgzY+45siXV8DhpjacV0eeWjokE+++Q945uoh0X6DVQAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "https://lh3.googleusercontent.com/bsEzlTKKEYz06L3x6hzCVCd_5eo3uB1-veJd1oNwqCvo4M0DndwOl6FUEb06G2QZqvU",
+    "isActive": true,
+    "qaCount": 68
+  },
+  {
+    "_id": "5c0caf952196e1dae00672da",
+    "name": "LINQ",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeBAMAAADJHrORAAAAGFBMVEWPAqb9+/6JAKGsRL2YGK2/b8zSm9zmxutfwyLbAAAAWElEQVR42mNgGBCghMplMUblKwsmocoHCiugCKiJofJVBR1Q+OqCQSh8R8EiZC5TYCGKgUyFYSgGqgg6CzIhGy+uIpiAxGcXVUJxEbMJA3MIsnkKIDQYAADKTwh+znrX3wAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "https://miro.medium.com/max/1200/1*JuAJNrCky6mkF4upt0emCg.png",
+    "isActive": true,
+    "qaCount": 35
+  },
+  {
+    "_id": "5b78c62da6f38e198d878b2c",
+    "name": "Laravel",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAANlBMVEVMaXEXBwZgIByTMSqnODDURz3hS0HsT0TzUUb1RTr2Ukf9V0z3aWD4fXT5lY77r6r8x8P+4N53/CvSAAAACXRSTlMAEVmMo9Ph7fzo16jjAAABEklEQVR42oWT2ZbEIAhEYzZFXPD/f3YKYmJPOqfjQxYvVYjodA03r5uP0W/r7M65AZedmSMGXvtyC5g9xxACqL3Yz590URivoQHLoCufcATwOrQDDn7qZ6PfAWz5nY/POHp3WtOjfIF4j4FyrVUK3eW7s8yUG34lPWRfzVsywaLLqb+1uM1wFtIYm0+lVnwp3iavMwdKYp9JEtdkkX4KBy4qr1idWhViYbMHPkaDnBsTwaWhjmRYzYe8VCQWKQ3eZq5LO+WpSJOaWYvoS9PCulwRPMh+wK2w0RDNS1LwgI0c26Kb2vlRVdMUNfdNvXUbxTXJ2Lfeku+Ggl0NfT8On/bhX7d/H8XfB/n1Grxfopcr+AcRfhwzHmRS2QAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "https://www.mavenlogix.org/wp-content/uploads/2019/01/laravel-512.png",
+    "isActive": true,
+    "qaCount": 41
+  },
+  {
+    "_id": "5c0caeab2196e1dae00672d9",
+    "name": "MSMQ",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAG1BMVEWPAqb//f+JAKGeJLLx3/SrQry5YMfftuXNjtfd+Bb4AAAAlUlEQVR42uWRUQ4EIQhDBQpy/xNv688wmc0cYJdEqzxoiK6/Dveb+tErMuNSlwzuYbad2mblXsboOzbVQ7jICtY+sK6elPLNpYYYeAOLgGgJ6Jw+cFsu7UUnpVg4cVin5XesFLBtES9oSsfNHBp4n57WlCWP2c1Z8+CAAbpcGJtvogVmow9+PPw40Dze/ihp8/6HPx0flYYDEzNge40AAAAASUVORK5CYII=",
+    "isActive": true,
+    "qaCount": 16
+  },
+  {
+    "_id": "5bfb46b0b996cc0021e78fde",
+    "name": "Machine Learning",
+    "imageUrl": "/assets/images/topics/default.png",
+    "qaCount": 29
+  },
+  {
+    "_id": "5cc0171a251326002296346c",
+    "name": "Microservices",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAGFBMVEWenp6EhISFhYWEhISEhISEhISEhISEhISN26DTAAAACHRSTlMC/eR6Xjm9n/9vV5EAAADnSURBVHjalVNbEsQgCKs89P43XhLoaNWfdTptYyQB1OczXMQWuJG9xeh+Z0drYiatjVuoNFH8WPycAtZq1iNeL9ICX/jLIW8IQRw0FElsKQsUg8A7hdaU3Wgo8oA2nwUYpT600g4GL2GxHDTESOhCA6JwiQf1nzTCYlBkp60bK8iMA+pC95iuea4iHEUrgGUgyFEwPdmjt3EHfOqTxA6BuVfOb0EryEax5bAW0isEhhENGT1h0dVm0hOetNzocCEOT9ngW2DgKti/kFLbXnBQf+5VZptp19p52obnmeIpAvzzElF4v4I/n/sE8Q6ePrcAAAAASUVORK5CYII=",
+    "imageLargeUrl": "https://us.123rf.com/450wm/martialred/martialred1608/martialred160800031/61800786-stock-vector-honeycomb-honey-comb-hexagonal-pattern-line-art-icon-for-apps-and-websites.jpg?ver=6",
+    "isActive": true,
+    "qaCount": 34
+  },
+  {
+    "_id": "5b6e49195e0b38d1bc933dea",
+    "name": "MongoDB",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAARVBMVEVMaXEWMBYqUitBjkE0dTVJoktMrU9VxVhXe0ZQkkdYZD5NpkxbSDlUyFpcPzdaMjJQsFN4mGxKsU5OvlR+xICCzoe1yqM368CgAAAAEnRSTlMAEipAcI654/v7+/z9/f7+/v51u3JNAAABGElEQVR42q2SWxaDMAhEqzEPEkxUovtfaslDbK2f5cMTcwWGkdefYhjVVEONwx0pbewsYY1Wwwc1RBQAnPPeOYDAr+bimoLzGFOPiN4F0pJsA6bIgcm5hOWUMNix49FCv/T74vuHMAsm4LsSOS+hnRLQiVXHad3zsrnUsbphzAUHfMBV154Zbz7hI14rLtUbFuVNT8dQX3gwmXvDO+a5xTbD/bjeiRM38psRUyfifiKtGJccTQykOTLGXPDCh9g8leo1XWwpyVz7Sp+7uCN3Yc3x65fyNbc8jj60/l6XVp5x1SXLcKnjpjzbyg+3feg6nbUEWHYFgWz185ZvKPgYfSAzPm6yJgIg0mffnwZmns1D4cve6fXHeAOg1xgQvj9BtgAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGwQX22YY-ZM6zaxTnA8WIQsGnjbrfIw2KCu5gzGXaJTCWpOsq",
+    "isActive": true,
+    "qaCount": 81
+  },
+  {
+    "_id": "5e8834bcadf42fb130703200",
+    "name": "NoSQL",
+    "imageUrl": "https://dyltqmyl993wv.cloudfront.net/assets/stacks/couchdb/img/couchdb-stack-220x234.png",
+    "imageLargeUrl": "https://dyltqmyl993wv.cloudfront.net/assets/stacks/couchdb/img/couchdb-stack-220x234.png",
+    "isActive": true,
+    "qaCount": 14
+  },
+  {
+    "_id": "5b8a2be97e5ecc3b6ec650f9",
+    "name": "Node.js",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAASFBMVEVMaXGRyACSwQGJwgCJyACMxgCQzACPzACR0gGKxQZiXGlpbl1wgk54lz1+qC+Duw6LxQCOywGZzTCm1E/C35LZ68Do8tn+/v3C+u8TAAAACnRSTlMAHEJqmKrL8vn+Pv8neQAAARFJREFUeNqNk4uSgyAMRau0QHjF+Fj//0/3xketWt29wzAwJySBhMdOxjnzuFJtBbL1V1i9RKhpSORVnaFxQqDgJKcIxkoDOAkLsWYX1MPvJrjZUqieCPpBlwjyrCYKvzttEZTXfj55NvC1YtecHM8LN2F/wJx4j2k+BU04ZNHtGwvcKWVwbICRuKyYSszUUPcztLDJSXGORRacQgyJ+hFqOWKTJensFxwxuB/bfuw4FHUeU0llwRE4APeD4pQVx0Kr81yEM7XDOPYIHQIuVuB7xUgSg7jrGE/JRTT9wtuzfNxbLVWY3f5RD2V73/t7ReaSVNZfFvS+HbYOhvXhaH3dit6am0b25v4b/PcT/fEFfwHqEiD9ZlxbWAAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "https://images.ctfassets.net/7iu6ay7sioao/w7O58n9Bg4XoSbP7t9eZ9/21c11b252cec0714150d77becec7a67c/node.jpeg",
+    "isActive": true,
+    "qaCount": 95
+  },
+  {
+    "_id": "5bdf9358c2dba200169d147c",
+    "name": "OOP",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeBAMAAADJHrORAAAAGFBMVEWPAqaeJbKvS8DGgNLSmtvhu+fw3fT+/f+B9hMBAAAAZklEQVR42mNgGPxAWQCMlZQEwFyx8hIgLmYsLy8C88MV3BVAuFQwHaSAsYRB3AGCzcH8Ygb2QCAOKFVKR+GXlyeB9ZcC1QKxQSkjxDpzp3QBd6N0gRKo9SxAdUDMmAJzDyMUDwUAAGJbFSVl/HC3AAAAAElFTkSuQmCC",
+    "imageLargeUrl": "https://image.winudf.com/v2/image1/Y29tLmluZm9sYW5kLm9vcHNfaWNvbl8xNTUwMTMxODMxXzA2NQ/icon.png?w=170&fakeurl=1",
+    "isActive": true,
+    "qaCount": 53
+  },
+  {
+    "_id": "5e48c8f957a39216905f6ee1",
+    "name": "PHP",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUBAMAAAB/pwA+AAAAMFBMVEVrg9WGmt1JaM1GZcxHZsxIZ81IZ81IZ8w9XsqtuuWDl9vZ3u5jfdPw8vjEzesgRcJQTqkeAAAAB3RSTlMBFGCQtdToxzZhIgAAAKdJREFUeNpjYGBgVEkvcxJgAAHVciAIArGYQazyCgMg0xzMLC9mYGACCYHYCgyiQLIGxAxkUC/v6Kg+X97RXsTg3jNz+tlZ5auWlzCkd93at3burHv32hjKO+evnvdv5v615Qzl3dN3vuxeN392O0N69e7nu2pX377TxuBx9nj78ZqzaypKGDROtpe3V6zrKC9iEO0oh9gXCLa4HGIxknOQHYnkdLiHAOhqU9J1fctLAAAAAElFTkSuQmCC",
+    "imageLargeUrl": "https://skillvalue.com/jobs/wp-content/uploads/sites/7/2019/09/lead-php-developer-full-time-remote-job-romania.png",
+    "isActive": true,
+    "qaCount": 82
+  },
+  {
+    "_id": "5e1bbdf3c1263e3e828c8372",
+    "name": "PWA",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAAAM1BMVEVMaXENBB4TCyEYFCItBWodHR09CY0qKykvLy9JDKZPDLE1NTU7OztZD8hAQEFdEM9kEd/T+FIJAAAAD3RSTlMAFS9EYWuUm7m/1dfo8v5Aion2AAAAb0lEQVQoz8XQiQEEIQgEwQZZxW8k/2gvjKsQCv4qc+cH+Arw2c0BKY8a9JrQK1oC2rRjsN41u9dSBjptDAt/qyKqM/SBJLW4/cWdsxpNCTruzPcW871lR5KjDfSqTlQF35ca7ARsroavaYDv/G/SD247BDrauUYpAAAAAElFTkSuQmCC",
+    "imageLargeUrl": "https://vilmate.com/wp-content/themes/vilmate/images/2019/09/PWA_Circle_image@2x.png",
+    "isActive": true,
+    "qaCount": 22
+  },
+  {
+    "_id": "5e2946505bc25d8f05132b9c",
+    "name": "PowerShell",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/PowerShell_5.0_icon.png",
+    "imageLargeUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/PowerShell_5.0_icon.png",
+    "qaCount": 15
+  },
+  {
+    "_id": "5d7b26456bf2da0022ca8e3a",
+    "name": "Python",
+    "imageUrl": "data:image/png;base64,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",
+    "imageLargeUrl": "https://datarebellion.com/wp-content/uploads/2018/04/python-logo-300x300.png",
+    "isActive": true,
+    "qaCount": 96
+  },
+  {
+    "_id": "5b6e49595e0b38d1bc933dec",
+    "name": "Questions to Ask",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAXVBMVEVMaXF8Kx5iJBiNMh5aHxSSMiBkIxexOyedNyPwUTXxVDaZNSKYNSPVSzHsUzbyVTf+Xz7nUTXiTzT7WDnnUjb/XT3//f3vVTjmRyflORb75OPrd2bujHr2ysTxp5wBwcrqAAAAFHRSTlMAESY5Q1JgYXh5kJmutM7j8/j8/Yt+6kIAAAFSSURBVHjajZOLjoMgEEXFAbHtgiiM1Nf+/2fuDKjYppt0oonJ8V7mRfV91OpGoeqPUBmHOawW7xAsYvfQSukHf6lX2jpvZFU3FFCBQX+/0jv2Wiib3J1theyiuWixB2ExDikidlDbeOoBA4CPQ6B40jsE1HXnj/NN1LUbemJTcFP6AUFiJ3JF3gobmYZtHOeFeeiEwTaLUWk/MJ1HjmVieQtomQpHf7J4+h1TbCyPtrIIhCX+CDdwVhspV7InH5LLFhvCGluJKesYl2UmnJNrFHJtN9QNY058YfN1ou8+3iBecbLPmZ14Nz/wum2sPc2P1Ha8zPPKJx+plcIS5sIp77Owoy3sXvDRlqOpu/xJVe/mpallJGHi520kFQ0TwOWBJhh8GWhZh5DXIbyuA7fmbZmgLFNZRZFWsa6k8f7+aZHbc5H/vwbOaPHxEkmdL9HX8QedJibB//41vQAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "https://images.vexels.com/media/users/3/152864/isolated/preview/2e095de08301a57890aad6898ad8ba4c-yellow-circle-question-mark-icon-by-vexels.png",
+    "isActive": true,
+    "qaCount": 39
+  },
+  {
+    "_id": "5b6e49705e0b38d1bc933ded",
+    "name": "React",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAHlBMVEUiJCUkFhUPiZ8aS1USeIoWZHIfMzgLor0Ht9UB2vpKQuRdAAAAwklEQVQ4y5VTSXIEIQzT4o3/fziXSYruToaJTxRCNpZl4B9B8B1qRf31gBVRVv6agQiZIFLmE0yZfB3vFWjl65aOKsVWgRVRVMcEqzvGtHKjmqwGq9VJpkhkfMNpAtUo1moCKQKMusHEWEGmCOACEyPN6l6tDvLGVo9iAHhyus2djRHc7eqgJHhiZysIjjhrJVYSbOfH8CH54WsEa2tMj8YOsuyi+irqz0igfo7kMNCHHXy1w9FMJysejXxcg+MSPeMLy0wGeO5f3pEAAAAASUVORK5CYII=",
+    "imageLargeUrl": "https://cdn.freebiesupply.com/logos/large/2x/react-1-logo-png-transparent.png",
+    "isActive": true,
+    "qaCount": 164
+  },
+  {
+    "_id": "5e3a60804a36be182688eeca",
+    "name": "React Native",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUBAMAAAB/pwA+AAAAHlBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3KG9qAAAACnRSTlMBwtgcNkiy7WaLmvln2AAAAJ9JREFUeNpjYEAGgZIGzBNFwUxVSxX3yUEgFosAQ7gKA6MDkMmawGCkDGEyCzBXNDEwGoAUqIkrChUmAUVZBDUbGRg0Jgk6MDQFhKWYJYelsmowKDMwJYgXsikwGCEzgQpEDIUdQQpY1UDaJCYlBQCtKBRXSyoUCoBa0W4AtgJosZMIxGKWBAb3EgiTQcWyxH2CE9i9QUCnJ6rCfcIMxADsLBx11Thj2wAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "https://secure.meetupstatic.com/photos/event/2/c/5/c/highres_449651356.jpeg",
+    "isActive": true,
+    "qaCount": 72
+  },
+  {
+    "_id": "5cb43d95f70a0f0022cc8090",
+    "name": "Reactive Programming",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAHlBMVEVUVFRJSkkBAQG8KtOnMbohISE3NzdmSWuROaB+P4jsCttPAAAA1ElEQVR42n3TWRLDIAgAUGxA4P4XriKbzUz5yvhwAQ18/sbNNAe9uAwGAPQM6LZicc+AZsYRk5yPFVeGMSSJXgzGoYzPgyicOhrrwhNy8zROXUtw33uCc3ln2ixnXE6W8s1wdl0fujJEdTPVbNxzo+5xcWzN2Rax8rype/TpzIiNrWzno3b2Eeyrq/PqEDeeOd16zoKiu67iUznuPdWOkRxtq86YFlNe2dVzCoa8UxWxhhbb9JXwek3tKc7UwuJKcHy/c7IC/Bn/chwhsPhKeP1Ef+MLJg0HXFITszcAAAAASUVORK5CYII=",
+    "imageLargeUrl": "https://pbs.twimg.com/profile_images/378800000763788802/d4652fe88de19a6c7ead52c56fa91f46_400x400.jpeg",
+    "isActive": true,
+    "qaCount": 27
+  },
+  {
+    "_id": "5bab1090b7fad05714d6e364",
+    "name": "Redux",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAP1BMVEVMaXEzHUyATsyKVdw1H0+GUtcvH0dLMHpUM4JUNIV3Sr19TcmIU9ZpQKiBUM58TMVxRbaXXO6ATslhPKFNMHvjcI11AAAAFXRSTlMADvz7HMUtTzZq/aXtfuHKtvaGlJbBdorqAAABO0lEQVQ4y5VT17LFIAhEig1byv9/6x01Zk6dOdeXkKywLEsA/nOM+Y5xlpKa+4K6hKlWIv1YIZA4BuAD5QPusPKMMu7vsJBd7QnyWzLlj/F19CHDFHnVK3U8LqL0Up3TAcAqU7Td7TNsO53GiCJ6ujdhtotpMcZS0kao/jX7APCSdjBsgyDqA7v3XFrv4KI0vlG56blUEHwmDJjW3UoBMt1OmdAbd6nM+juFTt4WnClW0y3S2dUAGi09LUZyYKCRH0YOFR6jTLYQYzPjS3dOo7ngqMvQWWeMXusUlyIe0/i1Dq0HeklyogwGfME1siqjw0vS5CgY1rBQh1n1nojJ8UZBZ17GOstxKFgc8LhtzrUzmaie5yFpK5khJzlCONN2b5TXtG1bqaGPMdT+srVHT4219u6ArbPmp3/uD9GlCsrlV4EGAAAAAElFTkSuQmCC",
+    "imageLargeUrl": "https://devstickers.com/assets/img/pro/h8ci.png",
+    "isActive": true,
+    "qaCount": 30
+  },
+  {
+    "_id": "5b710b9d86805f0014e524c1",
+    "name": "Ruby",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAeCAMAAADn2eWTAAAAMFBMVEVMaXH0QzbhPDHVOS18IBvxSTD/Sjz7RjjEOS1nHBfkPDD2RznXOS31WU7pPzPmST5TkdM3AAAADHRSTlMA/v74O4/8334assVvL2ayAAAAtUlEQVR42sWS3Q4EEQxGRzE/VOf933a1Y1VJ9mqTOTfEySf9xPYuIQrn2VYrD0AAxFJIVpeMRM+Uyi07SEYiclI0b1WrtPqa5KpDFgl8vOpMQJXbQAy4WC92DOAIyVnmq3fZjhLk5Ag81ika5uheZdc0RJtsxN2EieXw1NmEJ7ldPHiPdqlaw9zFyKdXm0mKrhpa9DDy24skKq+gaC8O01N0JTmPfpY6eCbvTJepF8WfH3f7Gx/59g48Nx84JwAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "https://athityakumar.github.io/assets/images/blog/Inbound_API_Gem/ror.png",
+    "isActive": true,
+    "qaCount": 84
+  },
+  {
+    "_id": "5bd7855cb0a0710015ecf52a",
+    "name": "Ruby on Rails",
+    "imageUrl": "https://miro.medium.com/max/300/1*-oIlwIWlt0BDN4b5a9rRCQ.png",
+    "imageLargeUrl": "https://cdn3.iconfinder.com/data/icons/popular-services-brands-vol-2/512/ruby-on-rails-512.png",
+    "isActive": true,
+    "qaCount": 72
+  },
+  {
+    "_id": "5b6e4d9d3abc29d27626b717",
+    "name": "SOA & REST API",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAS1BMVEUAGzQAIDsAIkIAIkEAIkYAIEUAIkYAIUYBIUMAIUQJJkcGDjD+/v4WHTEVLE4GChXZ29/r7e+WmJzHyc2xs7k5PEtUVmB/gYpscH0c4uAsAAAACXRSTlMBEz5XepnE2/xMt5VVAAABcklEQVR42mWTV6KEMAhFR42JCenV/a/0AfHpFP7kUC5gXrctq5BSKbmL9fY9UMhDX3bIbfmkm0LvbRjwUUEYjc7bKEA8dDc3fALEk4vQsF3UvPFNEz3AOQczwGMwSuD+i0JsnBsxlgGaOHgArCi5NNMWLVnFVK9zKl4j3zBZMi6IRrU2BxdO22sJntM3otAJhJBt6r3aEs4UvKbuO+NsozPeNWtTqmeMaYDRJF5+4TME8LkjRbC/cJsfxZvxRgeimprzuh5piWY3qJ6xmvgZrNoTwOH4F1aEeS0loaDQU8m2usNwcZameakwIhgPrsQW6yWNByND0FJz2oeaQy4Ti3mQGQCpO9TUbbRzsGOdFyHDvFgc3graaDNZLnySK3mkGP2BooHH5pO8pccRYg507Gsp83cwx8wupacT/IxF3/wdL/HYs6SMZX9+th2/iIP/pDdnB7b0/xDp7zNgSQTV+v2IMOB+RGL5fWXbLpUxSor1gX9dkB8AduE7BwAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "https://www.bipmedia.com/uploads/media/2016/12/api.png",
+    "isActive": true,
+    "qaCount": 66
+  },
+  {
+    "_id": "5bab1f38b7fad05714d6e384",
+    "name": "SQL",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeBAMAAADJHrORAAAAG1BMVEVHcEwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABp4cHsAAAACXRSTlMA/gZ75544Xcd8thibAAAAlUlEQVR42mNgoBQwKSEBLPLJxghgxsCgKogMghgMUfjCDI4ofBEGQUHRchMgDpQAqwTyDdLUHAvS2IQVIXwRVkGHEA7BBlcEX0SCRdChFcoXLEgrQeGLpiuh8B0FnSJYigVgfBFVkHkBBTDzQPYJFiSxibKlpTkKwtxTbBBRXl4O5MPcK+oIcS+6f9D9ix4eJIcnaQAACwApR2Yq2zkAAAAASUVORK5CYII=",
+    "imageLargeUrl": "https://image.flaticon.com/icons/svg/56/56373.svg",
+    "isActive": true,
+    "qaCount": 56
+  },
+  {
+    "_id": "5b6e4d5d3abc29d27626b714",
+    "name": "Software Architecture",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAARVBMVEVMaXHXd23aeG7afHPeYlTlbVzpZlHmZVHlYEnlXkbjUzjtX0b++/zwqJ7nZ1HiTCf20s7sj3365eXgKw/pd2T0wLfhPRsMiUjRAAAACXRSTlMABh5XaZrX7/7em0qLAAABcUlEQVR42oWT67qsIAiGOyxNLVDxcP+Xuj/S6tm/hmkCeQMP4DJkXZZtN/Zw7rBm39Txig42Y/15egje1mzKP/p3eO8g4+3O4+/j62rYAz2i9mnW9cHmnNAxT8OBTww6o3yMftrgc96XBibi8Iz4nn+zCBi0XpA6OJx209RPOo5NcYvvVEaDX9yT4tR17Gb4DjW/jqSYZrTyHcv+thsIVHf9Ld7quudhcSEqfJsD2+VADg1U8Yr9bY75j8XNtEmlibTboDDSPzi1rJLSrUjiwJocv5JqiTFo8hBjD6nc7gNLg8KSpXr2+boyVE0X3WWx2Jgel1QSjvnKeCJLq9Iio6o4Fg58cS+JiuTesxSS0t0Ft99xqC44qb0I4YvewTJwFbi1JgbJ6aIkHhVrDRXzInAguVlGTUJO5APq3VqF8pRy0IrMdnAxRIxdiENh6O52mM3E45jdqxj1+K8VH/la8Wcjf9dAE+DR/3MNfl+iH1fwH66AHuzXH0KlAAAAAElFTkSuQmCC",
+    "imageLargeUrl": "https://bs-uploads.toptal.io/blackfish-uploads/skill_page/content/logo_file/logo/10363/0201-SoftwareArchitect-Waldek_icon-a7a9a5761dc95e3369ba977a74745d97.png",
+    "isActive": true,
+    "qaCount": 38
+  },
+  {
+    "_id": "5b6e492f5e0b38d1bc933deb",
+    "name": "Software Testing",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeBAMAAADJHrORAAAAIVBMVEVHcEwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAt9G3DAAAAC3RSTlMA/QQfXYqzPczjDi6M3CAAAAERSURBVHjabVE9SwNBEB3mLhdIN6DJbrcsFsFqITnRLirpE9DYZgUtrEIwhNgdFoLd4h+4QhDyK525zV6aTLE7s++9+Vo4aWgA7TGMrmlRGC/GLx+YHkwZqCR1l+BuIF0SqZWJ8C317y/fPa1shBnhO//qRMINvUk9s/ffDX2uan7HbF+dI8dZGKDUnNY77djJaSnsq0GvoAl7HTnhN8xsTjP2CnIs8tqxcsn6oa6ZpDkXjlwb0w9A73ECib/gXrr0DCmflJR8h3pg2StIGs6qMzzMperm0s7IXAkY0idaa821CJsBtKzmIigXdTtST9tNxbS4r8yTWN+lheZeQm4uLfhv+vqwRnP8nni01tQ7+ZP/UooukSEj3fYAAAAASUVORK5CYII=",
+    "imageLargeUrl": "https://safebytes.com/wp-content/uploads/2016/12/performance-testing-services.png",
+    "isActive": true,
+    "qaCount": 26
+  },
+  {
+    "_id": "5cb40920f70a0f0022cc8056",
+    "name": "Spring",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAeCAMAAADn2eWTAAAAHlBMVEX///9quC329/Zfsx39+/233Jrn8d+ExFHS6MCbz3IdWDUwAAABHElEQVQ4y42TgWoEMQhERx2N/v8PF02yd9cWWmFZ8EUdo4G+jNvePHgxjXT3DOUPyvAl1ibLg3P6UqqLmWwzE1fVvJSxLjoHVsQKDmXIJxQxqfRNLzR5O5XwyczPtDZfAh6E0u06H1kVIDIJ1VeonZYSIBFOMO1pZK2q8hgGqCtYdkVq+3AYuzB2Ylux/W2NNIbGRNYQXCM6kedQEwW39/wy8aKOU+pERikfKnHIiYyVLe2q0iduGpXJxTodXTrKfAp1+nMbnXn3glxbBVE+N3lVAeGrB8BdvGc0U0gg0tesxc6icubbuqq3Ssr1CE9Z3PMNyT5RGVu2hpdJnL1iKMrWYzOveNvJrm3XZih82+f4vrH8Y9v//1J+f2Vfr/wJNxZuE3IAAAAASUVORK5CYII=",
+    "imageLargeUrl": "https://miro.medium.com/max/1200/1*dwa1SCG85BAzQttURVUvrA.png",
+    "isActive": true,
+    "qaCount": 87
+  },
+  {
+    "_id": "5bf9fea8bd809f00214b2c4f",
+    "name": "Statistics",
+    "imageUrl": "/assets/images/topics/default.png",
+    "qaCount": 11
+  },
+  {
+    "_id": "5e0c3c4626880d4a5f9041f5",
+    "name": "Swift & iOS",
+    "imageUrl": "https://image.flaticon.com/icons/png/512/668/premium/668292.png",
+    "imageLargeUrl": "https://image.flaticon.com/icons/png/512/668/premium/668292.png",
+    "qaCount": 204
+  },
+  {
+    "_id": "5c0cb0042196e1dae00672db",
+    "name": "T-SQL",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAhFBMVEVMaXFWBAlMTU0sEhSWCBE1NDRkCQ4FAgIeDxARCQqJiYmnCRMzLi5LTExFBQljZGRYVFSFBg5fX1+wChR5eHiKiYnRDhnbChZoaWnCChV5BQyvr6+zs7Nvb2/wChjDxMT+/v6ioqKYIShQT0+2ISrS0dGKT1JramqiWV7b29u7foKSkZGAHjhKAAAAK3RSTlMAUU0qkkVjAxwPkqY2Xj9gg39wunm43OKJyXG5FKX45h32rau9Pa/YzlXBUc67lQAAAWZJREFUOMt1U9eWrDAMU7qTkEDoZWDqtnv////2cQ9h0KttSdaxgT9cPi44gYFQRRFgTspVVytydDL9GWpVlNcSxpg31Lp5PNinchYADh0GWkoth/6VGBkg92AwN3bWybJhaLy2OYNBszEzU2KJopyS3RMYsEn63hsxIzLZNzETELPp+0l7L2dKjBq2lyeZZIzb5gHmAaS4Iy82ktL3cWLkLTGm5X41PzVRRtA0eCl1pJ22TXKLTBfSSy3sMZdJin7w+l8BgyxbAyHT7F9VS44fQjWgfnh92yKgvBbHREXf6JEHzotyycsG4vGNUaFeHIc7TIto17BScFcn4ETmWimY9b6OaqxRuiVb6vJUVdXdFWxnibdLNvzzLKyqqFNjV7bEXSb98WVtZU24XzsCHM+dPb+qEMbQcVXX7XK8xOr/SFABlpdLi+MdimqtujpwgZbevQgsr11b8rIkdfZIuN1uwOmfvcEv6o0UzzpBD4sAAAAASUVORK5CYII=",
+    "imageLargeUrl": "https://www.ruleranalytics.com/wp-content/uploads/2018/07/sql-server.png",
+    "isActive": true,
+    "qaCount": 36
+  },
+  {
+    "_id": "5b6e4d6d3abc29d27626b715",
+    "name": "TypeScript",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAS1BMVEVHnuEDdcze6vGG0uwGedAEccvv8/QDe9Ryqd4FeNQCe9UBeM/m6O8Ib80BeNABfNcTedA0gtJQkdZ2ptyYtuCkv+LB0Ojz8vL9+vUEERSHAAAADXRSTlMBGhsbUGB+kZPJ4Pz9A7geYQAAAT1JREFUeNqNk9t2hCAMRbHVMgLBAKPy/1/akygyzjy0RxcrsENIuJhLw2hn572b7Ti0sQ6ti8sSIbTOvjlMLkYPtdZNr9QuEYNNYi/2lTbYHcA7jR+6+HTQT67rDy5+YoaiGyQ0KBF5/SClYjDC62ROr4qeuKxrSTQPZkQv7111I06hQvvKI9IGrne8oS9/sGYWvAcITNoN3iBrqOE5G8lb117rHrIYVGAlSlsmZ7QopElPHeTTImaYHlh1YmbPmI0MEqZEr8E7JgmVkAXyztgYpPaGUWjRvGvIs7F3fNh5q1rbA9tyx0cHDsJ/zDcWfwuOlMUBhX+10+4Y51IKHDDw0w60Y69xC2FbMLldh46lbNS9BUy+LlMPrtsCCb14w0ddOFClneud4LMuzuVxfwaa8vkMFnbTvx7RH0/wF9M5K5ZHr2qWAAAAAElFTkSuQmCC",
+    "imageLargeUrl": "data:image/png;base64,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",
+    "isActive": true,
+    "qaCount": 39
+  },
+  {
+    "_id": "5b85ea9a48a802001459c170",
+    "name": "UX Design",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAARVBMVEVHcExMXG0jNEIjTnMMVYwNPWYASXIMTYcMRYHq7/B8mrefr8NsiKgIH2szQX8jWIpOX5Nhe6qapLy3yNPM1tz7+/z///9mNMQYAAAADXRSTlMACC1poqvW6Pv8/v7+GPuYXQAAAPhJREFUeNqtk+uSgyAMhbegkhAVKJf3f9QeUBenu1P+9MwgyMeJAeLPl/SoDardf1DpeTFmmbXC6ztVE7lgRWxwNKmDd6qNE84FyizO6MY7pZVBqrCGV2q8UwtYmtrA3rkya4HrUh2vRv2aJ8eHt4vddNkVCQxIDK126LkIXXYNc5E9Fdli9o6z3xl2feI5IPRzS2gRSyRuT0yE+fz2Ym+4eEcuY8IujwMbueNEFGvuYkb4Lbi04ET+DN5Ta8iiIS8Mz9T6xhimzWfeN+adzo31YykpeMt4In4MqR7L+FD7lTTV67iuZHSh43IYF9O4FP8W8uff4Dt6AULMHUGySoTIAAAAAElFTkSuQmCC",
+    "imageLargeUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRY0v-pRkes8cnh2Z5NDFcAxgKPaj4r7Vri-pH3I5_uGWIVIRr",
+    "isActive": true,
+    "qaCount": 13
+  },
+  {
+    "_id": "5b6e4d803abc29d27626b716",
+    "name": "Vue.js",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAUVBMVEVHcEwYXkobPzMYTkUrdU8tdFo0kWg5qXo6qHc3T2NIyY5K0ZRBt4RL05ZK0pU9WW5L1Zg4XWdHzpNAtYE1TWA0Pls0SF45eW0+nXhBuYNDwoh45WagAAAAFXRSTlMABRsrSm6HiqKmrsjJ1N3f6/39/f5N+y8wAAABI0lEQVR42q2S25qCMAyEw0G0qFB6QNr3f9DNpAcU3G9vNhcI+TMwE0t/VLtXkzrNW4tGPXHNKNUIVfKArh6pj9basK1c7kJNQxeH+y1wO/ZEQ7TBxpd3bp1b/ti8Oudf0hzw8cmGEKxbua2IlMOdtCae5rcZTG6e20vXLQz9BrHhb8HLI2J4AVcKdIE2PpJT6lnO7vyay28B4p4yvxV3gMXXLVG+dtpivqjlQXcZ889gsryKzSA0D0whu8u+wpRhdlfCIVT1tQ+MkMeFo0eIxwR3uZZwvGzx9Snew9VQx/9dB3iyuOr2k8nqZbWyTln2UX4v+F7Fx3BcOdSZczgJdaRl9QZqk5d95tfI5+v6naZzhRNU6xwOoX7nz2elX8Mh1L/VD2+kHnP8KK+tAAAAAElFTkSuQmCC",
+    "imageLargeUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1184px-Vue.js_Logo_2.svg.png",
+    "isActive": true,
+    "qaCount": 41
+  },
+  {
+    "_id": "5c0cb0662196e1dae00672dc",
+    "name": "WCF",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeBAMAAADJHrORAAAAG1BMVEWPAqaIAKD//f+qP7ybH7DUn926Zcnoy+305vfpmAseAAAAlUlEQVR42mNgGGyAUQAEGQQZGAUFBYB8ZgMQFElzZDE2NgDyRVXEFTgKjZTURJWUAoF8MWUmZacAdZciVmUXByBfRM1IzchYTdDUVQGsn0E1vTSJTVmAUVS9whBkfnlpRoSYsgCDqGoomB+k7KQqrCaYAVQPtt9IhUNNoCitg1UF4iCPAlFlAXelEtEWZFe6CDIMBQAAOt4U/DtIOrAAAAAASUVORK5CYII=",
+    "imageLargeUrl": "https://www.striim.com/wp-content/themes/striim-ap/integrations/WCF.png",
+    "isActive": true,
+    "qaCount": 33
+  },
+  {
+    "_id": "5c0cb0ff2196e1dae00672dd",
+    "name": "WPF",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAaCAMAAACXfxyGAAAAz1BMVEVMaXFNndPv+v+Ezfbf9P48mdrX7foAAADJ5vcuquef0e3D5ffE5PhYteUgp+in0Olmmc4YpudRwfKa0vMupOGEyfMJhNImreZlqNJqxfZmlr0uwPEiltxQn85GjrpJsfAYnuI7o+Y3pewngr02rvA2aI8hpupXwvIVjNIdcKMys/EakNIanOocfsEYic0JmuRJuOsUaasvnNkZitAQbbUgo+IHl90UgsgWd7sNWZ4vsesBjuoBccEAP3kGR5EAT4sLXqcBYrABfM4AhtQAheWMoEjiAAAAPXRSTlMAAQMLFBshKS0wNDZDQ0RRVVhjZnB5eYSQlJaYqam1tbvBx8jLy83T1ePn6eru9fr7/Pz9/f39/v7+/v7+ng0qgQAAAeNJREFUeNqNku12ojAQhicBUhAKq4iKUtHVdVUU5MsE01ZU7v+amqBu92fncJKZPMnLTDLwM0P4bugRP4Jn9L2vHdrxvzXcMU2z0yFY+PLruK6rq/hB7fWVZqyq4okmjiIlON6ucc940G7MWByxNGXZRBHKw/KY58OecqdGxIp4aW8ZY9nWBqTMkjxfDw2RktSasYIdDPibUZqdJgDGShwOekKmlaZFkQ0B+QdK89NWg+4qz6NAu2epzIqUlgaC3iFnrDzZqB9Ruu5LKuTtfV0kM6GkHcqiiMs+BIztA5miFB/UNT0O5VXMT6xmZWDTNI1Ehm1Z2qJKaWJI3C1LUfo+Sis2eN5Y9/JZ3wYCihKC5PpZXy6f1QC9vKBWvTcej16fe19/tSa0tMe1KyYBIBYBbFkYiGnqikhYtYQRgfXzRsFhEwK5bLBweMM9DM6lritPPvTmTPCO75B1HQGE3HMTroNTTx2HyLrHZ8vkO0487gC8NQSWjQVONWp/LXU8j7uN63MVYHr1fb5TBU73sSkxeZ8uVyoPt0sRTC/N7bdYds6b6Vxvn2TBuA/LhHsSnx21lfwYPdts9M4d5DfckvjDFG0o8ZtoxRZb81AFcx4qMs8/OsZiNhdC66c9juTwr4W/nS+msTgYJIjSowAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "https://raw.githubusercontent.com/ButchersBoy/MaterialDesignInXamlToolkit/master/web/images/MD4XAMLclipped.png",
+    "isActive": true,
+    "qaCount": 46
+  },
+  {
+    "_id": "5b6e4d453abc29d27626b713",
+    "name": "Web Security",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAARVBMVEVO4KFKxY9Px49JxpRJzptKy5hKyJZJxZM3xZZIxZNOxpJKy5dqyIaCynqv0GXf1kf70SD30jD/4Sn94Tz+7Jr+9M////yhJ+EKAAAACHRSTlMBGlqLmtDl/Bu2tsMAAAE0SURBVDjLjZPLkusgDERPN9iZ///aXBvUd2GTShZTGW1UxUGN0EMskyyJJJW8Dpe3d6AwcFTlA7tvDMAU0DlHveH2U1ecyKXh53zh/hg3LHxf6P/Gjftj3JHZOTAEqj8nNPBjGkkVdjdVEgnNfYaGNkUk0faQ7F0KEUGFaD/D0KQWhAEYOS/5LheQLeT+ZFDTIYHL2st31W5qXxc9dnXzaZHJErL1wYgalVep+8oGAoobqRWLumrR5poymVpZljrvHcXKfH/OWdoaUfukjkMBFHCGzAsMCEUcVh/FWePucC4f35kdCeKmmcd1Ws7Ri5iprMJFE4fqR3rqUhm1LeE5x/VmpQGtBK5pIUXjKAfKY9IgWwQ4E6F5njhA2pHPYSq6zjVt/Tn/NIrfBvnbGnxbot9W8D9Jt9AizsiLrgAAAABJRU5ErkJggg==",
+    "imageLargeUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAAvX3xrtX7bCP4PRUolU1K1rXdVlIQOcDEH21Ea4c4Grg1tqF",
+    "isActive": true,
+    "qaCount": 58
+  },
+  {
+    "_id": "5b7a6cce45eff600143ce0b7",
+    "name": "Webpack",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAATlBMVEVMaXH////+///////+/v/////+///////////+//+75v2k3vzd8PwKabsfeMEzgcU+kMtontGfvd95z/mD0vqK1PuxyeWS1/vP6vvx+P4WLzbCAAAADXRSTlMAIEBWcYGhwuL8/f7+oQy37AAAATRJREFUOMuFk+uSgzAIhWu7rZKbxkDgvP+L7iROL3bdkX/JxxlOAlwunzGM4/XyXwz3iYgewzH9mSiEYDTdD+BtJLhiVhxoun3B64PgRNiMRRxoZ2F4EJmyaFOrsNqHhaEV9SyqzICwqrAPRPdhewwFLx06qpVcTxAfaGoVrkTGrFIcQo4xGxyLMhvRrWMzcuw7TCnGHMiza7cbdsUDyCmmHjFlAK64J2YWoM5PPK/NIb+xCnKlteljWqlmiO7xEhdDswZb4vwXN1OotaWk5UDdXFvo7o/xHNca55SO1N10rd3+vrZIQe7q2tUxozXu9S1q27u7Os4VMH1/i6egGmjt6rRuJ/fEgGcR9qBcawZ8EWUPdPxqaE8geN419HMcSgjlaxzOhul0FE8H+XQNTpfoaAV/AUKRJiGokghKAAAAAElFTkSuQmCC",
+    "imageLargeUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlqszEw6SPvBVCl_37PqG32cHZrpf3c8LBiPXdZL8Sxu62TvRW",
+    "isActive": true,
+    "qaCount": 32
+  },
+  {
+    "_id": "5e6b35f67f90de0925c0e309",
+    "name": "XML & XSLT",
+    "imageUrl": "https://iconsplace.com/wp-content/uploads/_icons/fa8072/256/png/xml-icon-15-256.png",
+    "imageLargeUrl": "https://iconsplace.com/wp-content/uploads/_icons/fa8072/256/png/xml-icon-15-256.png",
+    "isActive": true,
+    "qaCount": 41
+  },
+  {
+    "_id": "5c0cc7a4c43608dbd2766b0f",
+    "name": "Xamarin",
+    "imageUrl": "data:image/png;base64,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",
+    "imageLargeUrl": "https://www.tsl.com/wp-content/uploads/xamarin2.png",
+    "isActive": true,
+    "qaCount": 83
+  },
+  {
+    "_id": "5c1187fc6e451e00214b144a",
+    "name": "jQuery",
+    "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeBAMAAADJHrORAAAAKlBMVEUJa64EZ6wAYqj+/fzy8/Mhfrp/1Pc1k8pmvuhkoMhNqNmcwdqoy+Pe5erk2CS0AAABSUlEQVQoz2XRPUvDUBhA4fNekAoubwoBcboNlFh1u1k6OOU6OAhNaRXdG0MmFfzAyS5p51Y3h+qgq/gTujnbH+RQBLHjWZ+D82mSfHVYe07TxDucT/efooAgOv1OvMOn6UcDgPpGkni8O1wm1B+dx6cTQBCglXhc24KgKJipw30iyEXQV2DXcSSEWfgqMwV0QduyJTtXPChgphyoubfbVzKyoNJjjozs5qu5MYEV9pgQDuzmkK3z/i20yIgHdmdgg7vxhRIixOc2LoSGWEWBuLRSzSwYFCAuVI6LLIpql4DQzLs0q+L9fqQoGVoNkVqVl10ImWDeSkt9rW9UaTFH1vMXRQJsxh4HSpwX3QYSnYn0aFvMTV52hLMHNVOOBJpVXoyrUtAF7hNMrcrzsqvsuqVXPTy5NoqZul/PqKFLz1XvPz+cX/n17+cPtelTINH6Zv8AAAAASUVORK5CYII=",
+    "imageLargeUrl": "http://icons.iconarchive.com/icons/sicons/basic-round-social/512/jquery-icon.png",
+    "isActive": true,
+    "qaCount": 51
+  }
+]

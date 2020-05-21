@@ -1,9 +1,25 @@
 # import * from './generated/prisma-client/prisma.graphql'
 
 type Mutation {
-  createQuestion(answer: String, title: String) : Question!
+  createQuestion(
+    title: String
+    topic: String
+    seniority: String
+    source: String
+    answer: String
+  ) : Question!
+
+  updateQuestion(
+    id: ID!
+    title: String
+    topic: String
+    seniority: String
+    source: String
+    answer: String
+  ) : Question!
 }
 
 type Query {
+  question(where: QuestionWhereUniqueInput!): Question
   questions: [Question]!
 }

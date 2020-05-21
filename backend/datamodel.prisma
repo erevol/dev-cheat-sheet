@@ -1,13 +1,16 @@
 type User {
-  id: ID! @id
+  id: ID! @id @unique
   name: String!
-  email: String!
+  email: String! @unique
 }
 
 type Question {
-  id: ID! @id
+  id: ID! @id @unique
   answer: String!
-  title: String!
+  topic: String!
+  seniority: String!
+  source: String!
+  title: String! @unique
   votes: Int
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt

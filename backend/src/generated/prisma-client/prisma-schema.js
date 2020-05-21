@@ -17,10 +17,16 @@ scalar Long
 
 type Mutation {
   createQuestion(data: QuestionCreateInput!): Question!
+  updateQuestion(data: QuestionUpdateInput!, where: QuestionWhereUniqueInput!): Question
   updateManyQuestions(data: QuestionUpdateInput!, where: QuestionWhereInput): BatchPayload!
+  upsertQuestion(where: QuestionWhereUniqueInput!, create: QuestionCreateInput!, update: QuestionUpdateInput!): Question!
+  deleteQuestion(where: QuestionWhereUniqueInput!): Question
   deleteManyQuestions(where: QuestionWhereInput): BatchPayload!
   createUser(data: UserCreateInput!): User!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   updateManyUsers(data: UserUpdateInput!, where: UserWhereInput): BatchPayload!
+  upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
+  deleteUser(where: UserWhereUniqueInput!): User
   deleteManyUsers(where: UserWhereInput): BatchPayload!
 }
 
@@ -42,8 +48,10 @@ type PageInfo {
 }
 
 type Query {
+  question(where: QuestionWhereUniqueInput!): Question
   questions(where: QuestionWhereInput, orderBy: QuestionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Question]!
   questionsConnection(where: QuestionWhereInput, orderBy: QuestionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): QuestionConnection!
+  user(where: UserWhereUniqueInput!): User
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
   node(id: ID!): Node
@@ -52,6 +60,9 @@ type Query {
 type Question {
   id: ID!
   answer: String!
+  topic: String!
+  seniority: String!
+  source: String!
   title: String!
   votes: Int
   createdAt: DateTime!
@@ -66,6 +77,9 @@ type QuestionConnection {
 
 input QuestionCreateInput {
   answer: String!
+  topic: String!
+  seniority: String!
+  source: String!
   title: String!
   votes: Int
 }
@@ -80,6 +94,12 @@ enum QuestionOrderByInput {
   id_DESC
   answer_ASC
   answer_DESC
+  topic_ASC
+  topic_DESC
+  seniority_ASC
+  seniority_DESC
+  source_ASC
+  source_DESC
   title_ASC
   title_DESC
   votes_ASC
@@ -93,6 +113,9 @@ enum QuestionOrderByInput {
 type QuestionPreviousValues {
   id: ID!
   answer: String!
+  topic: String!
+  seniority: String!
+  source: String!
   title: String!
   votes: Int
   createdAt: DateTime!
@@ -119,6 +142,9 @@ input QuestionSubscriptionWhereInput {
 
 input QuestionUpdateInput {
   answer: String
+  topic: String
+  seniority: String
+  source: String
   title: String
   votes: Int
 }
@@ -152,6 +178,48 @@ input QuestionWhereInput {
   answer_not_starts_with: String
   answer_ends_with: String
   answer_not_ends_with: String
+  topic: String
+  topic_not: String
+  topic_in: [String!]
+  topic_not_in: [String!]
+  topic_lt: String
+  topic_lte: String
+  topic_gt: String
+  topic_gte: String
+  topic_contains: String
+  topic_not_contains: String
+  topic_starts_with: String
+  topic_not_starts_with: String
+  topic_ends_with: String
+  topic_not_ends_with: String
+  seniority: String
+  seniority_not: String
+  seniority_in: [String!]
+  seniority_not_in: [String!]
+  seniority_lt: String
+  seniority_lte: String
+  seniority_gt: String
+  seniority_gte: String
+  seniority_contains: String
+  seniority_not_contains: String
+  seniority_starts_with: String
+  seniority_not_starts_with: String
+  seniority_ends_with: String
+  seniority_not_ends_with: String
+  source: String
+  source_not: String
+  source_in: [String!]
+  source_not_in: [String!]
+  source_lt: String
+  source_lte: String
+  source_gt: String
+  source_gte: String
+  source_contains: String
+  source_not_contains: String
+  source_starts_with: String
+  source_not_starts_with: String
+  source_ends_with: String
+  source_not_ends_with: String
   title: String
   title_not: String
   title_in: [String!]
@@ -193,6 +261,11 @@ input QuestionWhereInput {
   AND: [QuestionWhereInput!]
   OR: [QuestionWhereInput!]
   NOT: [QuestionWhereInput!]
+}
+
+input QuestionWhereUniqueInput {
+  id: ID
+  title: String
 }
 
 type Subscription {
@@ -310,6 +383,11 @@ input UserWhereInput {
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]
+}
+
+input UserWhereUniqueInput {
+  id: ID
+  email: String
 }
 `
       }
