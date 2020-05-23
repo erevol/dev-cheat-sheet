@@ -3,6 +3,8 @@ import Link from 'next/link';
 import styled from '@emotion/styled';
 import Router from 'next/router';
 import NProgress from 'nprogress';
+import logo from '../static/logo.svg';
+import { Image } from 'semantic-ui-react';
 
 Router.onRouteChangeStart = () => {
   NProgress.start();
@@ -18,32 +20,49 @@ Router.onRouteChangeError = () => {
 const Logo = styled.h1`
   font-size: 2rem;
   margin-left: 2rem;
-  position: relative;
-  z-index: 2;
-  transform: skewX(-5deg);
+  margin: 0 auto 0 15px;
+
+
   a {
     padding: 0.5rem 1rem;
-    border: 2px solid ${props => props.theme.red};
-    color: ${props => props.theme.black};
-    text-transform: uppercase;
     text-decoration: none;
-    border-radius: 10px;
+    span {
+      display: none;
+      text-transform: uppercase;
+    }
+
+    @media (min-width: 769px) {
+      padding: 0.5rem 1rem;
+
+      span {
+        display: inline;
+        margin-left: 20px;
+      }
+    }
+
+    &:hover {
+      color: ${props => props.theme.red};
+    }
   }
 
-  @media(max-width: 1300px) {
-    margin: 0;
-    text-align: center;
-    justify-self: flex-start;
-    margin-left: 15px;
+  img {
+    width: 60px;
+    height: auto;
+
+    @media (min-width: 769px) {
+      width: 40px;
+      height: auto;
+    }
+  }
+  @media (min-width: 769px) {
+    max-height: 60px;
   }
 `;
 
 const StyledHeader = styled.div`
   .bar {
-    display: grid;
-    column-gap: 10px;
-    grid-template-columns: 1fr 2fr;
-    justify-items: flex-start;
+    display: flex;
+    justify-content: flex-end;
     align-items: center;
     border-bottom: 2px solid ${props => props.theme.grey1};
   }
@@ -66,7 +85,7 @@ const Header = () => {
     <StyledHeader>
       <div className="bar">
         <Logo>
-          <Link href="/"><a>D.C.S.</a></Link>
+          <Link href="/"><a><Image src={logo} verticalAlign="middle" /><span>Get your answers!</span></a></Link>
         </Logo>
         <Nav />
       </div>

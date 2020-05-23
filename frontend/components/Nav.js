@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styled from '@emotion/styled';
+import { Icon } from 'semantic-ui-react';
 
 const StyledNav = styled.div`
   margin: 0;
@@ -24,8 +25,6 @@ const StyledNav = styled.div`
     background: none;
     border: 0;
     cursor: pointer;
-    @media (max-width: 700px) {
-    }
     &:before {
       content: '';
       width: 2px;
@@ -64,15 +63,24 @@ const StyledNav = styled.div`
     }
   }
   @media (max-width: 1300px) {
-    width: 100%;
-    justify-content: center;
     font-size: 1.5rem;
     padding: 0 10px;
+  }
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const StyledMobileNav = styled.div`
+  margin: 10px;
+  @media (min-width: 769px) {
+    display: none;
   }
 `;
 
 const Nav = () => {
   return (
+    <>
     <StyledNav>
       <Link href="/about-us">
         <a>About Us</a>
@@ -84,6 +92,24 @@ const Nav = () => {
         <a>Sign in</a>
       </Link>
     </StyledNav>
+    <StyledMobileNav>
+      <Link href="/about-us">
+        <Icon name='question circle' size='huge' />
+      </Link>
+      <Link href="/post-job">
+        <Icon.Group size='huge'>
+          <Icon name='briefcase' />
+          <Icon corner name='add' color='grey' />
+        </Icon.Group>
+      </Link>
+      <Link href="/signin">
+        <Icon.Group size='huge'>
+          <Icon name='user' />
+          <Icon corner name='sign-in' color='grey' />
+        </Icon.Group>
+      </Link>
+    </StyledMobileNav>
+    </>
   );
 };
 

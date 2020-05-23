@@ -24,6 +24,12 @@ const injectGlobal = css`
     font-weight: normal;
     font-style: normal;
   }
+  @font-face {
+    font-family: 'Icons';
+    src: url('/static/icons.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
   html {
     box-sizing: border-box;
     font-size: 10px;

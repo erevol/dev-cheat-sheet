@@ -42,8 +42,6 @@ class CreateQuestion extends Component {
 
   handleChange = (e, data) => {
     const { id, value } = data;
-    console.log(id);
-    console.log(value);
     this.setState({ [id]: value });
   };
 

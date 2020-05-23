@@ -10,6 +10,7 @@ const ALL_QUESTIONS_QUERY = gql`
       id
       title
       answer
+      seniority
     }
   }
 `;
@@ -26,7 +27,7 @@ const StyledHeading = styled.h1`
 const QuestionsList = styled.ol`
   max-width: ${props => props.theme.maxWidth};
   margin: 0 auto;
-  padding: 0;
+  padding: 0 0 0 15px;
   list-style: none;
   counter-reset: li;
 `;
@@ -40,13 +41,12 @@ class Questions extends Component {
           {({ data, error, loading }) => {
             if (loading) return <p>Loading...</p>;
             if (error) return <p>Error: { error.message }</p>;
-            console.log(data);
             return <QuestionsList>
-              { data.questions.map((question) => <Question
+              { data.questions.map(question => <Question
                 question={question}
                 key={question.id}
               />) }
-            </QuestionsList>;
+            </QuestionsList>
           }}
         </Query>
       </Center>
@@ -55,3 +55,4 @@ class Questions extends Component {
 }
 
 export default Questions;
+export {ALL_QUESTIONS_QUERY};

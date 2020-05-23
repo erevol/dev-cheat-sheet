@@ -56,8 +56,6 @@ class UpdateQuestion extends Component {
 
   handleChange = (e, data) => {
     const { id, value } = data;
-    console.log(id);
-    console.log(value);
     this.setState({ [id]: value });
   };
 
@@ -67,6 +65,19 @@ class UpdateQuestion extends Component {
     this.setState({ [name]: val });
   };
 
+  onSubmitForm = async (e, updateQuestionMutation) => {
+    e.preventDefault();
+    console.log('Updating question!!');
+    console.log(this.state);
+    const res = await updateQuestionMutation({
+      variables: {
+        id: this.props.id,
+        ...this.state,
+      },
+    });
+    console.log('Updated!!');
+  };
+
   render() {
     return (
       <Grid textAlign="center" style={{ height: "50vh" }} verticalAlign="middle">
@@ -74,82 +85,93 @@ class UpdateQuestion extends Component {
           <StyledHeader as="h1" textAlign="center">
             Update Question
           </StyledHeader>
-            <Mutation
-              mutation={UPDATE_QUESTION_MUTATION}
-              variables={this.state}
-            >
-              {(updateQuestion, { loading, error, called, data }) => (
-                <Form size="large"
-                  onSubmit={async e => {
-                    e.preventDefault();
-                    const response = await updateQuestion();
-                    console.log(response.data.updateQuestion.id);
-                  }}
-                  error={error}
-                  loading={loading}
-                  success={called && data}
+          <Query
+            query={SINGLE_QUESTION_QUERY}
+            variables={{ id: this.props.id }}
+          >
+            {({ data, loading }) => {
+              if (loading) return <p>Loading...</p>;
+              if (!data.question) return <p>No Question Found for ID {this.props.id}</p>;
+              return (
+                <Mutation
+                  mutation={UPDATE_QUESTION_MUTATION}
+                  variables={this.state}
                 >
-                  <Segment stacked>
-                  <Form.Field>
-                    <label>Title</label>
-                    <input
-                      id="title"
-                      placeholder="Title"
-                      type="text"
-                      name="title"
-                      onChange={this.handleChangeInput}
-                    />
-                  </Form.Field>
-                  <Form.Select
-                    id="topic"
-                    fluid
-                    label="Topic"
-                    options={topicsMock}
-                    placeholder="Topic"
-                    onChange={this.handleChange}
-                  />
-                  <Form.Select
-                    id="seniority"
-                    fluid
-                    label="Seniority"
-                    options={senioritiesMock}
-                    placeholder="Seniority"
-                    onChange={this.handleChange}
-                  />
-                  <Form.Field>
-                    <label>Source</label>
-                    <input
-                      id="source"
-                      placeholder="Source"
-                      type="text"
-                      name="source"
-                      onChange={this.handleChangeInput}
-                    />
-                  </Form.Field>
-                  <Form.TextArea
-                    id="answer"
-                    label="Answer"
-                    placeholder="Write down the answer here..."
-                    onChange={this.handleChange}
-                  />
-                  <Message
-                    error
-                    header='Error'
-                    content='There was a problem creating the question.'
-                  />
-                  <ErrorMessage error={error} />
-                  <Message
-                    success
-                    header='Success'
-                    content="You created a new question."
-                  />
-                  <Button color="red" fluid size="large">
-                    Save changes
-                  </Button>
-                  </Segment>
-                </Form>
-              )}
-            </Mutation>
+                  {(updateQuestion, { loading, error }) => (
+                    <Form size="large"
+                      onSubmit={e => this.onSubmitForm(e, updateQuestion)}
+                      error={error}
+                      loading={loading}
+                    >
+                      <Segment stacked>
+                      <Form.Field>
+                        <label>Title</label>
+                        <input
+                          id="title"
+                          placeholder="Title"
+                          type="text"
+                          name="title"
+                          defaultValue={data.question.title}
+                          onChange={this.handleChangeInput}
+                        />
+                      </Form.Field>
+                      <Form.Select
+                        id="topic"
+                        fluid
+                        label="Topic"
+                        options={topicsMock}
+                        placeholder="Topic"
+                        defaultValue={data.question.topic}
+                        onChange={this.handleChange}
+                      />
+                      <Form.Select
+                        id="seniority"
+                        fluid
+                        label="Seniority"
+                        options={senioritiesMock}
+                        placeholder="Seniority"
+                        defaultValue={data.question.seniority}
+                        onChange={this.handleChange}
+                      />
+                      <Form.Field>
+                        <label>Source</label>
+                        <input
+                          id="source"
+                          placeholder="Source"
+                          type="text"
+                          name="source"
+                          defaultValue={data.question.source}
+                          onChange={this.handleChangeInput}
+                        />
+                      </Form.Field>
+                      <Form.TextArea
+                        id="answer"
+                        label="Answer"
+                        placeholder="Write down the answer here..."
+                        defaultValue={data.question.answer}
+                        onChange={this.handleChange}
+                      />
+                      <Message
+                        error
+                        header='Error'
+                        content='There was a problem creating the question.'
+                      />
+                      <ErrorMessage error={error} />
+                      <Message
+                        success
+                        header='Success'
+                        content="You created a new question."
+                      />
+                      <Button color="red" fluid size="large">
+                        Save changes
+                      </Button>
+                      </Segment>
+                    </Form>
+                  )}
+                </Mutation>
+              );
+            }}
+          </Query>
         </Grid.Column>
       </Grid>
     );
