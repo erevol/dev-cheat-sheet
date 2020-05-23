@@ -123,13 +123,13 @@ class CreateQuestion extends Component {
                 />
                 <Message
                   error
-                  header='Error'
-                  content='There was a problem creating the question.'
+                  header="Error"
+                  content="There was a problem creating the question."
                 />
                 <ErrorMessage error={error} />
                 <Message
                   success
-                  header='Success'
+                  header="Success"
                   content="You created a new question."
                 />
                 <Button color="red" fluid size="large">

@@ -94,18 +94,18 @@ const Nav = () => {
     </StyledNav>
     <StyledMobileNav>
       <Link href="/about-us">
-        <Icon name='question circle' size='huge' />
+        <Icon name="question circle" size="huge" />
       </Link>
       <Link href="/post-job">
-        <Icon.Group size='huge'>
-          <Icon name='briefcase' />
-          <Icon corner name='add' color='grey' />
+        <Icon.Group size="huge">
+          <Icon name="briefcase" />
+          <Icon corner name="add" color="grey" />
         </Icon.Group>
       </Link>
       <Link href="/signin">
-        <Icon.Group size='huge'>
-          <Icon name='user' />
-          <Icon corner name='sign-in' color='grey' />
+        <Icon.Group size="huge">
+          <Icon name="user" />
+          <Icon corner name="sign-in" color="grey" />
         </Icon.Group>
       </Link>
     </StyledMobileNav>

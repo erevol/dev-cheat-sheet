@@ -85,7 +85,10 @@ const Header = () => {
     <StyledHeader>
       <div className="bar">
         <Logo>
-          <Link href="/"><a><Image src={logo} verticalAlign="middle" /><span>Get your answers!</span></a></Link>
+          <Link href="/"><a>
+            <Image src={logo} verticalAlign="middle" />
+            <span>Get your answers!</span>
+          </a></Link>
         </Logo>
         <Nav />
       </div>
