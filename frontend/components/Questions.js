@@ -9,13 +9,12 @@ const ALL_QUESTIONS_QUERY = gql`
     questions {
       id
       title
-      answer
       seniority
     }
   }
 `;
 
-const Center = styled.div`
+const StyledContainer = styled.div`
 
 `;
 
@@ -35,7 +34,7 @@ const QuestionsList = styled.ol`
 class Questions extends Component {
   render() {
     return (
-      <Center>
+      <StyledContainer>
         <StyledHeading>Questions</StyledHeading>
         <Query query={ALL_QUESTIONS_QUERY}>
           {({ data, error, loading }) => {
@@ -49,10 +48,13 @@ class Questions extends Component {
             </QuestionsList>
           }}
         </Query>
-      </Center>
+      </StyledContainer>
     );
   }
 }
 
 export default Questions;
-export {ALL_QUESTIONS_QUERY};
+export {
+  ALL_QUESTIONS_QUERY,
+  StyledContainer,
+};

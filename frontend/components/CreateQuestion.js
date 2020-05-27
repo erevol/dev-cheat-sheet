@@ -36,7 +36,7 @@ class CreateQuestion extends Component {
     title: '',
     topic: '',
     seniority: '',
-    source: 'https://test.com',
+    source: '',
     answer: '',
   };
 
@@ -68,6 +68,13 @@ class CreateQuestion extends Component {
                   e.preventDefault();
                   const response = await createQuestion();
                   console.log(response.data.createQuestion.id);
+                  this.setState({
+                    title: '',
+                    topic: '',
+                    seniority: '',
+                    source: '',
+                    answer: '',
+                  });
                 }}
                 error={error}
                 loading={loading}

@@ -1,10 +1,9 @@
 import React from 'react';
+import PostJob from '../components/PostJob';
 
 const PostJobPage = () => {
   return (
-    <div>
-      Post Job page
-    </div>
+    <PostJob />
   );
 };
 

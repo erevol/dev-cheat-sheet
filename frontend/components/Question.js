@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { Button } from 'semantic-ui-react';
+import Button from './Button';
 
 const StyledItem = styled.div`
   display: inline-block;
@@ -59,64 +59,6 @@ const StyledQuestionListItem = styled.li`
   }
 `;
 
-const StyledSeniorityButton = styled.div`
-  min-width: 100px;
-  background-color: ${props => props.theme.green};
-  display: inline-block;
-  text-align: center;
-  color: ${props => props.theme.white};
-  border-radius: 10px;
-  cursor: pointer;
-  transform: skewX(-5deg);
-
-  bottom: 10px;
-  position: absolute;
-  width: calc(50% - 10px);
-  left: 0;
-
-  @media (min-width: 769px) {
-    margin-left: 10px;
-    position: initial;
-    width: auto;
-  }
-
-  &:hover {
-    background-color: ${props => props.theme.green_darken20};
-    transition: background 0.2s ease-out;
-  }
-`;
-
-const StyledUpdateButton = styled.div`
-  min-width: 100px;
-  background-color: ${props => props.theme.red};
-  display: inline-block;
-  text-align: center;
-  color: ${props => props.theme.white};
-  border-radius: 10px;
-  cursor: pointer;
-  transform: skewX(-5deg);
-
-  bottom: 10px;
-  position: absolute;
-  width: calc(50% - 10px);
-  right: 0;
-
-  @media (min-width: 769px) {
-    margin-left: 10px;
-    position: initial;
-    width: auto;
-  }
-
-  a {
-    color: ${props => props.theme.white};
-  }
-
-  &:hover {
-    background-color: ${props => props.theme.red_darken20};
-    transition: background 0.2s ease-out;
-  }
-`;
-
 class Question extends Component {
   render() {
     const { question } = this.props;
@@ -133,15 +75,16 @@ class Question extends Component {
             <StyledQuestion>{question.title}</StyledQuestion>
           </Link>
         </StyledItem>
-        <StyledSeniorityButton>{question.seniority}</StyledSeniorityButton>
-        <StyledUpdateButton><Link
+        <Button color="green">{question.seniority}</Button>
+        <Button position="right" color="red"><Link
             href={{
               pathname: '/update-question',
               query: { id: question.id },
             }}
           >
-            Update
-          </Link></StyledUpdateButton>
+            <a>Update</a>
+          </Link>
+        </Button>
       </StyledQuestionListItem>
     );
   }

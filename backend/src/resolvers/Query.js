@@ -1,8 +1,6 @@
 const { forwardTo } = require('prisma-binding');
 
 const Query = {
-  question: forwardTo('db'),
-  questions: forwardTo('db'),
   /*
   //This is another way of doing the same as forwardTo
 
@@ -11,6 +9,14 @@ const Query = {
     return questions;
   }
   */
+  question: forwardTo('db'),
+  questions: forwardTo('db'),
+  job: forwardTo('db'),
+  jobs: forwardTo('db'),
+  seniority: forwardTo('db'),
+  seniorities: forwardTo('db'),
+  topic: forwardTo('db'),
+  topics: forwardTo('db'),
 };
 
 module.exports = Query;

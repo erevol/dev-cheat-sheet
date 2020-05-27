@@ -15,3 +15,30 @@ type Question {
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
+
+type Job {
+  id: ID! @id @unique
+  jobTitle: String!
+  company: String!
+  topics: String!
+  seniority: String!
+  location: String!
+  description: String!
+  contact: String!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Seniority {
+  id: ID! @id @unique
+  name: String! @unique
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Topic {
+  id: ID! @id @unique
+  name: String! @unique
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
