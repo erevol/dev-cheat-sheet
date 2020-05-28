@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import Header from './Header';
 import Meta from './Meta';
 import styled from '@emotion/styled';
@@ -13,7 +12,7 @@ const Inner = styled.div`
   padding: 2rem;
 `;
 
-class Page extends Component {
+class Page extends React.Component {
   render() {
     return (
       <StyledPage>

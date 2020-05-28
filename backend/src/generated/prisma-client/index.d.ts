@@ -271,8 +271,6 @@ export interface ClientConstructor<T> {
  * Types
  */
 
-export type MutationType = "CREATED" | "UPDATED" | "DELETED";
-
 export type QuestionOrderByInput =
   | "id_ASC"
   | "id_DESC"
@@ -325,18 +323,6 @@ export type SeniorityOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type UserOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "email_ASC"
-  | "email_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
 export type TopicOrderByInput =
   | "id_ASC"
   | "id_DESC"
@@ -347,88 +333,37 @@ export type TopicOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export interface SeniorityUpdateInput {
-  name?: String;
-}
+export type UserOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "email_ASC"
+  | "email_DESC"
+  | "password_ASC"
+  | "password_DESC"
+  | "resetToken_ASC"
+  | "resetToken_DESC"
+  | "resetTokenExpiry_ASC"
+  | "resetTokenExpiry_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
 
-export type UserWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-  email?: String;
-}>;
+export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
-export interface QuestionCreateInput {
-  answer: String;
-  topic: String;
-  seniority: String;
-  source: String;
-  title: String;
-  votes?: Int;
-}
+export type Permission =
+  | "ADMIN"
+  | "USER"
+  | "ITEMCREATE"
+  | "ITEMUPDATE"
+  | "ITEMDELETE"
+  | "PERMISSIONUPDATE";
 
 export type JobWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
 }>;
-
-export interface SeniorityWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  AND?: SeniorityWhereInput[] | SeniorityWhereInput;
-  OR?: SeniorityWhereInput[] | SeniorityWhereInput;
-  NOT?: SeniorityWhereInput[] | SeniorityWhereInput;
-}
-
-export interface JobSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: JobWhereInput;
-  AND?: JobSubscriptionWhereInput[] | JobSubscriptionWhereInput;
-  OR?: JobSubscriptionWhereInput[] | JobSubscriptionWhereInput;
-  NOT?: JobSubscriptionWhereInput[] | JobSubscriptionWhereInput;
-}
 
 export interface JobWhereInput {
   id?: ID_Input;
@@ -564,19 +499,107 @@ export interface JobWhereInput {
   NOT?: JobWhereInput[] | JobWhereInput;
 }
 
-export interface UserCreateInput {
-  name: String;
-  email: String;
+export interface UserWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  email?: String;
+  email_not?: String;
+  email_in?: String[] | String;
+  email_not_in?: String[] | String;
+  email_lt?: String;
+  email_lte?: String;
+  email_gt?: String;
+  email_gte?: String;
+  email_contains?: String;
+  email_not_contains?: String;
+  email_starts_with?: String;
+  email_not_starts_with?: String;
+  email_ends_with?: String;
+  email_not_ends_with?: String;
+  password?: String;
+  password_not?: String;
+  password_in?: String[] | String;
+  password_not_in?: String[] | String;
+  password_lt?: String;
+  password_lte?: String;
+  password_gt?: String;
+  password_gte?: String;
+  password_contains?: String;
+  password_not_contains?: String;
+  password_starts_with?: String;
+  password_not_starts_with?: String;
+  password_ends_with?: String;
+  password_not_ends_with?: String;
+  resetToken?: String;
+  resetToken_not?: String;
+  resetToken_in?: String[] | String;
+  resetToken_not_in?: String[] | String;
+  resetToken_lt?: String;
+  resetToken_lte?: String;
+  resetToken_gt?: String;
+  resetToken_gte?: String;
+  resetToken_contains?: String;
+  resetToken_not_contains?: String;
+  resetToken_starts_with?: String;
+  resetToken_not_starts_with?: String;
+  resetToken_ends_with?: String;
+  resetToken_not_ends_with?: String;
+  resetTokenExpiry?: Float;
+  resetTokenExpiry_not?: Float;
+  resetTokenExpiry_in?: Float[] | Float;
+  resetTokenExpiry_not_in?: Float[] | Float;
+  resetTokenExpiry_lt?: Float;
+  resetTokenExpiry_lte?: Float;
+  resetTokenExpiry_gt?: Float;
+  resetTokenExpiry_gte?: Float;
+  AND?: UserWhereInput[] | UserWhereInput;
+  OR?: UserWhereInput[] | UserWhereInput;
+  NOT?: UserWhereInput[] | UserWhereInput;
 }
 
-export interface JobUpdateInput {
-  jobTitle?: String;
-  company?: String;
-  topics?: String;
-  seniority?: String;
-  location?: String;
-  description?: String;
-  contact?: String;
+export interface TopicUpdateInput {
+  name?: String;
+}
+
+export interface TopicSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: TopicWhereInput;
+  AND?: TopicSubscriptionWhereInput[] | TopicSubscriptionWhereInput;
+  OR?: TopicSubscriptionWhereInput[] | TopicSubscriptionWhereInput;
+  NOT?: TopicSubscriptionWhereInput[] | TopicSubscriptionWhereInput;
+}
+
+export interface TopicCreateInput {
+  name: String;
 }
 
 export type QuestionWhereUniqueInput = AtLeastOne<{
@@ -584,14 +607,8 @@ export type QuestionWhereUniqueInput = AtLeastOne<{
   title?: String;
 }>;
 
-export interface JobCreateInput {
-  jobTitle: String;
-  company: String;
-  topics: String;
-  seniority: String;
-  location: String;
-  description: String;
-  contact: String;
+export interface SeniorityUpdateInput {
+  name?: String;
 }
 
 export interface QuestionWhereInput {
@@ -708,93 +725,21 @@ export interface QuestionWhereInput {
   NOT?: QuestionWhereInput[] | QuestionWhereInput;
 }
 
-export interface UserSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: UserWhereInput;
-  AND?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
-  OR?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
-  NOT?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
-}
-
-export interface QuestionUpdateInput {
-  answer?: String;
-  topic?: String;
-  seniority?: String;
-  source?: String;
-  title?: String;
-  votes?: Int;
-}
-
 export type TopicWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
   name?: String;
 }>;
 
-export interface UserUpdateInput {
-  name?: String;
-  email?: String;
+export interface UserUpdatepermissionsInput {
+  set?: Permission[] | Permission;
 }
 
-export interface UserWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  email?: String;
-  email_not?: String;
-  email_in?: String[] | String;
-  email_not_in?: String[] | String;
-  email_lt?: String;
-  email_lte?: String;
-  email_gt?: String;
-  email_gte?: String;
-  email_contains?: String;
-  email_not_contains?: String;
-  email_starts_with?: String;
-  email_not_starts_with?: String;
-  email_ends_with?: String;
-  email_not_ends_with?: String;
-  AND?: UserWhereInput[] | UserWhereInput;
-  OR?: UserWhereInput[] | UserWhereInput;
-  NOT?: UserWhereInput[] | UserWhereInput;
+export interface SeniorityCreateInput {
+  name: String;
 }
 
-export interface TopicSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: TopicWhereInput;
-  AND?: TopicSubscriptionWhereInput[] | TopicSubscriptionWhereInput;
-  OR?: TopicSubscriptionWhereInput[] | TopicSubscriptionWhereInput;
-  NOT?: TopicSubscriptionWhereInput[] | TopicSubscriptionWhereInput;
+export interface UserCreatepermissionsInput {
+  set?: Permission[] | Permission;
 }
 
 export interface TopicWhereInput {
@@ -847,28 +792,42 @@ export interface TopicWhereInput {
   NOT?: TopicWhereInput[] | TopicWhereInput;
 }
 
-export interface SenioritySubscriptionWhereInput {
+export interface UserCreateInput {
+  name: String;
+  email: String;
+  password: String;
+  resetToken?: String;
+  resetTokenExpiry?: Float;
+  permissions?: UserCreatepermissionsInput;
+}
+
+export interface QuestionUpdateInput {
+  answer?: String;
+  topic?: String;
+  seniority?: String;
+  source?: String;
+  title?: String;
+  votes?: Int;
+}
+
+export interface UserSubscriptionWhereInput {
   mutation_in?: MutationType[] | MutationType;
   updatedFields_contains?: String;
   updatedFields_contains_every?: String[] | String;
   updatedFields_contains_some?: String[] | String;
-  node?: SeniorityWhereInput;
-  AND?: SenioritySubscriptionWhereInput[] | SenioritySubscriptionWhereInput;
-  OR?: SenioritySubscriptionWhereInput[] | SenioritySubscriptionWhereInput;
-  NOT?: SenioritySubscriptionWhereInput[] | SenioritySubscriptionWhereInput;
+  node?: UserWhereInput;
+  AND?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
+  OR?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
+  NOT?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
 }
 
-export interface TopicUpdateInput {
-  name?: String;
-}
-
-export type SeniorityWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-  name?: String;
-}>;
-
-export interface SeniorityCreateInput {
-  name: String;
+export interface QuestionCreateInput {
+  answer: String;
+  topic: String;
+  seniority: String;
+  source: String;
+  title: String;
+  votes?: Int;
 }
 
 export interface QuestionSubscriptionWhereInput {
@@ -882,52 +841,145 @@ export interface QuestionSubscriptionWhereInput {
   NOT?: QuestionSubscriptionWhereInput[] | QuestionSubscriptionWhereInput;
 }
 
-export interface TopicCreateInput {
-  name: String;
+export type UserWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+  email?: String;
+}>;
+
+export interface JobCreateInput {
+  jobTitle: String;
+  company: String;
+  topics: String;
+  seniority: String;
+  location: String;
+  description: String;
+  contact: String;
+}
+
+export interface JobUpdateInput {
+  jobTitle?: String;
+  company?: String;
+  topics?: String;
+  seniority?: String;
+  location?: String;
+  description?: String;
+  contact?: String;
+}
+
+export interface JobSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: JobWhereInput;
+  AND?: JobSubscriptionWhereInput[] | JobSubscriptionWhereInput;
+  OR?: JobSubscriptionWhereInput[] | JobSubscriptionWhereInput;
+  NOT?: JobSubscriptionWhereInput[] | JobSubscriptionWhereInput;
+}
+
+export interface SenioritySubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: SeniorityWhereInput;
+  AND?: SenioritySubscriptionWhereInput[] | SenioritySubscriptionWhereInput;
+  OR?: SenioritySubscriptionWhereInput[] | SenioritySubscriptionWhereInput;
+  NOT?: SenioritySubscriptionWhereInput[] | SenioritySubscriptionWhereInput;
+}
+
+export interface SeniorityWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: SeniorityWhereInput[] | SeniorityWhereInput;
+  OR?: SeniorityWhereInput[] | SeniorityWhereInput;
+  NOT?: SeniorityWhereInput[] | SeniorityWhereInput;
+}
+
+export type SeniorityWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+  name?: String;
+}>;
+
+export interface UserUpdateInput {
+  name?: String;
+  email?: String;
+  password?: String;
+  resetToken?: String;
+  resetTokenExpiry?: Float;
+  permissions?: UserUpdatepermissionsInput;
 }
 
 export interface NodeNode {
   id: ID_Output;
 }
 
-export interface UserNode {
-  id: ID_Output;
-  name: String;
-  email: String;
+export interface UserEdgeNode {
+  cursor: String;
 }
 
-export interface User extends Promise<UserNode>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  email: () => Promise<String>;
+export interface UserEdge extends Promise<UserEdgeNode>, Fragmentable {
+  node: <T = User>() => T;
+  cursor: () => Promise<String>;
 }
 
-export interface UserSubscription
-  extends Promise<AsyncIterator<UserNode>>,
+export interface UserEdgeSubscription
+  extends Promise<AsyncIterator<UserEdgeNode>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  email: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AggregateJobNode {
-  count: Int;
-}
-
-export interface AggregateJob extends Promise<AggregateJobNode>, Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateJobSubscription
-  extends Promise<AsyncIterator<AggregateJobNode>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  node: <T = UserSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface UserPreviousValuesNode {
   id: ID_Output;
   name: String;
   email: String;
+  password: String;
+  resetToken?: String;
+  resetTokenExpiry?: Float;
+  permissions: Permission[];
 }
 
 export interface UserPreviousValues
@@ -936,6 +988,10 @@ export interface UserPreviousValues
   id: () => Promise<ID_Output>;
   name: () => Promise<String>;
   email: () => Promise<String>;
+  password: () => Promise<String>;
+  resetToken: () => Promise<String>;
+  resetTokenExpiry: () => Promise<Float>;
+  permissions: () => Promise<Permission[]>;
 }
 
 export interface UserPreviousValuesSubscription
@@ -944,54 +1000,92 @@ export interface UserPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   name: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
+  password: () => Promise<AsyncIterator<String>>;
+  resetToken: () => Promise<AsyncIterator<String>>;
+  resetTokenExpiry: () => Promise<AsyncIterator<Float>>;
+  permissions: () => Promise<AsyncIterator<Permission[]>>;
 }
 
-export interface JobEdgeNode {
-  cursor: String;
-}
-
-export interface JobEdge extends Promise<JobEdgeNode>, Fragmentable {
-  node: <T = Job>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface JobEdgeSubscription
-  extends Promise<AsyncIterator<JobEdgeNode>>,
-    Fragmentable {
-  node: <T = JobSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AggregateTopicNode {
+export interface AggregateQuestionNode {
   count: Int;
 }
 
-export interface AggregateTopic
-  extends Promise<AggregateTopicNode>,
+export interface AggregateQuestion
+  extends Promise<AggregateQuestionNode>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateTopicSubscription
-  extends Promise<AsyncIterator<AggregateTopicNode>>,
+export interface AggregateQuestionSubscription
+  extends Promise<AsyncIterator<AggregateQuestionNode>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface TopicEdgeNode {
-  cursor: String;
-}
+export interface JobConnectionNode {}
 
-export interface TopicEdge extends Promise<TopicEdgeNode>, Fragmentable {
-  node: <T = Topic>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface TopicEdgeSubscription
-  extends Promise<AsyncIterator<TopicEdgeNode>>,
+export interface JobConnection
+  extends Promise<JobConnectionNode>,
     Fragmentable {
-  node: <T = TopicSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  pageInfo: <T = PageInfo>() => T;
+  edges: <T = Promise<Array<JobEdgeNode>>>() => T;
+  aggregate: <T = AggregateJob>() => T;
+}
+
+export interface JobConnectionSubscription
+  extends Promise<AsyncIterator<JobConnectionNode>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<Array<JobEdgeSubscription>>>>() => T;
+  aggregate: <T = AggregateJobSubscription>() => T;
+}
+
+export interface SeniorityNode {
+  id: ID_Output;
+  name: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface Seniority extends Promise<SeniorityNode>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface SenioritySubscription
+  extends Promise<AsyncIterator<SeniorityNode>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface SeniorityPreviousValuesNode {
+  id: ID_Output;
+  name: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface SeniorityPreviousValues
+  extends Promise<SeniorityPreviousValuesNode>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface SeniorityPreviousValuesSubscription
+  extends Promise<AsyncIterator<SeniorityPreviousValuesNode>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface TopicSubscriptionPayloadNode {
@@ -1017,45 +1111,20 @@ export interface TopicSubscriptionPayloadSubscription
   previousValues: <T = TopicPreviousValuesSubscription>() => T;
 }
 
-export interface TopicConnectionNode {}
+export interface QuestionEdgeNode {
+  cursor: String;
+}
 
-export interface TopicConnection
-  extends Promise<TopicConnectionNode>,
+export interface QuestionEdge extends Promise<QuestionEdgeNode>, Fragmentable {
+  node: <T = Question>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface QuestionEdgeSubscription
+  extends Promise<AsyncIterator<QuestionEdgeNode>>,
     Fragmentable {
-  pageInfo: <T = PageInfo>() => T;
-  edges: <T = Promise<Array<TopicEdgeNode>>>() => T;
-  aggregate: <T = AggregateTopic>() => T;
-}
-
-export interface TopicConnectionSubscription
-  extends Promise<AsyncIterator<TopicConnectionNode>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<Array<TopicEdgeSubscription>>>>() => T;
-  aggregate: <T = AggregateTopicSubscription>() => T;
-}
-
-export interface TopicNode {
-  id: ID_Output;
-  name: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface Topic extends Promise<TopicNode>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface TopicSubscription
-  extends Promise<AsyncIterator<TopicNode>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  node: <T = QuestionSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface UserConnectionNode {}
@@ -1092,63 +1161,54 @@ export interface AggregateUserSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface PageInfoNode {
-  hasNextPage: Boolean;
-  hasPreviousPage: Boolean;
-  startCursor?: String;
-  endCursor?: String;
-}
+export interface QuestionConnectionNode {}
 
-export interface PageInfo extends Promise<PageInfoNode>, Fragmentable {
-  hasNextPage: () => Promise<Boolean>;
-  hasPreviousPage: () => Promise<Boolean>;
-  startCursor: () => Promise<String>;
-  endCursor: () => Promise<String>;
-}
-
-export interface PageInfoSubscription
-  extends Promise<AsyncIterator<PageInfoNode>>,
+export interface QuestionConnection
+  extends Promise<QuestionConnectionNode>,
     Fragmentable {
-  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
-  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
-  startCursor: () => Promise<AsyncIterator<String>>;
-  endCursor: () => Promise<AsyncIterator<String>>;
+  pageInfo: <T = PageInfo>() => T;
+  edges: <T = Promise<Array<QuestionEdgeNode>>>() => T;
+  aggregate: <T = AggregateQuestion>() => T;
 }
 
-export interface SeniorityEdgeNode {
+export interface QuestionConnectionSubscription
+  extends Promise<AsyncIterator<QuestionConnectionNode>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<Array<QuestionEdgeSubscription>>>>() => T;
+  aggregate: <T = AggregateQuestionSubscription>() => T;
+}
+
+export interface AggregateTopicNode {
+  count: Int;
+}
+
+export interface AggregateTopic
+  extends Promise<AggregateTopicNode>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateTopicSubscription
+  extends Promise<AsyncIterator<AggregateTopicNode>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface JobEdgeNode {
   cursor: String;
 }
 
-export interface SeniorityEdge
-  extends Promise<SeniorityEdgeNode>,
-    Fragmentable {
-  node: <T = Seniority>() => T;
+export interface JobEdge extends Promise<JobEdgeNode>, Fragmentable {
+  node: <T = Job>() => T;
   cursor: () => Promise<String>;
 }
 
-export interface SeniorityEdgeSubscription
-  extends Promise<AsyncIterator<SeniorityEdgeNode>>,
+export interface JobEdgeSubscription
+  extends Promise<AsyncIterator<JobEdgeNode>>,
     Fragmentable {
-  node: <T = SenioritySubscription>() => T;
+  node: <T = JobSubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface JobConnectionNode {}
-
-export interface JobConnection
-  extends Promise<JobConnectionNode>,
-    Fragmentable {
-  pageInfo: <T = PageInfo>() => T;
-  edges: <T = Promise<Array<JobEdgeNode>>>() => T;
-  aggregate: <T = AggregateJob>() => T;
-}
-
-export interface JobConnectionSubscription
-  extends Promise<AsyncIterator<JobConnectionNode>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<Array<JobEdgeSubscription>>>>() => T;
-  aggregate: <T = AggregateJobSubscription>() => T;
 }
 
 export interface BatchPayloadNode {
@@ -1163,6 +1223,65 @@ export interface BatchPayloadSubscription
   extends Promise<AsyncIterator<BatchPayloadNode>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Long>>;
+}
+
+export interface JobNode {
+  id: ID_Output;
+  jobTitle: String;
+  company: String;
+  topics: String;
+  seniority: String;
+  location: String;
+  description: String;
+  contact: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface Job extends Promise<JobNode>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  jobTitle: () => Promise<String>;
+  company: () => Promise<String>;
+  topics: () => Promise<String>;
+  seniority: () => Promise<String>;
+  location: () => Promise<String>;
+  description: () => Promise<String>;
+  contact: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface JobSubscription
+  extends Promise<AsyncIterator<JobNode>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  jobTitle: () => Promise<AsyncIterator<String>>;
+  company: () => Promise<AsyncIterator<String>>;
+  topics: () => Promise<AsyncIterator<String>>;
+  seniority: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  contact: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface TopicConnectionNode {}
+
+export interface TopicConnection
+  extends Promise<TopicConnectionNode>,
+    Fragmentable {
+  pageInfo: <T = PageInfo>() => T;
+  edges: <T = Promise<Array<TopicEdgeNode>>>() => T;
+  aggregate: <T = AggregateTopic>() => T;
+}
+
+export interface TopicConnectionSubscription
+  extends Promise<AsyncIterator<TopicConnectionNode>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<Array<TopicEdgeSubscription>>>>() => T;
+  aggregate: <T = AggregateTopicSubscription>() => T;
 }
 
 export interface JobSubscriptionPayloadNode {
@@ -1188,22 +1307,22 @@ export interface JobSubscriptionPayloadSubscription
   previousValues: <T = JobPreviousValuesSubscription>() => T;
 }
 
-export interface SeniorityNode {
+export interface TopicNode {
   id: ID_Output;
   name: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
 
-export interface Seniority extends Promise<SeniorityNode>, Fragmentable {
+export interface Topic extends Promise<TopicNode>, Fragmentable {
   id: () => Promise<ID_Output>;
   name: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface SenioritySubscription
-  extends Promise<AsyncIterator<SeniorityNode>>,
+export interface TopicSubscription
+  extends Promise<AsyncIterator<TopicNode>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   name: () => Promise<AsyncIterator<String>>;
@@ -1254,61 +1373,22 @@ export interface JobPreviousValuesSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface QuestionEdgeNode {
+export interface SeniorityEdgeNode {
   cursor: String;
 }
 
-export interface QuestionEdge extends Promise<QuestionEdgeNode>, Fragmentable {
-  node: <T = Question>() => T;
+export interface SeniorityEdge
+  extends Promise<SeniorityEdgeNode>,
+    Fragmentable {
+  node: <T = Seniority>() => T;
   cursor: () => Promise<String>;
 }
 
-export interface QuestionEdgeSubscription
-  extends Promise<AsyncIterator<QuestionEdgeNode>>,
+export interface SeniorityEdgeSubscription
+  extends Promise<AsyncIterator<SeniorityEdgeNode>>,
     Fragmentable {
-  node: <T = QuestionSubscription>() => T;
+  node: <T = SenioritySubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface JobNode {
-  id: ID_Output;
-  jobTitle: String;
-  company: String;
-  topics: String;
-  seniority: String;
-  location: String;
-  description: String;
-  contact: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface Job extends Promise<JobNode>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  jobTitle: () => Promise<String>;
-  company: () => Promise<String>;
-  topics: () => Promise<String>;
-  seniority: () => Promise<String>;
-  location: () => Promise<String>;
-  description: () => Promise<String>;
-  contact: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface JobSubscription
-  extends Promise<AsyncIterator<JobNode>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  jobTitle: () => Promise<AsyncIterator<String>>;
-  company: () => Promise<AsyncIterator<String>>;
-  topics: () => Promise<AsyncIterator<String>>;
-  seniority: () => Promise<AsyncIterator<String>>;
-  location: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  contact: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface QuestionNode {
@@ -1349,91 +1429,43 @@ export interface QuestionSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface QuestionSubscriptionPayloadNode {
-  mutation: MutationType;
-  updatedFields?: String[];
+export interface PageInfoNode {
+  hasNextPage: Boolean;
+  hasPreviousPage: Boolean;
+  startCursor?: String;
+  endCursor?: String;
 }
 
-export interface QuestionSubscriptionPayload
-  extends Promise<QuestionSubscriptionPayloadNode>,
+export interface PageInfo extends Promise<PageInfoNode>, Fragmentable {
+  hasNextPage: () => Promise<Boolean>;
+  hasPreviousPage: () => Promise<Boolean>;
+  startCursor: () => Promise<String>;
+  endCursor: () => Promise<String>;
+}
+
+export interface PageInfoSubscription
+  extends Promise<AsyncIterator<PageInfoNode>>,
     Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = Question>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = QuestionPreviousValues>() => T;
+  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
+  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
+  startCursor: () => Promise<AsyncIterator<String>>;
+  endCursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface QuestionSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<QuestionSubscriptionPayloadNode>>,
+export interface TopicEdgeNode {
+  cursor: String;
+}
+
+export interface TopicEdge extends Promise<TopicEdgeNode>, Fragmentable {
+  node: <T = Topic>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface TopicEdgeSubscription
+  extends Promise<AsyncIterator<TopicEdgeNode>>,
     Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = QuestionSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = QuestionPreviousValuesSubscription>() => T;
-}
-
-export interface AggregateSeniorityNode {
-  count: Int;
-}
-
-export interface AggregateSeniority
-  extends Promise<AggregateSeniorityNode>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateSenioritySubscription
-  extends Promise<AsyncIterator<AggregateSeniorityNode>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface UserSubscriptionPayloadNode {
-  mutation: MutationType;
-  updatedFields?: String[];
-}
-
-export interface UserSubscriptionPayload
-  extends Promise<UserSubscriptionPayloadNode>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = User>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = UserPreviousValues>() => T;
-}
-
-export interface UserSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<UserSubscriptionPayloadNode>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = UserSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = UserPreviousValuesSubscription>() => T;
-}
-
-export interface SeniorityPreviousValuesNode {
-  id: ID_Output;
-  name: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface SeniorityPreviousValues
-  extends Promise<SeniorityPreviousValuesNode>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface SeniorityPreviousValuesSubscription
-  extends Promise<AsyncIterator<SeniorityPreviousValuesNode>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  node: <T = TopicSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface SenioritySubscriptionPayloadNode {
@@ -1459,29 +1491,18 @@ export interface SenioritySubscriptionPayloadSubscription
   previousValues: <T = SeniorityPreviousValuesSubscription>() => T;
 }
 
-export interface TopicPreviousValuesNode {
-  id: ID_Output;
-  name: String;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
+export interface AggregateJobNode {
+  count: Int;
 }
 
-export interface TopicPreviousValues
-  extends Promise<TopicPreviousValuesNode>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
+export interface AggregateJob extends Promise<AggregateJobNode>, Fragmentable {
+  count: () => Promise<Int>;
 }
 
-export interface TopicPreviousValuesSubscription
-  extends Promise<AsyncIterator<TopicPreviousValuesNode>>,
+export interface AggregateJobSubscription
+  extends Promise<AsyncIterator<AggregateJobNode>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface QuestionPreviousValuesNode {
@@ -1524,20 +1545,82 @@ export interface QuestionPreviousValuesSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface AggregateQuestionNode {
-  count: Int;
+export interface QuestionSubscriptionPayloadNode {
+  mutation: MutationType;
+  updatedFields?: String[];
 }
 
-export interface AggregateQuestion
-  extends Promise<AggregateQuestionNode>,
+export interface QuestionSubscriptionPayload
+  extends Promise<QuestionSubscriptionPayloadNode>,
     Fragmentable {
-  count: () => Promise<Int>;
+  mutation: () => Promise<MutationType>;
+  node: <T = Question>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = QuestionPreviousValues>() => T;
 }
 
-export interface AggregateQuestionSubscription
-  extends Promise<AsyncIterator<AggregateQuestionNode>>,
+export interface QuestionSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<QuestionSubscriptionPayloadNode>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = QuestionSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = QuestionPreviousValuesSubscription>() => T;
+}
+
+export interface UserSubscriptionPayloadNode {
+  mutation: MutationType;
+  updatedFields?: String[];
+}
+
+export interface UserSubscriptionPayload
+  extends Promise<UserSubscriptionPayloadNode>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = User>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = UserPreviousValues>() => T;
+}
+
+export interface UserSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<UserSubscriptionPayloadNode>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = UserSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = UserPreviousValuesSubscription>() => T;
+}
+
+export interface UserNode {
+  id: ID_Output;
+  name: String;
+  email: String;
+  password: String;
+  resetToken?: String;
+  resetTokenExpiry?: Float;
+  permissions: Permission[];
+}
+
+export interface User extends Promise<UserNode>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  email: () => Promise<String>;
+  password: () => Promise<String>;
+  resetToken: () => Promise<String>;
+  resetTokenExpiry: () => Promise<Float>;
+  permissions: () => Promise<Permission[]>;
+}
+
+export interface UserSubscription
+  extends Promise<AsyncIterator<UserNode>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  email: () => Promise<AsyncIterator<String>>;
+  password: () => Promise<AsyncIterator<String>>;
+  resetToken: () => Promise<AsyncIterator<String>>;
+  resetTokenExpiry: () => Promise<AsyncIterator<Float>>;
+  permissions: () => Promise<AsyncIterator<Permission[]>>;
 }
 
 export interface SeniorityConnectionNode {}
@@ -1558,44 +1641,46 @@ export interface SeniorityConnectionSubscription
   aggregate: <T = AggregateSenioritySubscription>() => T;
 }
 
-export interface UserEdgeNode {
-  cursor: String;
+export interface AggregateSeniorityNode {
+  count: Int;
 }
 
-export interface UserEdge extends Promise<UserEdgeNode>, Fragmentable {
-  node: <T = User>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface UserEdgeSubscription
-  extends Promise<AsyncIterator<UserEdgeNode>>,
+export interface AggregateSeniority
+  extends Promise<AggregateSeniorityNode>,
     Fragmentable {
-  node: <T = UserSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  count: () => Promise<Int>;
 }
 
-export interface QuestionConnectionNode {}
-
-export interface QuestionConnection
-  extends Promise<QuestionConnectionNode>,
+export interface AggregateSenioritySubscription
+  extends Promise<AsyncIterator<AggregateSeniorityNode>>,
     Fragmentable {
-  pageInfo: <T = PageInfo>() => T;
-  edges: <T = Promise<Array<QuestionEdgeNode>>>() => T;
-  aggregate: <T = AggregateQuestion>() => T;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface QuestionConnectionSubscription
-  extends Promise<AsyncIterator<QuestionConnectionNode>>,
+export interface TopicPreviousValuesNode {
+  id: ID_Output;
+  name: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface TopicPreviousValues
+  extends Promise<TopicPreviousValuesNode>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<Array<QuestionEdgeSubscription>>>>() => T;
-  aggregate: <T = AggregateQuestionSubscription>() => T;
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
-/*
-The `Boolean` scalar type represents `true` or `false`.
-*/
-export type Boolean = boolean;
+export interface TopicPreviousValuesSubscription
+  extends Promise<AsyncIterator<TopicPreviousValuesNode>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
 
 /*
 The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
@@ -1603,12 +1688,17 @@ The `ID` scalar type represents a unique identifier, often used to refetch an ob
 export type ID_Input = string | number;
 export type ID_Output = string;
 
+/*
+The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
+*/
+export type String = string;
+
 export type Long = string;
 
 /*
-The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
+The `Boolean` scalar type represents `true` or `false`.
 */
-export type Int = number;
+export type Boolean = boolean;
 
 /*
 DateTime scalar input type, allowing Date
@@ -1621,9 +1711,14 @@ DateTime scalar output type, which is always a string
 export type DateTimeOutput = string;
 
 /*
-The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
+The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point). 
 */
-export type String = string;
+export type Float = number;
+
+/*
+The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
+*/
+export type Int = number;
 
 /**
  * Type Defs

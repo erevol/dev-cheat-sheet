@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import styled from '@emotion/styled';
@@ -31,7 +30,7 @@ const QuestionsList = styled.ol`
   counter-reset: li;
 `;
 
-class Questions extends Component {
+class Questions extends React.Component {
   render() {
     return (
       <StyledContainer>

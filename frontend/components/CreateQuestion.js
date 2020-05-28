@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import styled from '@emotion/styled';
 import { Button, Form, Grid, Header, Segment, Message } from 'semantic-ui-react';
 import topicsMock from '../mocks/__topics-mock.json';
 import senioritiesMock from '../mocks/__seniorities-mock.json';
-import ErrorMessage from './ErrorMessage';
 
 const CREATE_QUESTION_MUTATION = gql`
   mutation CREATE_QUESTION_MUTATION(
@@ -31,7 +29,7 @@ const StyledHeader = styled(Header)`
   color: ${props => props.theme.red} !important;
 `;
 
-class CreateQuestion extends Component {
+class CreateQuestion extends React.Component {
   state = {
     title: '',
     topic: '',
@@ -128,12 +126,11 @@ class CreateQuestion extends Component {
                   value={this.state.answer}
                   onChange={this.handleChange}
                 />
-                <Message
+                {error && <Message
                   error
                   header="Error"
-                  content="There was a problem creating the question."
-                />
-                <ErrorMessage error={error} />
+                  content={`There was a problem creating the question. ${error.message}`}
+                />}
                 <Message
                   success
                   header="Success"

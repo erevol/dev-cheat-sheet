@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
 import { Mutation, Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import styled from '@emotion/styled';
 import { Button, Form, Grid, Header, Segment, Message } from 'semantic-ui-react';
 import topicsMock from '../mocks/__topics-mock.json';
 import senioritiesMock from '../mocks/__seniorities-mock.json';
-import ErrorMessage from './ErrorMessage';
 
 const SINGLE_QUESTION_QUERY = gql`
   query SINGLE_QUESTION_QUERY($id: ID!) {
@@ -51,7 +49,7 @@ const StyledHeader = styled(Header)`
   color: ${props => props.theme.red} !important;
 `;
 
-class UpdateQuestion extends Component {
+class UpdateQuestion extends React.Component {
   state = {};
 
   handleChange = (e, data) => {
@@ -151,16 +149,15 @@ class UpdateQuestion extends Component {
                         defaultValue={data.question.answer}
                         onChange={this.handleChange}
                       />
-                      <Message
+                      {error && <Message
                         error
                         header="Error"
-                        content="There was a problem creating the question."
-                      />
-                      <ErrorMessage error={error} />
+                        content={`There was a problem updating the question. ${error.message}`}
+                      />}
                       <Message
                         success
                         header="Success"
-                        content="You created a new question."
+                        content="You updated a new question."
                       />
                       <Button color="red" fluid size="large">
                         Save changes

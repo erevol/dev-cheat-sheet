@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import Link from 'next/link';
 import gql from 'graphql-tag';
@@ -32,7 +31,7 @@ const SINGLE_QUESTION_QUERY = gql`
   }
 `;
 
-class SingleQuestion extends Component {
+class SingleQuestion extends React.Component {
   render() {
     return (
       <Query
@@ -43,7 +42,7 @@ class SingleQuestion extends Component {
           if(error) return <Message
                               error={error}
                               header="Error"
-                              content="There was an error fetching the question."
+                              content={`There was an error fetching the question. ${error.message}`}
                             />
           if(loading) return <Segment>
                             <Dimmer active inverted>

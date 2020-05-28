@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import styled from '@emotion/styled';
@@ -33,7 +32,7 @@ const StyledHeader = styled(Header)`
   color: ${props => props.theme.red} !important;
 `;
 
-class PostJob extends Component {
+class PostJob extends React.Component {
   state = {
     company: '',
     contact: '',
@@ -158,11 +157,11 @@ class PostJob extends Component {
                     onChange={this.handleChangeInput}
                   />
                 </Form.Field>
-                <Message
+                {error && <Message
                   error
                   header="Error"
-                  content="There was a problem posting the job."
-                />
+                  content={`There was a problem posting the job. ${error.message}`}
+                />}
                 <Message
                   success
                   header="Success"

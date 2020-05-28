@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
@@ -59,7 +58,7 @@ const StyledQuestionListItem = styled.li`
   }
 `;
 
-class Question extends Component {
+class Question extends React.Component {
   render() {
     const { question } = this.props;
 
