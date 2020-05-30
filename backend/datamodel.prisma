@@ -17,14 +17,31 @@ type User {
   permissions: [Permission] @scalarList(strategy: RELATION)
 }
 
+type Seniority {
+  id: ID! @id @unique
+  name: String! @unique
+  user: User!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Topic {
+  id: ID! @id @unique
+  name: String! @unique
+  user: User!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
 type Question {
   id: ID! @id @unique
   answer: String!
-  topic: String!
-  seniority: String!
+  topic: Topic!
+  seniority: Seniority!
   source: String!
   title: String! @unique
   votes: Int
+  user: User!
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
@@ -33,25 +50,14 @@ type Job {
   id: ID! @id @unique
   jobTitle: String!
   company: String!
-  topics: String!
-  seniority: String!
+  topics: [Topic]!
+  seniority: Seniority!
   location: String!
   description: String!
   contact: String!
+  user: User!
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
 
-type Seniority {
-  id: ID! @id @unique
-  name: String! @unique
-  createdAt: DateTime! @createdAt
-  updatedAt: DateTime! @updatedAt
-}
 
-type Topic {
-  id: ID! @id @unique
-  name: String! @unique
-  createdAt: DateTime! @createdAt
-  updatedAt: DateTime! @updatedAt
-}

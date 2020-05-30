@@ -74,7 +74,7 @@ class Question extends React.Component {
             <StyledQuestion>{question.title}</StyledQuestion>
           </Link>
         </StyledItem>
-        <Button color="green">{question.seniority}</Button>
+        <Button color="green">{question.seniority.name}</Button>
         <Button position="right" color="red"><Link
             href={{
               pathname: '/update-question',

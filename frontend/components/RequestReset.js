@@ -5,12 +5,10 @@ import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui
 import Link from 'next/link';
 import { CURRENT_USER_QUERY } from './User';
 
-const SIGNIN_MUTATION = gql`
-  mutation SIGNIN_MUTATION($email: String!, $password: String!) {
-    signin(email: $email, password: $password) {
-      id
-      email
-      name
+const REQUEST_RESET_MUTATION = gql`
+  mutation REQUEST_RESET_MUTATION($email: String!) {
+    requestReset(email: $email) {
+      message
     }
   }
 `;
@@ -19,10 +17,8 @@ const StyledHeader = styled(Header)`
   color: ${props => props.theme.red} !important;
 `;
 
-class SignIn extends React.Component {
+class RequestReset extends React.Component {
   state = {
-    name: '',
-    password: '',
     email: '',
   };
 
@@ -35,26 +31,21 @@ class SignIn extends React.Component {
       <Grid textAlign="center" style={{ height: "50vh" }} verticalAlign="middle">
         <Grid.Column style={{ maxWidth: 450 }}>
           <StyledHeader as="h1" textAlign="center">
-            <Image src="static/favicon.png" /> Log-in to your account
+            <Image src="static/favicon.png" /> Request reset password
           </StyledHeader>
           <Mutation
-            mutation={SIGNIN_MUTATION}
+            mutation={REQUEST_RESET_MUTATION}
             variables={this.state}
-            refetchQueries={[{ query: CURRENT_USER_QUERY }]}
           >
-            {(signin, { error, loading, called }) => (
+            {(requestReset, { error, loading, called, data }) => (
               <Form size="large"
                 error={error}
                 loading={loading}
                 success={!error && !loading && called}
                 onSubmit={async e => {
                   e.preventDefault();
-                  await signin();
-                  this.setState({
-                    name: '',
-                    email: '',
-                    password: '',
-                  });
+                  await requestReset();
+                  this.setState({ email: '' });
                 }}
               >
                 <Segment stacked>
@@ -67,29 +58,18 @@ class SignIn extends React.Component {
                     value={this.state.email}
                     onChange={this.handleChange}
                     />
-                  <Form.Input
-                    id="password"
-                    fluid
-                    icon="lock"
-                    iconPosition="left"
-                    placeholder="Password"
-                    type="password"
-                    name="password"
-                    value={this.state.password}
-                    onChange={this.handleChange}
-                    />
                   {error && <Message
                     error
                     header="Error"
-                    content={`There was a problem when trying to sign you in. ${error.message}`}
+                    content={`There was a problem when trying to generate the reset link. ${error.message}`}
                   />}
                   <Message
                     success
                     header="Success"
-                    content="You successfully signed in."
+                    content="Success! Check your email for a reset link!"
                   />
                   <Button color="red" fluid size="large">
-                    Sign In
+                    Request Reset
                   </Button>
                 </Segment>
               </Form>
@@ -100,10 +80,6 @@ class SignIn extends React.Component {
             <Link href="/signup">
               <a>Sign Up</a>
             </Link>
-            &nbsp;|&nbsp;
-            <Link href="/request-reset">
-              <a>Forgot password?</a>
-            </Link>
           </Message>
         </Grid.Column>
       </Grid>
@@ -111,4 +87,4 @@ class SignIn extends React.Component {
   }
 }
 
-export default SignIn;
+export default RequestReset;

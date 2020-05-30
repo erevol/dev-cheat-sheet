@@ -40,7 +40,7 @@ class PostJob extends React.Component {
     jobTitle: '',
     location: '',
     seniority: '',
-    topics: '',
+    topics: [],
   };
 
   handleChange = (e, data) => {
@@ -51,7 +51,11 @@ class PostJob extends React.Component {
   handleChangeInput = (e) => {
     const { name, type, value } = e.target;
     const val = type === 'number' ? parseFloat(value) : value;
-    this.setState({ [name]: val });
+    if (name === 'topics' && val.includes(',')) {
+      this.setState({ [name]: val.split(',') });
+    } else {
+      this.setState({ [name]: val });
+    }
   };
 
   render() {
@@ -78,12 +82,12 @@ class PostJob extends React.Component {
                     jobTitle: '',
                     location: '',
                     seniority: '',
-                    topics: '',
+                    topics: [],
                   });
                 }}
                 error={error}
                 loading={loading}
-                success={called && data}
+                success={!error && !loading && called}
               >
                 <Segment stacked>
                 <Form.Field>

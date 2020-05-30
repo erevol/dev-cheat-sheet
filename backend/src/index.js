@@ -9,6 +9,15 @@ const server = createServer();
 
 server.express.use(cookieParser());
 
+server.express.use((req, res, next) => {
+  const { _dev_cheat_sheet_token_ } = req.cookies;
+  if (_dev_cheat_sheet_token_) {
+    const { userId } = jwt.verify(_dev_cheat_sheet_token_, process.env.APP_SECRET);
+    req.userId = userId;
+  }
+  next();
+});
+
 server.start(
   {
     cors: {

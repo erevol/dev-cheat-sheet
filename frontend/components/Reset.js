@@ -1,13 +1,14 @@
 import { Mutation } from 'react-apollo';
+import PropTypes from 'prop-types';
 import gql from 'graphql-tag';
 import styled from '@emotion/styled';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
 import Link from 'next/link';
 import { CURRENT_USER_QUERY } from './User';
 
-const SIGNIN_MUTATION = gql`
-  mutation SIGNIN_MUTATION($email: String!, $password: String!) {
-    signin(email: $email, password: $password) {
+const RESET_MUTATION = gql`
+  mutation RESET_MUTATION($resetToken: String!, $password: String!, $confirmPassword: String!) {
+    resetPassword(resetToken: $resetToken, password: $password, confirmPassword: $confirmPassword) {
       id
       email
       name
@@ -19,11 +20,10 @@ const StyledHeader = styled(Header)`
   color: ${props => props.theme.red} !important;
 `;
 
-class SignIn extends React.Component {
+class Reset extends React.Component {
   state = {
-    name: '',
     password: '',
-    email: '',
+    confirmPassword: '',
   };
 
   handleChange = e => {
@@ -35,39 +35,30 @@ class SignIn extends React.Component {
       <Grid textAlign="center" style={{ height: "50vh" }} verticalAlign="middle">
         <Grid.Column style={{ maxWidth: 450 }}>
           <StyledHeader as="h1" textAlign="center">
-            <Image src="static/favicon.png" /> Log-in to your account
+            <Image src="static/favicon.png" /> Reset Your Password
           </StyledHeader>
           <Mutation
-            mutation={SIGNIN_MUTATION}
-            variables={this.state}
+            mutation={RESET_MUTATION}
+            variables={{
+              resetToken: this.props.resetToken,
+              password: this.state.password,
+              confirmPassword: this.state.confirmPassword,
+            }}
             refetchQueries={[{ query: CURRENT_USER_QUERY }]}
           >
-            {(signin, { error, loading, called }) => (
+            {(reset, { error, loading, called, data }) => (
               <Form size="large"
                 error={error}
                 loading={loading}
                 success={!error && !loading && called}
                 onSubmit={async e => {
                   e.preventDefault();
-                  await signin();
-                  this.setState({
-                    name: '',
-                    email: '',
-                    password: '',
-                  });
+                  await reset();
+                  this.setState({ password: '', confirmPassword: '' });
                 }}
               >
                 <Segment stacked>
-                  <Form.Input
-                    id="email"
-                    fluid icon="at"
-                    iconPosition="left"
-                    placeholder="E-mail address"
-                    name="email"
-                    value={this.state.email}
-                    onChange={this.handleChange}
-                    />
-                  <Form.Input
+                <Form.Input
                     id="password"
                     fluid
                     icon="lock"
@@ -78,18 +69,29 @@ class SignIn extends React.Component {
                     value={this.state.password}
                     onChange={this.handleChange}
                     />
+                  <Form.Input
+                    id="confirmPassword"
+                    fluid
+                    icon="lock"
+                    iconPosition="left"
+                    placeholder="Confirm Password"
+                    type="password"
+                    name="confirmPassword"
+                    value={this.state.confirmPassword}
+                    onChange={this.handleChange}
+                    />
                   {error && <Message
                     error
                     header="Error"
-                    content={`There was a problem when trying to sign you in. ${error.message}`}
+                    content={`There was a problem when trying to reset the password. ${error.message}`}
                   />}
                   <Message
                     success
                     header="Success"
-                    content="You successfully signed in."
+                    content="Success! Your password has been reset!"
                   />
                   <Button color="red" fluid size="large">
-                    Sign In
+                    Reset Password
                   </Button>
                 </Segment>
               </Form>
@@ -100,10 +102,6 @@ class SignIn extends React.Component {
             <Link href="/signup">
               <a>Sign Up</a>
             </Link>
-            &nbsp;|&nbsp;
-            <Link href="/request-reset">
-              <a>Forgot password?</a>
-            </Link>
           </Message>
         </Grid.Column>
       </Grid>
@@ -111,4 +109,8 @@ class SignIn extends React.Component {
   }
 }
 
-export default SignIn;
+Reset.propTypes = {
+  resetToken: PropTypes.string.isRequired,
+};
+
+export default Reset;

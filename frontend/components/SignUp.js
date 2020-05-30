@@ -44,7 +44,7 @@ class SignUp extends React.Component {
               <Form size="large"
                 error={error}
                 loading={loading}
-                success={called && data}
+                success={!error && !loading && called}
                 onSubmit={async e => {
                   e.preventDefault();
                   await signup();
@@ -106,6 +106,10 @@ class SignUp extends React.Component {
             Already have an account?&nbsp;
             <Link href="/signin">
               <a>Sign In</a>
+            </Link>
+            &nbsp;|&nbsp;
+            <Link href="/request-reset">
+              <a>Forgot password?</a>
             </Link>
           </Message>
         </Grid.Column>

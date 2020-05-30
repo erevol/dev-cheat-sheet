@@ -76,7 +76,7 @@ class CreateQuestion extends React.Component {
                 }}
                 error={error}
                 loading={loading}
-                success={called && data}
+                success={!error && !loading && called}
               >
                 <Segment stacked>
                 <Form.Field>

@@ -29,11 +29,12 @@ type Job {
   id: ID!
   jobTitle: String!
   company: String!
-  topics: String!
-  seniority: String!
+  topics(where: TopicWhereInput, orderBy: TopicOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Topic!]
+  seniority: Seniority!
   location: String!
   description: String!
   contact: String!
+  user: User!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -47,11 +48,12 @@ type JobConnection {
 input JobCreateInput {
   jobTitle: String!
   company: String!
-  topics: String!
-  seniority: String!
+  topics: TopicCreateManyInput
+  seniority: SeniorityCreateOneInput!
   location: String!
   description: String!
   contact: String!
+  user: UserCreateOneInput!
 }
 
 type JobEdge {
@@ -66,10 +68,6 @@ enum JobOrderByInput {
   jobTitle_DESC
   company_ASC
   company_DESC
-  topics_ASC
-  topics_DESC
-  seniority_ASC
-  seniority_DESC
   location_ASC
   location_DESC
   description_ASC
@@ -86,8 +84,6 @@ type JobPreviousValues {
   id: ID!
   jobTitle: String!
   company: String!
-  topics: String!
-  seniority: String!
   location: String!
   description: String!
   contact: String!
@@ -116,11 +112,12 @@ input JobSubscriptionWhereInput {
 input JobUpdateInput {
   jobTitle: String
   company: String
-  topics: String
-  seniority: String
+  topics: TopicUpdateManyInput
+  seniority: SeniorityUpdateOneRequiredInput
   location: String
   description: String
   contact: String
+  user: UserUpdateOneRequiredInput
 }
 
 input JobWhereInput {
@@ -166,34 +163,10 @@ input JobWhereInput {
   company_not_starts_with: String
   company_ends_with: String
   company_not_ends_with: String
-  topics: String
-  topics_not: String
-  topics_in: [String!]
-  topics_not_in: [String!]
-  topics_lt: String
-  topics_lte: String
-  topics_gt: String
-  topics_gte: String
-  topics_contains: String
-  topics_not_contains: String
-  topics_starts_with: String
-  topics_not_starts_with: String
-  topics_ends_with: String
-  topics_not_ends_with: String
-  seniority: String
-  seniority_not: String
-  seniority_in: [String!]
-  seniority_not_in: [String!]
-  seniority_lt: String
-  seniority_lte: String
-  seniority_gt: String
-  seniority_gte: String
-  seniority_contains: String
-  seniority_not_contains: String
-  seniority_starts_with: String
-  seniority_not_starts_with: String
-  seniority_ends_with: String
-  seniority_not_ends_with: String
+  topics_every: TopicWhereInput
+  topics_some: TopicWhereInput
+  topics_none: TopicWhereInput
+  seniority: SeniorityWhereInput
   location: String
   location_not: String
   location_in: [String!]
@@ -236,6 +209,7 @@ input JobWhereInput {
   contact_not_starts_with: String
   contact_ends_with: String
   contact_not_ends_with: String
+  user: UserWhereInput
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -344,11 +318,12 @@ type Query {
 type Question {
   id: ID!
   answer: String!
-  topic: String!
-  seniority: String!
+  topic: Topic!
+  seniority: Seniority!
   source: String!
   title: String!
   votes: Int
+  user: User!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -361,11 +336,12 @@ type QuestionConnection {
 
 input QuestionCreateInput {
   answer: String!
-  topic: String!
-  seniority: String!
+  topic: TopicCreateOneInput!
+  seniority: SeniorityCreateOneInput!
   source: String!
   title: String!
   votes: Int
+  user: UserCreateOneInput!
 }
 
 type QuestionEdge {
@@ -378,10 +354,6 @@ enum QuestionOrderByInput {
   id_DESC
   answer_ASC
   answer_DESC
-  topic_ASC
-  topic_DESC
-  seniority_ASC
-  seniority_DESC
   source_ASC
   source_DESC
   title_ASC
@@ -397,8 +369,6 @@ enum QuestionOrderByInput {
 type QuestionPreviousValues {
   id: ID!
   answer: String!
-  topic: String!
-  seniority: String!
   source: String!
   title: String!
   votes: Int
@@ -426,11 +396,12 @@ input QuestionSubscriptionWhereInput {
 
 input QuestionUpdateInput {
   answer: String
-  topic: String
-  seniority: String
+  topic: TopicUpdateOneRequiredInput
+  seniority: SeniorityUpdateOneRequiredInput
   source: String
   title: String
   votes: Int
+  user: UserUpdateOneRequiredInput
 }
 
 input QuestionWhereInput {
@@ -462,34 +433,8 @@ input QuestionWhereInput {
   answer_not_starts_with: String
   answer_ends_with: String
   answer_not_ends_with: String
-  topic: String
-  topic_not: String
-  topic_in: [String!]
-  topic_not_in: [String!]
-  topic_lt: String
-  topic_lte: String
-  topic_gt: String
-  topic_gte: String
-  topic_contains: String
-  topic_not_contains: String
-  topic_starts_with: String
-  topic_not_starts_with: String
-  topic_ends_with: String
-  topic_not_ends_with: String
-  seniority: String
-  seniority_not: String
-  seniority_in: [String!]
-  seniority_not_in: [String!]
-  seniority_lt: String
-  seniority_lte: String
-  seniority_gt: String
-  seniority_gte: String
-  seniority_contains: String
-  seniority_not_contains: String
-  seniority_starts_with: String
-  seniority_not_starts_with: String
-  seniority_ends_with: String
-  seniority_not_ends_with: String
+  topic: TopicWhereInput
+  seniority: SeniorityWhereInput
   source: String
   source_not: String
   source_in: [String!]
@@ -526,6 +471,7 @@ input QuestionWhereInput {
   votes_lte: Int
   votes_gt: Int
   votes_gte: Int
+  user: UserWhereInput
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -555,6 +501,7 @@ input QuestionWhereUniqueInput {
 type Seniority {
   id: ID!
   name: String!
+  user: User!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -567,6 +514,12 @@ type SeniorityConnection {
 
 input SeniorityCreateInput {
   name: String!
+  user: UserCreateOneInput!
+}
+
+input SeniorityCreateOneInput {
+  create: SeniorityCreateInput
+  connect: SeniorityWhereUniqueInput
 }
 
 type SeniorityEdge {
@@ -610,8 +563,26 @@ input SenioritySubscriptionWhereInput {
   NOT: [SenioritySubscriptionWhereInput!]
 }
 
+input SeniorityUpdateDataInput {
+  name: String
+  user: UserUpdateOneRequiredInput
+}
+
 input SeniorityUpdateInput {
   name: String
+  user: UserUpdateOneRequiredInput
+}
+
+input SeniorityUpdateOneRequiredInput {
+  create: SeniorityCreateInput
+  update: SeniorityUpdateDataInput
+  upsert: SeniorityUpsertNestedInput
+  connect: SeniorityWhereUniqueInput
+}
+
+input SeniorityUpsertNestedInput {
+  update: SeniorityUpdateDataInput!
+  create: SeniorityCreateInput!
 }
 
 input SeniorityWhereInput {
@@ -643,6 +614,7 @@ input SeniorityWhereInput {
   name_not_starts_with: String
   name_ends_with: String
   name_not_ends_with: String
+  user: UserWhereInput
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -680,6 +652,7 @@ type Subscription {
 type Topic {
   id: ID!
   name: String!
+  user: User!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -692,6 +665,17 @@ type TopicConnection {
 
 input TopicCreateInput {
   name: String!
+  user: UserCreateOneInput!
+}
+
+input TopicCreateManyInput {
+  create: [TopicCreateInput!]
+  connect: [TopicWhereUniqueInput!]
+}
+
+input TopicCreateOneInput {
+  create: TopicCreateInput
+  connect: TopicWhereUniqueInput
 }
 
 type TopicEdge {
@@ -735,8 +719,46 @@ input TopicSubscriptionWhereInput {
   NOT: [TopicSubscriptionWhereInput!]
 }
 
+input TopicUpdateDataInput {
+  name: String
+  user: UserUpdateOneRequiredInput
+}
+
 input TopicUpdateInput {
   name: String
+  user: UserUpdateOneRequiredInput
+}
+
+input TopicUpdateManyInput {
+  create: [TopicCreateInput!]
+  delete: [TopicWhereUniqueInput!]
+  connect: [TopicWhereUniqueInput!]
+  disconnect: [TopicWhereUniqueInput!]
+  update: [TopicUpdateWithWhereUniqueNestedInput!]
+  upsert: [TopicUpsertWithWhereUniqueNestedInput!]
+}
+
+input TopicUpdateOneRequiredInput {
+  create: TopicCreateInput
+  update: TopicUpdateDataInput
+  upsert: TopicUpsertNestedInput
+  connect: TopicWhereUniqueInput
+}
+
+input TopicUpdateWithWhereUniqueNestedInput {
+  where: TopicWhereUniqueInput!
+  data: TopicUpdateDataInput!
+}
+
+input TopicUpsertNestedInput {
+  update: TopicUpdateDataInput!
+  create: TopicCreateInput!
+}
+
+input TopicUpsertWithWhereUniqueNestedInput {
+  where: TopicWhereUniqueInput!
+  update: TopicUpdateDataInput!
+  create: TopicCreateInput!
 }
 
 input TopicWhereInput {
@@ -768,6 +790,7 @@ input TopicWhereInput {
   name_not_starts_with: String
   name_ends_with: String
   name_not_ends_with: String
+  user: UserWhereInput
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -817,6 +840,11 @@ input UserCreateInput {
   resetToken: String
   resetTokenExpiry: Float
   permissions: UserCreatepermissionsInput
+}
+
+input UserCreateOneInput {
+  create: UserCreateInput
+  connect: UserWhereUniqueInput
 }
 
 input UserCreatepermissionsInput {
@@ -875,6 +903,15 @@ input UserSubscriptionWhereInput {
   NOT: [UserSubscriptionWhereInput!]
 }
 
+input UserUpdateDataInput {
+  name: String
+  email: String
+  password: String
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: UserUpdatepermissionsInput
+}
+
 input UserUpdateInput {
   name: String
   email: String
@@ -884,8 +921,20 @@ input UserUpdateInput {
   permissions: UserUpdatepermissionsInput
 }
 
+input UserUpdateOneRequiredInput {
+  create: UserCreateInput
+  update: UserUpdateDataInput
+  upsert: UserUpsertNestedInput
+  connect: UserWhereUniqueInput
+}
+
 input UserUpdatepermissionsInput {
   set: [Permission!]
+}
+
+input UserUpsertNestedInput {
+  update: UserUpdateDataInput!
+  create: UserCreateInput!
 }
 
 input UserWhereInput {

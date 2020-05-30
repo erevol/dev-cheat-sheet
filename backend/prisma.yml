@@ -5,6 +5,10 @@ endpoint: ${env:PRISMA_ENDPOINT}
 # Defines your models, each model is mapped to the database as a table.
 datamodel: datamodel.prisma
 
+# Seed your service with initial data based on `seed.graphql`.
+seed:
+  import: ./src/database/seed.graphql
+
 # Generate a Prisma client in JavaScript and store in
 # a folder called `src/generated/prisma`
 # Specifies the language and directory for the generated Prisma client.
@@ -18,9 +22,3 @@ generate:
 hooks:
   post-deploy:
     - prisma generate
-
-# Points to a `.graphql` file containing GraphQL
-# operations that will be executed when initially
-# deploying a service.
-# seed:
-#   import: src/database/seed.graphql

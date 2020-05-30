@@ -19,6 +19,18 @@ const injectGlobal = css`
     font-style: normal;
   }
   @font-face {
+    font-family: 'JostSemiBold';
+    src: url('/static/Jost-SemiBold.ttf');
+    font-weight: 600;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'JostBold';
+    src: url('/static/Jost-Bold.ttf');
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
     font-family: 'Open Sans';
     src: url('/static/OpenSans-Regular.ttf');
     font-weight: normal;
