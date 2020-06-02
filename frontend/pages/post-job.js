@@ -1,9 +1,12 @@
 import React from 'react';
 import PostJob from '../components/PostJob';
+import PrivateRoute from '../components/PrivateRoute';
 
 const PostJobPage = () => {
   return (
-    <PostJob />
+    <PrivateRoute>
+      <PostJob />
+    </PrivateRoute>
   );
 };
 

@@ -21,7 +21,6 @@ const StyledHeader = styled(Header)`
 
 class SignIn extends React.Component {
   state = {
-    name: '',
     password: '',
     email: '',
   };
@@ -51,7 +50,6 @@ class SignIn extends React.Component {
                   e.preventDefault();
                   await signin();
                   this.setState({
-                    name: '',
                     email: '',
                     password: '',
                   });
