@@ -1,6 +1,7 @@
 import Header from './Header';
 import Meta from './Meta';
 import styled from '@emotion/styled';
+import Footer from './Footer';
 
 const StyledPage = styled.div`
   color: ${props => props.theme.black};
@@ -21,6 +22,7 @@ class Page extends React.Component {
         <Inner>
           {this.props.children}
         </Inner>
+        <Footer />
       </StyledPage>
     );
   };

@@ -47,6 +47,7 @@
     "react-dom": "^16.5.2",
     "react-stripe-checkout": "^2.6.3",
     "react-transition-group": "^2.5.0",
+    "read-more-react": "1.0.10",
     "semantic-ui-css": "2.4.1",
     "semantic-ui-react": "0.88.2",
     "waait": "^1.0.2",

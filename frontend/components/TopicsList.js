@@ -10,17 +10,7 @@ import {
   Container,
 } from 'semantic-ui-react';
 import paragraph from '../static/paragraph.png';
-
-const StyledContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 10px;
-
-  @media (min-width: 769px) {
-    margin: 50px;
-  }
-`;
+import { ContainerSegment } from './JobsList';
 
 const StyledItem = styled.div`
   margin: 5px;
@@ -64,38 +54,49 @@ class TopicsList extends React.Component {
     return (
       <TopicsQuery>
         {({ data, error, loading }) => {
-          if(error) return <Message
-                              error={error}
-                              header="Error"
-                              content={`There was an error fetching the topics. ${error.message}`}
-                            />
-          if(loading) return  <Segment>
-                                <Dimmer active inverted>
-                                  <Loader size='medium'>Loading</Loader>
-                                </Dimmer>
-                                <Image src={paragraph} />
-                              </Segment>
-          if(!data.topics || data.topics.length <= 0) return <Message
-                                    error
-                                    header="Error"
-                                    content="No topics returned."
-                                  />
+          if(error) {
+            return (
+              <ContainerSegment>
+                <Message
+                  error
+                  header="Error ❗️"
+                  content={`There was an error fetching the topics. ${error.message}`}
+                />
+              </ContainerSegment>
+            )
+          }
+          if(loading) {
+            return (
+              <ContainerSegment>
+                <Dimmer active inverted>
+                  <Loader size='medium'>Loading</Loader>
+                </Dimmer>
+                <Image src={paragraph} />
+              </ContainerSegment>
+            )
+          }
+          if(!data.topics || data.topics.length <= 0) {
+            return (
+              <ContainerSegment>
+                <Message
+                  header="Nothing to see here 😬"
+                  content="There are no questions yet! Stay alert the most common developer's interview questions!"
+                />
+              </ContainerSegment>
+            )
+          }
           return (
-            <Container>
-              <Segment raised placeholder>
-                <StyledContainer>
-                  { data.topics.map(topic => <StyledItem key={topic.id}>
-                    <Link
-                      href={{
-                        pathname: '/topic',
-                        query: { id: topic.id },
-                      }}
-                    ><a>{topic.name}</a></Link>
-                    </StyledItem>
-                  )}
-                </StyledContainer>
-              </Segment>
-            </Container>
+            <ContainerSegment>
+              { data.topics.map(topic => <StyledItem key={topic.id}>
+                <Link
+                  href={{
+                    pathname: '/topic',
+                    query: { id: topic.id },
+                  }}
+                ><a>{topic.name}</a></Link>
+                </StyledItem>
+              )}
+            </ContainerSegment>
           )
         }}
       </TopicsQuery>

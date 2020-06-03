@@ -11,13 +11,24 @@ import {
   Grid,
 } from 'semantic-ui-react';
 import paragraph from '../static/paragraph.png';
+import crown from '../static/crown.svg';
 
 const StyledHeader = styled.div`
   padding: 26px;
 
+  > img {
+    transform: rotate(15deg);
+    margin-top: -25px;
+    margin-right: 35px;
+  }
+
   > h1.ui.header {
     font-size: 3rem;
     transform: skew(-10deg);
+
+    &:before {
+      height: 0;
+    }
   }
   > h2.ui.header {
     font-size: 2rem;
@@ -84,6 +95,11 @@ class Hero extends React.Component {
                       <StyledSegment>
                         <Segment inverted color="red">
                           <StyledHeader>
+                            <Image
+                              centered
+                              size='small'
+                              src={crown}
+                            />
                             <Header as="h1" inverted>
                               <span>{data.questions.length}</span>
                               Questions & Answers

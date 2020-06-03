@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styled from '@emotion/styled';
 import Router from 'next/router';
 import NProgress from 'nprogress';
-import logo from '../static/logo.svg';
+import logo from '../static/crown.svg';
 import { Image } from 'semantic-ui-react';
 
 Router.onRouteChangeStart = () => {

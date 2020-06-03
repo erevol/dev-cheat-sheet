@@ -1,20 +1,9 @@
-import Hero from '../components/Hero';
-import TopicsList from '../components/TopicsList';
-import {
-  Grid,
-} from 'semantic-ui-react';
+import Home from '../components/Home';
 
-const Home = () => {
+const HomePage = () => {
   return (
-    <Grid columns={2} stackable textAlign="center">
-      <Grid.Row verticalAlign="middle">
-        <Hero />
-      </Grid.Row>
-      <Grid.Row verticalAlign="middle">
-        <TopicsList />
-      </Grid.Row>
-    </Grid>
+    <Home />
   );
 };
 
-export default Home;
+export default HomePage;
