@@ -11,8 +11,8 @@ const ALL_JOBS_QUERY = gql`
       location
       description
       contact
-      topics { name }
-      seniority { name }
+      topics { id name }
+      seniority { id name }
     }
   }
 `;

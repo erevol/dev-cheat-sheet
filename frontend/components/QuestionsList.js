@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import Question from './Question';
-import QuestionsQuery from './QuestionsQuery';
+import QuestionsByTopicQuery from './QuestionsByTopicQuery';
 import {
   Dimmer,
   Image,
@@ -26,7 +26,7 @@ const QuestionsOrderedList = styled.ol`
 class QuestionsList extends React.Component {
   render() {
     return (
-      <QuestionsQuery>
+      <QuestionsByTopicQuery id={this.props.id}>
         {({ data, error, loading }) => {
           if(error) return <Message
                               error={error}
@@ -40,13 +40,12 @@ class QuestionsList extends React.Component {
                                 <Image src={paragraph} />
                               </Segment>
           if(!data.questions || data.questions.length <= 0) return <Message
-                                    error
-                                    header="Error"
-                                    content="No questions returned."
+                                    header="Nothing to see here 😬"
+                                    content="There are no questions yet! In the mean while, check another topic questions and the latest answers from top interview questions. Success you interview!"
                                   />
           return (
             <>
-              <StyledHeading>Questions</StyledHeading>
+              <StyledHeading>{data.questions[0].topic.name} Questions</StyledHeading>
                 <QuestionsOrderedList>
                   { data.questions.map(question => <Question
                     question={question}
@@ -56,7 +55,7 @@ class QuestionsList extends React.Component {
             </>
           )
         }}
-      </QuestionsQuery>
+      </QuestionsByTopicQuery>
     );
   }
 }

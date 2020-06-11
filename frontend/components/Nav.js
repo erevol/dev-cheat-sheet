@@ -36,7 +36,7 @@ const StyledNav = styled.div`
     position: relative;
     text-transform: uppercase;
     font-weight: 900;
-    font-size: 1em;
+    font-size: 1.1rem;
     background: none;
     border: 0;
     cursor: pointer;
@@ -88,7 +88,9 @@ const StyledNav = styled.div`
 
 const StyledMobileNav = styled.div`
   margin: 10px;
+  font-size: 1.1rem;
   @media (min-width: 769px) {
+    font-size: 1.4rem;
     display: none;
   }
 `;
@@ -105,6 +107,9 @@ const Nav = () => {
             <Link href="/about-us">
               <a>About Us</a>
             </Link>
+            {me && <Link href="/create-question">
+              <a>Add Question</a>
+            </Link>}
             {me && <Link href="/post-job">
               <a>Post a Job</a>
             </Link>}
@@ -121,6 +126,12 @@ const Nav = () => {
             <Link href="/about-us">
               <Icon name="question circle" size="huge" />
             </Link>
+            {me && <Link href="/create-question">
+              <Icon.Group size="huge">
+                <Icon name="question circle outline" />
+                <Icon corner name="add" color="grey" />
+              </Icon.Group>
+            </Link>}
             {me && <Link href="/post-job">
               <Icon.Group size="huge">
                 <Icon name="briefcase" />

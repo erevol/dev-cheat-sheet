@@ -7,9 +7,20 @@ const { hasPermission } = require('../utils');
 
 const mutations = {
   async createQuestion(parent, args, ctx, info) {
+    if (!ctx.request.userId) {
+      throw new Error('Please sign in to create a question.');
+    }
+
     const question = await ctx.db.mutation.createQuestion({
       data: {
-        ...args
+        ...args,
+        topic: { connect: { name: args.topic }},
+        seniority: { connect: { name: args.seniority }},
+        user: {
+          connect: {
+            id: ctx.request.userId,
+          },
+        },
       }
     }, info);
 
@@ -18,9 +29,14 @@ const mutations = {
   async updateQuestion(parent, args, ctx, info) {
     const data = { ...args };
     delete data.id;
+    console.log('args--->',args);
     return ctx.db.mutation.updateQuestion(
       {
-        data,
+        data: {
+          ...data,
+          topic: args.topic ? { connect: { name: args.topic }} : {},
+          seniority: args.seniority ? { connect: { name: args.seniority }} : {},
+        },
         where: {
           id: args.id,
         },
@@ -29,9 +45,25 @@ const mutations = {
     );
   },
   async createJob(parent, args, ctx, info) {
+    console.log('createJob args--->', args);
+    const data = { ...args };
+    const topics = data.topics;
+    let formattedTopics = [];
+
+    if (topics.length > 0) {
+      formattedTopics = topics.map(topic => ({name: topic}));
+    }
+
     const job = await ctx.db.mutation.createJob({
       data: {
-        ...args
+        ...data,
+        topics: formattedTopics ? { connect: formattedTopics } : {},
+        seniority: { connect: { name: args.seniority }},
+        user: {
+          connect: {
+            id: ctx.request.userId,
+          },
+        },
       }
     }, info);
 
@@ -110,7 +142,7 @@ const mutations = {
     const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET);
     ctx.response.cookie('_dev_cheat_sheet_token_', token, {
       httpOnly: true,
-      maxAge: 1000 * 60 * 10, // 10 min cookie
+      maxAge: 1000 * 60 * 60, // 60 min cookie
     });
 
     return user;
@@ -127,7 +159,7 @@ const mutations = {
     const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET);
     ctx.response.cookie('_dev_cheat_sheet_token_', token, {
       httpOnly: true,
-      maxAge: 1000 * 60 * 10, // 10 min cookie
+      maxAge: 1000 * 60 * 60, // 60 min cookie
     });
 
     return user;
@@ -143,7 +175,7 @@ const mutations = {
     }
     const randomBytesPromiseified = promisify(randomBytes);
     const resetToken = (await randomBytesPromiseified(20)).toString('hex');
-    const resetTokenExpiry = Date.now() + (1000 * 60 * 10); //10 min from now
+    const resetTokenExpiry = Date.now() + (1000 * 60 * 60); //10 min from now
     const res = await ctx.db.mutation.updateUser({
       where: { email: args.email },
       data: { resetToken, resetTokenExpiry },
@@ -167,7 +199,7 @@ const mutations = {
     const [user] = await ctx.db.query.users({
       where: {
         resetToken: args.resetToken,
-        resetTokenExpiry_gte: Date.now() - (1000 * 60 * 10),
+        resetTokenExpiry_gte: Date.now() - (1000 * 60 * 60),
       },
     });
     if (!user) {
@@ -185,7 +217,7 @@ const mutations = {
     const token = jwt.sign({ userId: updatedUser.id }, process.env.APP_SECRET);
     ctx.response.cookie('_dev_cheat_sheet_token_', token, {
       httpOnly: true,
-      maxAge: 1000 * 60 * 10, // 10 min cookie
+      maxAge: 1000 * 60 * 60, // 60 min cookie
     });
 
     return updatedUser;

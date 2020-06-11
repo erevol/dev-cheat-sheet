@@ -1,31 +1,29 @@
 import { Mutation, Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import styled from '@emotion/styled';
-import { Button, Form, Grid, Header, Segment, Message } from 'semantic-ui-react';
-import topicsMock from '../mocks/__topics-mock.json';
-import senioritiesMock from '../mocks/__seniorities-mock.json';
-
-const SINGLE_QUESTION_QUERY = gql`
-  query SINGLE_QUESTION_QUERY($id: ID!) {
-    question(where: { id: $id }) {
-      id
-      title
-      topic
-      seniority
-      source
-      answer
-    }
-  }
-`;
+import {
+  Button,
+  Form,
+  Container,
+  Header,
+  Segment,
+  Message,
+  Dimmer,
+  Loader,
+  Image,
+} from 'semantic-ui-react';
+import paragraph from '../static/paragraph.png';
+import { StyledFormContainer } from './PostJob';
+import UpdateQuestionQuery from './UpdateQuestionQuery';
 
 const UPDATE_QUESTION_MUTATION = gql`
   mutation UPDATE_QUESTION_MUTATION(
     $id: ID!
-    $title: String!
-    $topic: String!
-    $seniority: String!
-    $source: String!
-    $answer: String!
+    $title: String
+    $topic: String
+    $seniority: String
+    $source: String
+    $answer: String
   ) {
     updateQuestion(
       id: $id
@@ -37,8 +35,8 @@ const UPDATE_QUESTION_MUTATION = gql`
     ) {
       id
       title
-      topic
-      seniority
+      topic { id name }
+      seniority { id name }
       source
       answer
     }
@@ -50,7 +48,7 @@ const StyledHeader = styled(Header)`
 `;
 
 class UpdateQuestion extends React.Component {
-  state = {};
+  state = {}
 
   handleChange = (e, data) => {
     const { id, value } = data;
@@ -78,28 +76,54 @@ class UpdateQuestion extends React.Component {
 
   render() {
     return (
-      <Grid textAlign="center" style={{ height: "50vh" }} verticalAlign="middle">
-        <Grid.Column textAlign="left" style={{ maxWidth: 450 }}>
+      <StyledFormContainer>
+        <Container position="center">
           <StyledHeader as="h1" textAlign="center">
             Update Question
           </StyledHeader>
-          <Query
-            query={SINGLE_QUESTION_QUERY}
-            variables={{ id: this.props.id }}
-          >
-            {({ data, loading }) => {
-              if (loading) return <p>Loading...</p>;
-              if (!data.question) return <p>No Question Found for ID {this.props.id}</p>;
+          <UpdateQuestionQuery id={this.props.id}>
+            {({ data, loading, error }) => {
+              if(error) {
+                return (
+                  <Message
+                    error
+                    header="Error ❗️"
+                    content={`There was an error fetching the question. ${error.message}`}
+                  />
+                )
+              }
+              if(loading) {
+                return (
+                  <>
+                    <Dimmer active inverted>
+                      <Loader size='medium'>Loading</Loader>
+                    </Dimmer>
+                    <Image src={paragraph} />
+                    <Image src={paragraph} />
+                    <Image src={paragraph} />
+                  </>
+                )
+              }
+              if(!data.question || !data.topics || !data.seniorities) {
+                return (
+                  <Message
+                    error
+                    header="Error ❗️"
+                    content={`No Question Found for ID ${this.props.id}`}
+                  />
+                )
+              }
               return (
                 <Mutation
                   mutation={UPDATE_QUESTION_MUTATION}
                   variables={this.state}
                 >
-                  {(updateQuestion, { loading, error }) => (
+                  {(updateQuestion, { loading, error, called }) => (
                     <Form size="large"
                       onSubmit={e => this.onSubmitForm(e, updateQuestion)}
                       error={error}
                       loading={loading}
+                      success={!error && !loading && called}
                     >
                       <Segment stacked>
                       <Form.Field>
@@ -117,18 +141,19 @@ class UpdateQuestion extends React.Component {
                         id="topic"
                         fluid
                         label="Topic"
-                        options={topicsMock}
+                        options={data.topics}
                         placeholder="Topic"
-                        defaultValue={data.question.topic}
+                        defaultValue={data.question.topic.name}
                         onChange={this.handleChange}
-                      />
+                      >
+                      </Form.Select>
                       <Form.Select
                         id="seniority"
                         fluid
                         label="Seniority"
-                        options={senioritiesMock}
+                        options={data.seniorities}
                         placeholder="Seniority"
-                        defaultValue={data.question.seniority}
+                        defaultValue={data.question.seniority.name}
                         onChange={this.handleChange}
                       />
                       <Form.Field>
@@ -159,7 +184,7 @@ class UpdateQuestion extends React.Component {
                         header="Success"
                         content="You updated a new question."
                       />
-                      <Button color="red" fluid size="large">
+                      <Button color="red" fluid size="big">
                         Save changes
                       </Button>
                       </Segment>
@@ -168,9 +193,9 @@ class UpdateQuestion extends React.Component {
                 </Mutation>
               );
             }}
-          </Query>
-        </Grid.Column>
-      </Grid>
+        </UpdateQuestionQuery>
+        </Container>
+      </StyledFormContainer>
     );
   }
 }

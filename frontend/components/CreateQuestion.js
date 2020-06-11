@@ -1,9 +1,20 @@
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import styled from '@emotion/styled';
-import { Button, Form, Grid, Header, Segment, Message } from 'semantic-ui-react';
-import topicsMock from '../mocks/__topics-mock.json';
-import senioritiesMock from '../mocks/__seniorities-mock.json';
+import {
+  Button,
+  Form,
+  Container,
+  Header,
+  Segment,
+  Message,
+  Dimmer,
+  Loader,
+  Image,
+} from 'semantic-ui-react';
+import { StyledFormContainer } from './PostJob';
+import paragraph from '../static/paragraph.png';
+import CreateQuestionQuery from './CreateQuestionQuery';
 
 const CREATE_QUESTION_MUTATION = gql`
   mutation CREATE_QUESTION_MUTATION(
@@ -21,6 +32,11 @@ const CREATE_QUESTION_MUTATION = gql`
       answer: $answer
     ) {
       id
+      title
+      topic { id name }
+      seniority { id name }
+      source
+      answer
     }
   }
 `;
@@ -51,100 +67,135 @@ class CreateQuestion extends React.Component {
 
   render() {
     return (
-      <Grid textAlign="center" style={{ height: "50vh" }} verticalAlign="middle">
-        <Grid.Column textAlign="left" style={{ maxWidth: 450 }}>
+      <StyledFormContainer>
+        <Container position="center">
           <StyledHeader as="h1" textAlign="center">
             Create a Question
           </StyledHeader>
-          <Mutation
-            mutation={CREATE_QUESTION_MUTATION}
-            variables={this.state}
-          >
-            {(createQuestion, { loading, error, called, data }) => (
-              <Form size="large"
-                onSubmit={async e => {
-                  e.preventDefault();
-                  const response = await createQuestion();
-                  console.log(response.data.createQuestion.id);
-                  this.setState({
-                    title: '',
-                    topic: '',
-                    seniority: '',
-                    source: '',
-                    answer: '',
-                  });
-                }}
-                error={error}
-                loading={loading}
-                success={!error && !loading && called}
-              >
-                <Segment stacked>
-                <Form.Field>
-                  <label>Title</label>
-                  <input
-                    id="title"
-                    placeholder="Title"
-                    type="text"
-                    name="title"
-                    value={this.state.title}
-                    onChange={this.handleChangeInput}
+          <CreateQuestionQuery>
+            {({ data, loading, error }) => {
+              if(error) {
+                return (
+                  <Message
+                    error
+                    header="Error ❗️"
+                    content={`There was an error fetching the topics or seniorities. ${error.message}`}
                   />
-                </Form.Field>
-                <Form.Select
-                  id="topic"
-                  fluid
-                  label="Topic"
-                  options={topicsMock}
-                  placeholder="Topic"
-                  value={this.state.topic}
-                  onChange={this.handleChange}
-                />
-                <Form.Select
-                  id="seniority"
-                  fluid
-                  label="Seniority"
-                  options={senioritiesMock}
-                  placeholder="Seniority"
-                  value={this.state.seniority}
-                  onChange={this.handleChange}
-                />
-                <Form.Field>
-                  <label>Source</label>
-                  <input
-                    id="source"
-                    placeholder="Source"
-                    type="text"
-                    name="source"
-                    value={this.state.source}
-                    onChange={this.handleChangeInput}
+                )
+              }
+              if(loading) {
+                return (
+                  <>
+                    <Dimmer active inverted>
+                      <Loader size='medium'>Loading</Loader>
+                    </Dimmer>
+                    <Image src={paragraph} />
+                    <Image src={paragraph} />
+                    <Image src={paragraph} />
+                  </>
+                )
+              }
+              if(!data.topics || !data.seniorities) {
+                return (
+                  <Message
+                    error
+                    header="Error ❗️"
+                    content="There are no topics or seniorities. Contact the administrator."
                   />
-                </Form.Field>
-                <Form.TextArea
-                  id="answer"
-                  label="Answer"
-                  placeholder="Write down the answer here..."
-                  value={this.state.answer}
-                  onChange={this.handleChange}
-                />
-                {error && <Message
-                  error
-                  header="Error"
-                  content={`There was a problem creating the question. ${error.message}`}
-                />}
-                <Message
-                  success
-                  header="Success"
-                  content="You created a new question."
-                />
-                <Button color="red" fluid size="large">
-                  Submit
-                </Button>
-                </Segment>
-              </Form>
-            )}
-          </Mutation>
-        </Grid.Column>
-      </Grid>
+                )
+              }
+              return (
+                <Mutation
+                  mutation={CREATE_QUESTION_MUTATION}
+                  variables={this.state}
+                >
+                  {(createQuestion, { loading, error, called }) => (
+                    <Form size="large"
+                      onSubmit={async e => {
+                        e.preventDefault();
+                        const response = await createQuestion();
+                        this.setState({
+                          title: '',
+                          topic: '',
+                          seniority: '',
+                          source: '',
+                          answer: '',
+                        });
+                      }}
+                      error={error}
+                      loading={loading}
+                      success={!error && !loading && called}
+                    >
+                      <Segment stacked>
+                      <Form.Field>
+                        <label>Title</label>
+                        <input
+                          id="title"
+                          placeholder="Title"
+                          type="text"
+                          name="title"
+                          value={this.state.title}
+                          onChange={this.handleChangeInput}
+                        />
+                      </Form.Field>
+                      <Form.Select
+                        id="topic"
+                        fluid
+                        label="Topic"
+                        options={data.topics}
+                        placeholder="Topic"
+                        value={this.state.topic}
+                        onChange={this.handleChange}
+                      />
+                      <Form.Select
+                        id="seniority"
+                        fluid
+                        label="Seniority"
+                        options={data.seniorities}
+                        placeholder="Seniority"
+                        value={this.state.seniority}
+                        onChange={this.handleChange}
+                      />
+                      <Form.Field>
+                        <label>Source</label>
+                        <input
+                          id="source"
+                          placeholder="Source"
+                          type="text"
+                          name="source"
+                          value={this.state.source}
+                          onChange={this.handleChangeInput}
+                        />
+                      </Form.Field>
+                      <Form.TextArea
+                        id="answer"
+                        label="Answer"
+                        placeholder="Write down the answer here..."
+                        value={this.state.answer}
+                        onChange={this.handleChange}
+                      />
+                      {error && <Message
+                        error
+                        header="Error"
+                        content={`There was a problem creating the question. ${error.message}`}
+                      />}
+                      <Message
+                        success
+                        header="Success"
+                        content="You created a new question."
+                      />
+                      <Button color="red" fluid size="big">
+                        Submit
+                      </Button>
+                      </Segment>
+                    </Form>
+                  )}
+                </Mutation>
+                );
+              }}
+          </CreateQuestionQuery>
+        </Container>
+      </StyledFormContainer>
     );
   }
 }

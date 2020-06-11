@@ -10,7 +10,7 @@ const StyledItem = styled.div`
   cursor: pointer;
   justify-self: flex-start;
   margin-right: auto;
-
+  padding: 0 20px;
 
   &:hover {
     a {
@@ -18,11 +18,8 @@ const StyledItem = styled.div`
     }
     background-color: ${props => props.theme.grey1};
     border-radius: 10px;
+    padding: 0 20px;
   }
-`;
-
-const StyledQuestion = styled.a`
-  padding-left: 10px;
 `;
 
 const StyledQuestionListItem = styled.li`
@@ -31,6 +28,10 @@ const StyledQuestionListItem = styled.li`
   position: relative;
   min-height: 85px;
   border-bottom: 1px solid ${props => props.theme.offWhite};
+
+  &:last-child {
+    border-bottom: none;
+  }
 
   @media (min-width: 769px) {
     display: flex;
@@ -71,7 +72,7 @@ class Question extends React.Component {
               query: { id: question.id },
             }}
           >
-            <StyledQuestion>{question.title}</StyledQuestion>
+            <a>{question.title}</a>
           </Link>
         </StyledItem>
         <Button color="green">{question.seniority.name}</Button>

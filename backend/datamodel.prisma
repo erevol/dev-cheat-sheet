@@ -21,6 +21,7 @@ type Seniority {
   id: ID! @id @unique
   name: String! @unique
   user: User!
+  questions: [Question]!
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
@@ -29,6 +30,7 @@ type Topic {
   id: ID! @id @unique
   name: String! @unique
   user: User!
+  questions: [Question]!
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }

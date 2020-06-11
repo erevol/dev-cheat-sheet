@@ -1,14 +1,36 @@
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import styled from '@emotion/styled';
-import { Button, Form, Grid, Header, Segment, Message } from 'semantic-ui-react';
-import senioritiesMock from '../mocks/__seniorities-mock.json';
+import {
+  Button,
+  Form,
+  Container,
+  Header,
+  Segment,
+  Message,
+  Dimmer,
+  Loader,
+  Image,
+} from 'semantic-ui-react';
+import paragraph from '../static/paragraph.png';
+import PostJobQuery from './PostJobQuery';
+import { ALL_JOBS_QUERY } from './JobsQuery';
+
+const StyledFormContainer = styled.div`
+  max-width: 400px;
+  display: inline-block;
+  width: 100%;
+
+  form div.ui.segment {
+    font-size: 1.3rem;
+  }
+`;
 
 const CREATE_JOB_MUTATION = gql`
   mutation CREATE_JOB_MUTATION(
     $jobTitle: String!
     $company: String!
-    $topics: String!
+    $topics: [String]
     $seniority: String!
     $location: String!
     $description: String!
@@ -60,130 +82,167 @@ class PostJob extends React.Component {
 
   render() {
     return (
-      <Grid textAlign="center" style={{ height: "50vh" }} verticalAlign="middle">
-        <Grid.Column textAlign="left" style={{ maxWidth: 450 }}>
+      <StyledFormContainer>
+        <Container position="center">
           <StyledHeader as="h1" textAlign="center">
             Post a Job
           </StyledHeader>
-          <Mutation
-            mutation={CREATE_JOB_MUTATION}
-            variables={this.state}
-          >
-            {(createJob, { loading, error, called, data }) => (
-              <Form size="large"
-                onSubmit={async e => {
-                  e.preventDefault();
-                  const response = await createJob();
-                  console.log(response.data.createJob.id);
-                  this.setState({
-                    company: '',
-                    contact: '',
-                    description: '',
-                    jobTitle: '',
-                    location: '',
-                    seniority: '',
-                    topics: [],
-                  });
-                }}
-                error={error}
-                loading={loading}
-                success={!error && !loading && called}
-              >
-                <Segment stacked>
-                <Form.Field>
-                  <label>Job Title</label>
-                  <input
-                    id="jobTitle"
-                    placeholder="Job Title"
-                    type="text"
-                    name="jobTitle"
-                    value={this.state.jobTitle}
-                    onChange={this.handleChangeInput}
+          <PostJobQuery>
+            {({ data, loading, error }) => {
+              if(error) {
+                return (
+                  <Message
+                    error
+                    header="Error ❗️"
+                    content={`There was an error fetching the question. ${error.message}`}
                   />
-                </Form.Field>
-                <Form.Field>
-                  <label>Company</label>
-                  <input
-                    id="company"
-                    placeholder="Company"
-                    type="text"
-                    name="company"
-                    value={this.state.company}
-                    onChange={this.handleChangeInput}
+                )
+              }
+              if(loading) {
+                return (
+                  <>
+                    <Dimmer active inverted>
+                      <Loader size='medium'>Loading</Loader>
+                    </Dimmer>
+                    <Image src={paragraph} />
+                    <Image src={paragraph} />
+                    <Image src={paragraph} />
+                  </>
+                )
+              }
+              if(!data.topics || !data.seniorities) {
+                return (
+                  <Message
+                    error
+                    header="Error ❗️"
+                    content={`No Question Found for ID ${this.props.id}`}
                   />
-                </Form.Field>
-                <Form.Field>
-                  <label>Topics</label>
-                  <input
-                    id="topics"
-                    placeholder="Topics separeted by comma"
-                    type="text"
-                    name="topics"
-                    value={this.state.topics}
-                    onChange={this.handleChangeInput}
-                  />
-                </Form.Field>
-                <Form.Select
-                  id="seniority"
-                  fluid
-                  label="Seniority"
-                  options={senioritiesMock}
-                  placeholder="Seniority"
-                  value={this.state.seniority}
-                  onChange={this.handleChange}
-                />
-                <Form.Field>
-                  <label>Location</label>
-                  <input
-                    id="location"
-                    placeholder="Location"
-                    type="text"
-                    name="location"
-                    value={this.state.location}
-                    onChange={this.handleChangeInput}
-                  />
-                </Form.Field>
-                <Form.TextArea
-                  id="description"
-                  label="description"
-                  placeholder="Job description..."
-                  value={this.state.description}
-                  onChange={this.handleChange}
-                />
-                <Form.Field>
-                  <label>Contact</label>
-                  <input
-                    id="contact"
-                    placeholder="Contact"
-                    type="text"
-                    name="contact"
-                    value={this.state.contact}
-                    onChange={this.handleChangeInput}
-                  />
-                </Form.Field>
-                {error && <Message
-                  error
-                  header="Error"
-                  content={`There was a problem posting the job. ${error.message}`}
-                />}
-                <Message
-                  success
-                  header="Success"
-                  content="You posted a new job."
-                />
-                <Button color="red" fluid size="large">
-                  Submit
-                </Button>
-                </Segment>
-              </Form>
-            )}
-          </Mutation>
-        </Grid.Column>
-      </Grid>
+                )
+              }
+              return (
+                <Mutation
+                  mutation={CREATE_JOB_MUTATION}
+                  variables={this.state}
+                  refetchQueries={[{ query: ALL_JOBS_QUERY }]}
+                >
+                  {(createJob, { loading, error, called }) => (
+                    <Form size="mini"
+                      onSubmit={async e => {
+                        e.preventDefault();
+                        const response = await createJob();
+                        this.setState({
+                          company: '',
+                          contact: '',
+                          description: '',
+                          jobTitle: '',
+                          location: '',
+                          seniority: '',
+                          topics: [],
+                        });
+                      }}
+                      error={error}
+                      loading={loading}
+                      success={!error && !loading && called}
+                    >
+                      <Segment>
+                      <Form.Field>
+                        <label>Job Title</label>
+                        <input
+                          id="jobTitle"
+                          placeholder="Job Title"
+                          type="text"
+                          name="jobTitle"
+                          value={this.state.jobTitle}
+                          onChange={this.handleChangeInput}
+                        />
+                      </Form.Field>
+                      <Form.Field>
+                        <label>Company</label>
+                        <input
+                          id="company"
+                          placeholder="Company"
+                          type="text"
+                          name="company"
+                          value={this.state.company}
+                          onChange={this.handleChangeInput}
+                        />
+                      </Form.Field>
+                      <Form.Select
+                        id="topics"
+                        fluid
+                        multiple
+                        search
+                        selection
+                        label="Topics"
+                        options={data.topics}
+                        placeholder="Topics"
+                        value={this.state.topics}
+                        onChange={this.handleChange}
+                      />
+                      <Form.Select
+                        id="seniority"
+                        fluid
+                        label="Seniority"
+                        options={data.seniorities}
+                        placeholder="Seniority"
+                        value={this.state.seniority}
+                        onChange={this.handleChange}
+                      />
+                      <Form.Field>
+                        <label>Location</label>
+                        <input
+                          id="location"
+                          placeholder="Location"
+                          type="text"
+                          name="location"
+                          value={this.state.location}
+                          onChange={this.handleChangeInput}
+                        />
+                      </Form.Field>
+                      <Form.TextArea
+                        id="description"
+                        label="description"
+                        placeholder="Job description..."
+                        value={this.state.description}
+                        onChange={this.handleChange}
+                      />
+                      <Form.Field>
+                        <label>Contact</label>
+                        <input
+                          id="contact"
+                          placeholder="Contact"
+                          type="text"
+                          name="contact"
+                          value={this.state.contact}
+                          onChange={this.handleChangeInput}
+                        />
+                      </Form.Field>
+                      {error && <Message
+                        error
+                        header="Error"
+                        content={`There was a problem posting the job. ${error.message}`}
+                      />}
+                      <Message
+                        success
+                        header="Success"
+                        content="You posted a new job."
+                      />
+                      <Button color="red" fluid size="big">
+                        Submit
+                      </Button>
+                      </Segment>
+                    </Form>
+                  )}
+                </Mutation>
+              );
+            }}
+          </PostJobQuery>
+        </Container>
+      </StyledFormContainer>
     );
   }
 }
 
 
 export default PostJob;
-export { CREATE_JOB_MUTATION };
+export { CREATE_JOB_MUTATION, StyledFormContainer };

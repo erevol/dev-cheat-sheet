@@ -19,7 +19,8 @@ const StyledHeader = styled.div`
   > img {
     transform: rotate(15deg);
     margin-top: -25px;
-    margin-right: 35px;
+    margin-right: 35px !important;
+    margin-bottom: -65px;
   }
 
   > h1.ui.header {

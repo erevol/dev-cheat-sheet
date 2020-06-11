@@ -4,9 +4,9 @@ type SuccessMessage {
 }
 
 type Mutation {
-  createQuestion(title: String, topic: String, seniority: String, source: String, answer: String) : Question!
+  createQuestion(title: String!, topic: String!, seniority: String!, source: String!, answer: String!) : Question!
   updateQuestion(id: ID!, title: String, topic: String, seniority: String, source: String, answer: String) : Question!
-  createJob(jobTitle: String!, company: String!, topics: String!, seniority: String!, location: String!, description: String!, contact: String!) : Job!
+  createJob(jobTitle: String!, company: String!, topics: [String], seniority: String!, location: String!, description: String!, contact: String!) : Job!
   updateJob(id: ID!, jobTitle: String, company: String, topics: String, seniority: String, location: String, description: String, contact: String) : Job!
   createSeniority(name: String!) : Seniority!
   updateSeniority(id: ID!, name: String) : Seniority!
@@ -22,7 +22,8 @@ type Mutation {
 
 type Query {
   question(where: QuestionWhereUniqueInput!): Question
-  questions: [Question]!
+  # questions: [Question]!
+  questions(where: QuestionWhereInput): [Question]!
   job(where: JobWhereUniqueInput!): Job
   jobs: [Job]!
   seniority(where: SeniorityWhereUniqueInput!): Seniority

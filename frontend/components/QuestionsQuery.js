@@ -7,7 +7,7 @@ const ALL_QUESTIONS_QUERY = gql`
     questions {
       id
       title
-      seniority { name }
+      seniority { id name }
     }
   }
 `;

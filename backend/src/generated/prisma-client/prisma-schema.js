@@ -336,8 +336,36 @@ type QuestionConnection {
 
 input QuestionCreateInput {
   answer: String!
-  topic: TopicCreateOneInput!
-  seniority: SeniorityCreateOneInput!
+  topic: TopicCreateOneWithoutQuestionsInput!
+  seniority: SeniorityCreateOneWithoutQuestionsInput!
+  source: String!
+  title: String!
+  votes: Int
+  user: UserCreateOneInput!
+}
+
+input QuestionCreateManyWithoutSeniorityInput {
+  create: [QuestionCreateWithoutSeniorityInput!]
+  connect: [QuestionWhereUniqueInput!]
+}
+
+input QuestionCreateManyWithoutTopicInput {
+  create: [QuestionCreateWithoutTopicInput!]
+  connect: [QuestionWhereUniqueInput!]
+}
+
+input QuestionCreateWithoutSeniorityInput {
+  answer: String!
+  topic: TopicCreateOneWithoutQuestionsInput!
+  source: String!
+  title: String!
+  votes: Int
+  user: UserCreateOneInput!
+}
+
+input QuestionCreateWithoutTopicInput {
+  answer: String!
+  seniority: SeniorityCreateOneWithoutQuestionsInput!
   source: String!
   title: String!
   votes: Int
@@ -396,12 +424,70 @@ input QuestionSubscriptionWhereInput {
 
 input QuestionUpdateInput {
   answer: String
-  topic: TopicUpdateOneRequiredInput
-  seniority: SeniorityUpdateOneRequiredInput
+  topic: TopicUpdateOneRequiredWithoutQuestionsInput
+  seniority: SeniorityUpdateOneRequiredWithoutQuestionsInput
   source: String
   title: String
   votes: Int
   user: UserUpdateOneRequiredInput
+}
+
+input QuestionUpdateManyWithoutSeniorityInput {
+  create: [QuestionCreateWithoutSeniorityInput!]
+  delete: [QuestionWhereUniqueInput!]
+  connect: [QuestionWhereUniqueInput!]
+  disconnect: [QuestionWhereUniqueInput!]
+  update: [QuestionUpdateWithWhereUniqueWithoutSeniorityInput!]
+  upsert: [QuestionUpsertWithWhereUniqueWithoutSeniorityInput!]
+}
+
+input QuestionUpdateManyWithoutTopicInput {
+  create: [QuestionCreateWithoutTopicInput!]
+  delete: [QuestionWhereUniqueInput!]
+  connect: [QuestionWhereUniqueInput!]
+  disconnect: [QuestionWhereUniqueInput!]
+  update: [QuestionUpdateWithWhereUniqueWithoutTopicInput!]
+  upsert: [QuestionUpsertWithWhereUniqueWithoutTopicInput!]
+}
+
+input QuestionUpdateWithoutSeniorityDataInput {
+  answer: String
+  topic: TopicUpdateOneRequiredWithoutQuestionsInput
+  source: String
+  title: String
+  votes: Int
+  user: UserUpdateOneRequiredInput
+}
+
+input QuestionUpdateWithoutTopicDataInput {
+  answer: String
+  seniority: SeniorityUpdateOneRequiredWithoutQuestionsInput
+  source: String
+  title: String
+  votes: Int
+  user: UserUpdateOneRequiredInput
+}
+
+input QuestionUpdateWithWhereUniqueWithoutSeniorityInput {
+  where: QuestionWhereUniqueInput!
+  data: QuestionUpdateWithoutSeniorityDataInput!
+}
+
+input QuestionUpdateWithWhereUniqueWithoutTopicInput {
+  where: QuestionWhereUniqueInput!
+  data: QuestionUpdateWithoutTopicDataInput!
+}
+
+input QuestionUpsertWithWhereUniqueWithoutSeniorityInput {
+  where: QuestionWhereUniqueInput!
+  update: QuestionUpdateWithoutSeniorityDataInput!
+  create: QuestionCreateWithoutSeniorityInput!
+}
+
+input QuestionUpsertWithWhereUniqueWithoutTopicInput {
+  where: QuestionWhereUniqueInput!
+  update: QuestionUpdateWithoutTopicDataInput!
+  create: QuestionCreateWithoutTopicInput!
 }
 
 input QuestionWhereInput {
@@ -502,6 +588,7 @@ type Seniority {
   id: ID!
   name: String!
   user: User!
+  questions(where: QuestionWhereInput, orderBy: QuestionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Question!]
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -515,11 +602,22 @@ type SeniorityConnection {
 input SeniorityCreateInput {
   name: String!
   user: UserCreateOneInput!
+  questions: QuestionCreateManyWithoutSeniorityInput
 }
 
 input SeniorityCreateOneInput {
   create: SeniorityCreateInput
   connect: SeniorityWhereUniqueInput
+}
+
+input SeniorityCreateOneWithoutQuestionsInput {
+  create: SeniorityCreateWithoutQuestionsInput
+  connect: SeniorityWhereUniqueInput
+}
+
+input SeniorityCreateWithoutQuestionsInput {
+  name: String!
+  user: UserCreateOneInput!
 }
 
 type SeniorityEdge {
@@ -566,11 +664,13 @@ input SenioritySubscriptionWhereInput {
 input SeniorityUpdateDataInput {
   name: String
   user: UserUpdateOneRequiredInput
+  questions: QuestionUpdateManyWithoutSeniorityInput
 }
 
 input SeniorityUpdateInput {
   name: String
   user: UserUpdateOneRequiredInput
+  questions: QuestionUpdateManyWithoutSeniorityInput
 }
 
 input SeniorityUpdateOneRequiredInput {
@@ -580,9 +680,26 @@ input SeniorityUpdateOneRequiredInput {
   connect: SeniorityWhereUniqueInput
 }
 
+input SeniorityUpdateOneRequiredWithoutQuestionsInput {
+  create: SeniorityCreateWithoutQuestionsInput
+  update: SeniorityUpdateWithoutQuestionsDataInput
+  upsert: SeniorityUpsertWithoutQuestionsInput
+  connect: SeniorityWhereUniqueInput
+}
+
+input SeniorityUpdateWithoutQuestionsDataInput {
+  name: String
+  user: UserUpdateOneRequiredInput
+}
+
 input SeniorityUpsertNestedInput {
   update: SeniorityUpdateDataInput!
   create: SeniorityCreateInput!
+}
+
+input SeniorityUpsertWithoutQuestionsInput {
+  update: SeniorityUpdateWithoutQuestionsDataInput!
+  create: SeniorityCreateWithoutQuestionsInput!
 }
 
 input SeniorityWhereInput {
@@ -615,6 +732,9 @@ input SeniorityWhereInput {
   name_ends_with: String
   name_not_ends_with: String
   user: UserWhereInput
+  questions_every: QuestionWhereInput
+  questions_some: QuestionWhereInput
+  questions_none: QuestionWhereInput
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -653,6 +773,7 @@ type Topic {
   id: ID!
   name: String!
   user: User!
+  questions(where: QuestionWhereInput, orderBy: QuestionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Question!]
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -666,6 +787,7 @@ type TopicConnection {
 input TopicCreateInput {
   name: String!
   user: UserCreateOneInput!
+  questions: QuestionCreateManyWithoutTopicInput
 }
 
 input TopicCreateManyInput {
@@ -673,9 +795,14 @@ input TopicCreateManyInput {
   connect: [TopicWhereUniqueInput!]
 }
 
-input TopicCreateOneInput {
-  create: TopicCreateInput
+input TopicCreateOneWithoutQuestionsInput {
+  create: TopicCreateWithoutQuestionsInput
   connect: TopicWhereUniqueInput
+}
+
+input TopicCreateWithoutQuestionsInput {
+  name: String!
+  user: UserCreateOneInput!
 }
 
 type TopicEdge {
@@ -722,11 +849,13 @@ input TopicSubscriptionWhereInput {
 input TopicUpdateDataInput {
   name: String
   user: UserUpdateOneRequiredInput
+  questions: QuestionUpdateManyWithoutTopicInput
 }
 
 input TopicUpdateInput {
   name: String
   user: UserUpdateOneRequiredInput
+  questions: QuestionUpdateManyWithoutTopicInput
 }
 
 input TopicUpdateManyInput {
@@ -738,11 +867,16 @@ input TopicUpdateManyInput {
   upsert: [TopicUpsertWithWhereUniqueNestedInput!]
 }
 
-input TopicUpdateOneRequiredInput {
-  create: TopicCreateInput
-  update: TopicUpdateDataInput
-  upsert: TopicUpsertNestedInput
+input TopicUpdateOneRequiredWithoutQuestionsInput {
+  create: TopicCreateWithoutQuestionsInput
+  update: TopicUpdateWithoutQuestionsDataInput
+  upsert: TopicUpsertWithoutQuestionsInput
   connect: TopicWhereUniqueInput
+}
+
+input TopicUpdateWithoutQuestionsDataInput {
+  name: String
+  user: UserUpdateOneRequiredInput
 }
 
 input TopicUpdateWithWhereUniqueNestedInput {
@@ -750,9 +884,9 @@ input TopicUpdateWithWhereUniqueNestedInput {
   data: TopicUpdateDataInput!
 }
 
-input TopicUpsertNestedInput {
-  update: TopicUpdateDataInput!
-  create: TopicCreateInput!
+input TopicUpsertWithoutQuestionsInput {
+  update: TopicUpdateWithoutQuestionsDataInput!
+  create: TopicCreateWithoutQuestionsInput!
 }
 
 input TopicUpsertWithWhereUniqueNestedInput {
@@ -791,6 +925,9 @@ input TopicWhereInput {
   name_ends_with: String
   name_not_ends_with: String
   user: UserWhereInput
+  questions_every: QuestionWhereInput
+  questions_some: QuestionWhereInput
+  questions_none: QuestionWhereInput
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]

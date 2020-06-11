@@ -22,7 +22,8 @@ const StyledContainer = styled.div`
   margin: 10px;
 
   @media (min-width: 769px) {
-    margin: 50px;
+    padding: 50px;
+    max-width: 980px;
   }
 
   > div.ui.message {
@@ -124,8 +125,8 @@ class JobsList extends React.Component {
               <Card.Group>
                 <Grid columns={3} stackable stretched>
                   { data.jobs.map(job =>
-                    <Grid.Column>
-                      <Card key={job.id}>
+                    <Grid.Column key={job.id}>
+                      <Card>
                         <Card.Content>
                           <Image
                             floated='right'
@@ -172,4 +173,5 @@ class JobsList extends React.Component {
 export default JobsList;
 export {
   ContainerSegment,
+  StyledContainer,
 }

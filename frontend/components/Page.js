@@ -2,6 +2,11 @@ import Header from './Header';
 import Meta from './Meta';
 import styled from '@emotion/styled';
 import Footer from './Footer';
+import TopicsList from './TopicsList';
+import JobsList from './JobsList';
+import {
+  Grid,
+} from 'semantic-ui-react';
 
 const StyledPage = styled.div`
   color: ${props => props.theme.black};
@@ -20,7 +25,17 @@ class Page extends React.Component {
         <Meta />
         <Header />
         <Inner>
-          {this.props.children}
+          <Grid stackable textAlign="center">
+            <Grid.Row verticalAlign="middle">
+              {this.props.children}
+            </Grid.Row>
+            <Grid.Row verticalAlign="middle">
+              <TopicsList />
+            </Grid.Row>
+            <Grid.Row verticalAlign="middle">
+              <JobsList />
+            </Grid.Row>
+          </Grid>
         </Inner>
         <Footer />
       </StyledPage>

@@ -16,7 +16,7 @@ import {
   Segment,
 } from 'semantic-ui-react';
 import paragraph from '../static/paragraph.png';
-import { StyledContainer } from './Questions';
+import { StyledContainer } from './JobsList';
 
 const SINGLE_QUESTION_QUERY = gql`
   query SINGLE_QUESTION_QUERY($id: ID!) {
@@ -24,9 +24,10 @@ const SINGLE_QUESTION_QUERY = gql`
       id
       title
       answer
-      seniority
-      topic
+      seniority { id name }
+      topic { id name }
       votes
+      source
     }
   }
 `;
@@ -72,23 +73,24 @@ class SingleQuestion extends React.Component {
               <Divider />
               <p>{answer}</p>
               <Grid.Row>
-                <Button size='mini'>{seniority}</Button>
-                <Button size='mini'>{topic}</Button>
+                <Button size='mini'>{seniority.name}</Button>
+                <Button size='mini'>{topic.name}</Button>
               </Grid.Row>
               <Divider />
               <Header as="h3">Learn more about <Link
                   href={{
-                    pathname: '/questions',
+                    pathname: '/topic',
+                    query: { id: topic.id },
                   }}
                 >
-                  <a>{topic}</a>
+                  <a>{topic.name}</a>
                 </Link></Header>
               <Header as="h3">See more <Link
                   href={{
-                    pathname: '/questions',
+                    pathname: '/',
                   }}
                 >
-                  <a>{seniority}</a>
+                  <a>{seniority.name}</a>
                 </Link> questions</Header>
             </Container>
 
