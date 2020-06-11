@@ -29,7 +29,6 @@ const mutations = {
   async updateQuestion(parent, args, ctx, info) {
     const data = { ...args };
     delete data.id;
-    console.log('args--->',args);
     return ctx.db.mutation.updateQuestion(
       {
         data: {
@@ -45,7 +44,6 @@ const mutations = {
     );
   },
   async createJob(parent, args, ctx, info) {
-    console.log('createJob args--->', args);
     const data = { ...args };
     const topics = data.topics;
     let formattedTopics = [];

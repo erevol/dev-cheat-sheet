@@ -63,15 +63,12 @@ class UpdateQuestion extends React.Component {
 
   onSubmitForm = async (e, updateQuestionMutation) => {
     e.preventDefault();
-    console.log('Updating question!!');
-    console.log(this.state);
     const res = await updateQuestionMutation({
       variables: {
         id: this.props.id,
         ...this.state,
       },
     });
-    console.log('Updated!!');
   };
 
   render() {
