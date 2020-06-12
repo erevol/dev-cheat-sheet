@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import styled from '@emotion/styled';
+import { Icon, Header } from 'semantic-ui-react';
+import User from './User';
+import SignOut from './SignOut';
 
 const StyledNav = styled.div`
   margin: 0;
@@ -7,6 +10,19 @@ const StyledNav = styled.div`
   display: flex;
   justify-self: end;
   font-size: 2rem;
+
+  div.ui.header {
+    padding: 10px 40px 0 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-weight: bold;
+    font-size: 1em;
+    background: none;
+    border: 0;
+    font-family: 'JostSemiBold';
+  }
+
   a {
     &:hover {
       color: ${props => props.theme.red};
@@ -20,12 +36,10 @@ const StyledNav = styled.div`
     position: relative;
     text-transform: uppercase;
     font-weight: 900;
-    font-size: 1em;
+    font-size: 1.1rem;
     background: none;
     border: 0;
     cursor: pointer;
-    @media (max-width: 700px) {
-    }
     &:before {
       content: '';
       width: 2px;
@@ -64,26 +78,77 @@ const StyledNav = styled.div`
     }
   }
   @media (max-width: 1300px) {
-    width: 100%;
-    justify-content: center;
     font-size: 1.5rem;
     padding: 0 10px;
+  }
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const StyledMobileNav = styled.div`
+  margin: 10px;
+  font-size: 1.1rem;
+  @media (min-width: 769px) {
+    font-size: 1.4rem;
+    display: none;
   }
 `;
 
 const Nav = () => {
   return (
-    <StyledNav>
-      <Link href="/about-us">
-        <a>About Us</a>
-      </Link>
-      <Link href="/post-job">
-        <a>Post a Job</a>
-      </Link>
-      <Link href="/signin">
-        <a>Sign in</a>
-      </Link>
-    </StyledNav>
+    <User>
+    {({ data }) => {
+      const me = data ? data.me : null;
+      return (
+        <>
+          <StyledNav>
+            {me && <Header size='medium'>👋&nbsp;&nbsp;&nbsp;Hi {me.name}!</Header>}
+            <Link href="/about-us">
+              <a>About Us</a>
+            </Link>
+            {me && <Link href="/create-question">
+              <a>Add Question</a>
+            </Link>}
+            {me && <Link href="/post-job">
+              <a>Post a Job</a>
+            </Link>}
+            { me
+              ?
+                <SignOut />
+              :
+                <Link href="/signin">
+                  <a>Sign in</a>
+                </Link>
+            }
+          </StyledNav>
+          <StyledMobileNav>
+            <Link href="/about-us">
+              <Icon name="question circle" size="huge" />
+            </Link>
+            {me && <Link href="/create-question">
+              <Icon.Group size="huge">
+                <Icon name="question circle outline" />
+                <Icon corner name="add" color="grey" />
+              </Icon.Group>
+            </Link>}
+            {me && <Link href="/post-job">
+              <Icon.Group size="huge">
+                <Icon name="briefcase" />
+                <Icon corner name="add" color="grey" />
+              </Icon.Group>
+            </Link>}
+            <Link href="/signin">
+              <Icon.Group size="huge">
+                <Icon name="user" />
+                <Icon corner name="sign-in" color="grey" />
+              </Icon.Group>
+            </Link>
+          </StyledMobileNav>
+        </>
+      )
+    }}
+    </User>
   );
 };
 

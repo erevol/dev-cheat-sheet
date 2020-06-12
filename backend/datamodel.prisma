@@ -1,14 +1,65 @@
-type User {
-  id: ID! @id
-  name: String!
-  email: String!
+enum Permission {
+  ADMIN
+  USER
+  ITEMCREATE
+  ITEMUPDATE
+  ITEMDELETE
+  PERMISSIONUPDATE
 }
 
-type Question {
-  id: ID! @id
-  answer: String!
-  title: String!
-  votes: Int
+type User {
+  id: ID! @id @unique
+  name: String!
+  email: String! @unique
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: [Permission] @scalarList(strategy: RELATION)
+}
+
+type Seniority {
+  id: ID! @id @unique
+  name: String! @unique
+  user: User!
+  questions: [Question]!
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
+
+type Topic {
+  id: ID! @id @unique
+  name: String! @unique
+  user: User!
+  questions: [Question]!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Question {
+  id: ID! @id @unique
+  answer: String!
+  topic: Topic!
+  seniority: Seniority!
+  source: String!
+  title: String! @unique
+  votes: Int
+  user: User!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Job {
+  id: ID! @id @unique
+  jobTitle: String!
+  company: String!
+  topics: [Topic]!
+  seniority: Seniority!
+  location: String!
+  description: String!
+  contact: String!
+  user: User!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+

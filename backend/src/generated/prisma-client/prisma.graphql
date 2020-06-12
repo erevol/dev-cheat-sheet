@@ -1,4 +1,16 @@
+type AggregateJob {
+  count: Int!
+}
+
 type AggregateQuestion {
+  count: Int!
+}
+
+type AggregateSeniority {
+  count: Int!
+}
+
+type AggregateTopic {
   count: Int!
 }
 
@@ -12,14 +24,248 @@ type BatchPayload {
 
 scalar DateTime
 
+type Job {
+  id: ID!
+  jobTitle: String!
+  company: String!
+  topics(where: TopicWhereInput, orderBy: TopicOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Topic!]
+  seniority: Seniority!
+  location: String!
+  description: String!
+  contact: String!
+  user: User!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type JobConnection {
+  pageInfo: PageInfo!
+  edges: [JobEdge]!
+  aggregate: AggregateJob!
+}
+
+input JobCreateInput {
+  jobTitle: String!
+  company: String!
+  topics: TopicCreateManyInput
+  seniority: SeniorityCreateOneInput!
+  location: String!
+  description: String!
+  contact: String!
+  user: UserCreateOneInput!
+}
+
+type JobEdge {
+  node: Job!
+  cursor: String!
+}
+
+enum JobOrderByInput {
+  id_ASC
+  id_DESC
+  jobTitle_ASC
+  jobTitle_DESC
+  company_ASC
+  company_DESC
+  location_ASC
+  location_DESC
+  description_ASC
+  description_DESC
+  contact_ASC
+  contact_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type JobPreviousValues {
+  id: ID!
+  jobTitle: String!
+  company: String!
+  location: String!
+  description: String!
+  contact: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type JobSubscriptionPayload {
+  mutation: MutationType!
+  node: Job
+  updatedFields: [String!]
+  previousValues: JobPreviousValues
+}
+
+input JobSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: JobWhereInput
+  AND: [JobSubscriptionWhereInput!]
+  OR: [JobSubscriptionWhereInput!]
+  NOT: [JobSubscriptionWhereInput!]
+}
+
+input JobUpdateInput {
+  jobTitle: String
+  company: String
+  topics: TopicUpdateManyInput
+  seniority: SeniorityUpdateOneRequiredInput
+  location: String
+  description: String
+  contact: String
+  user: UserUpdateOneRequiredInput
+}
+
+input JobWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  jobTitle: String
+  jobTitle_not: String
+  jobTitle_in: [String!]
+  jobTitle_not_in: [String!]
+  jobTitle_lt: String
+  jobTitle_lte: String
+  jobTitle_gt: String
+  jobTitle_gte: String
+  jobTitle_contains: String
+  jobTitle_not_contains: String
+  jobTitle_starts_with: String
+  jobTitle_not_starts_with: String
+  jobTitle_ends_with: String
+  jobTitle_not_ends_with: String
+  company: String
+  company_not: String
+  company_in: [String!]
+  company_not_in: [String!]
+  company_lt: String
+  company_lte: String
+  company_gt: String
+  company_gte: String
+  company_contains: String
+  company_not_contains: String
+  company_starts_with: String
+  company_not_starts_with: String
+  company_ends_with: String
+  company_not_ends_with: String
+  topics_every: TopicWhereInput
+  topics_some: TopicWhereInput
+  topics_none: TopicWhereInput
+  seniority: SeniorityWhereInput
+  location: String
+  location_not: String
+  location_in: [String!]
+  location_not_in: [String!]
+  location_lt: String
+  location_lte: String
+  location_gt: String
+  location_gte: String
+  location_contains: String
+  location_not_contains: String
+  location_starts_with: String
+  location_not_starts_with: String
+  location_ends_with: String
+  location_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  contact: String
+  contact_not: String
+  contact_in: [String!]
+  contact_not_in: [String!]
+  contact_lt: String
+  contact_lte: String
+  contact_gt: String
+  contact_gte: String
+  contact_contains: String
+  contact_not_contains: String
+  contact_starts_with: String
+  contact_not_starts_with: String
+  contact_ends_with: String
+  contact_not_ends_with: String
+  user: UserWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [JobWhereInput!]
+  OR: [JobWhereInput!]
+  NOT: [JobWhereInput!]
+}
+
+input JobWhereUniqueInput {
+  id: ID
+}
+
 scalar Long
 
 type Mutation {
+  createJob(data: JobCreateInput!): Job!
+  updateJob(data: JobUpdateInput!, where: JobWhereUniqueInput!): Job
+  updateManyJobs(data: JobUpdateInput!, where: JobWhereInput): BatchPayload!
+  upsertJob(where: JobWhereUniqueInput!, create: JobCreateInput!, update: JobUpdateInput!): Job!
+  deleteJob(where: JobWhereUniqueInput!): Job
+  deleteManyJobs(where: JobWhereInput): BatchPayload!
   createQuestion(data: QuestionCreateInput!): Question!
+  updateQuestion(data: QuestionUpdateInput!, where: QuestionWhereUniqueInput!): Question
   updateManyQuestions(data: QuestionUpdateInput!, where: QuestionWhereInput): BatchPayload!
+  upsertQuestion(where: QuestionWhereUniqueInput!, create: QuestionCreateInput!, update: QuestionUpdateInput!): Question!
+  deleteQuestion(where: QuestionWhereUniqueInput!): Question
   deleteManyQuestions(where: QuestionWhereInput): BatchPayload!
+  createSeniority(data: SeniorityCreateInput!): Seniority!
+  updateSeniority(data: SeniorityUpdateInput!, where: SeniorityWhereUniqueInput!): Seniority
+  updateManySeniorities(data: SeniorityUpdateInput!, where: SeniorityWhereInput): BatchPayload!
+  upsertSeniority(where: SeniorityWhereUniqueInput!, create: SeniorityCreateInput!, update: SeniorityUpdateInput!): Seniority!
+  deleteSeniority(where: SeniorityWhereUniqueInput!): Seniority
+  deleteManySeniorities(where: SeniorityWhereInput): BatchPayload!
+  createTopic(data: TopicCreateInput!): Topic!
+  updateTopic(data: TopicUpdateInput!, where: TopicWhereUniqueInput!): Topic
+  updateManyTopics(data: TopicUpdateInput!, where: TopicWhereInput): BatchPayload!
+  upsertTopic(where: TopicWhereUniqueInput!, create: TopicCreateInput!, update: TopicUpdateInput!): Topic!
+  deleteTopic(where: TopicWhereUniqueInput!): Topic
+  deleteManyTopics(where: TopicWhereInput): BatchPayload!
   createUser(data: UserCreateInput!): User!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   updateManyUsers(data: UserUpdateInput!, where: UserWhereInput): BatchPayload!
+  upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
+  deleteUser(where: UserWhereUniqueInput!): User
   deleteManyUsers(where: UserWhereInput): BatchPayload!
 }
 
@@ -40,9 +286,29 @@ type PageInfo {
   endCursor: String
 }
 
+enum Permission {
+  ADMIN
+  USER
+  ITEMCREATE
+  ITEMUPDATE
+  ITEMDELETE
+  PERMISSIONUPDATE
+}
+
 type Query {
+  job(where: JobWhereUniqueInput!): Job
+  jobs(where: JobWhereInput, orderBy: JobOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Job]!
+  jobsConnection(where: JobWhereInput, orderBy: JobOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): JobConnection!
+  question(where: QuestionWhereUniqueInput!): Question
   questions(where: QuestionWhereInput, orderBy: QuestionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Question]!
   questionsConnection(where: QuestionWhereInput, orderBy: QuestionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): QuestionConnection!
+  seniority(where: SeniorityWhereUniqueInput!): Seniority
+  seniorities(where: SeniorityWhereInput, orderBy: SeniorityOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Seniority]!
+  senioritiesConnection(where: SeniorityWhereInput, orderBy: SeniorityOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): SeniorityConnection!
+  topic(where: TopicWhereUniqueInput!): Topic
+  topics(where: TopicWhereInput, orderBy: TopicOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Topic]!
+  topicsConnection(where: TopicWhereInput, orderBy: TopicOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TopicConnection!
+  user(where: UserWhereUniqueInput!): User
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
   node(id: ID!): Node
@@ -51,8 +317,12 @@ type Query {
 type Question {
   id: ID!
   answer: String!
+  topic: Topic!
+  seniority: Seniority!
+  source: String!
   title: String!
   votes: Int
+  user: User!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -65,8 +335,40 @@ type QuestionConnection {
 
 input QuestionCreateInput {
   answer: String!
+  topic: TopicCreateOneWithoutQuestionsInput!
+  seniority: SeniorityCreateOneWithoutQuestionsInput!
+  source: String!
   title: String!
   votes: Int
+  user: UserCreateOneInput!
+}
+
+input QuestionCreateManyWithoutSeniorityInput {
+  create: [QuestionCreateWithoutSeniorityInput!]
+  connect: [QuestionWhereUniqueInput!]
+}
+
+input QuestionCreateManyWithoutTopicInput {
+  create: [QuestionCreateWithoutTopicInput!]
+  connect: [QuestionWhereUniqueInput!]
+}
+
+input QuestionCreateWithoutSeniorityInput {
+  answer: String!
+  topic: TopicCreateOneWithoutQuestionsInput!
+  source: String!
+  title: String!
+  votes: Int
+  user: UserCreateOneInput!
+}
+
+input QuestionCreateWithoutTopicInput {
+  answer: String!
+  seniority: SeniorityCreateOneWithoutQuestionsInput!
+  source: String!
+  title: String!
+  votes: Int
+  user: UserCreateOneInput!
 }
 
 type QuestionEdge {
@@ -79,6 +381,8 @@ enum QuestionOrderByInput {
   id_DESC
   answer_ASC
   answer_DESC
+  source_ASC
+  source_DESC
   title_ASC
   title_DESC
   votes_ASC
@@ -92,6 +396,7 @@ enum QuestionOrderByInput {
 type QuestionPreviousValues {
   id: ID!
   answer: String!
+  source: String!
   title: String!
   votes: Int
   createdAt: DateTime!
@@ -118,8 +423,70 @@ input QuestionSubscriptionWhereInput {
 
 input QuestionUpdateInput {
   answer: String
+  topic: TopicUpdateOneRequiredWithoutQuestionsInput
+  seniority: SeniorityUpdateOneRequiredWithoutQuestionsInput
+  source: String
   title: String
   votes: Int
+  user: UserUpdateOneRequiredInput
+}
+
+input QuestionUpdateManyWithoutSeniorityInput {
+  create: [QuestionCreateWithoutSeniorityInput!]
+  delete: [QuestionWhereUniqueInput!]
+  connect: [QuestionWhereUniqueInput!]
+  disconnect: [QuestionWhereUniqueInput!]
+  update: [QuestionUpdateWithWhereUniqueWithoutSeniorityInput!]
+  upsert: [QuestionUpsertWithWhereUniqueWithoutSeniorityInput!]
+}
+
+input QuestionUpdateManyWithoutTopicInput {
+  create: [QuestionCreateWithoutTopicInput!]
+  delete: [QuestionWhereUniqueInput!]
+  connect: [QuestionWhereUniqueInput!]
+  disconnect: [QuestionWhereUniqueInput!]
+  update: [QuestionUpdateWithWhereUniqueWithoutTopicInput!]
+  upsert: [QuestionUpsertWithWhereUniqueWithoutTopicInput!]
+}
+
+input QuestionUpdateWithoutSeniorityDataInput {
+  answer: String
+  topic: TopicUpdateOneRequiredWithoutQuestionsInput
+  source: String
+  title: String
+  votes: Int
+  user: UserUpdateOneRequiredInput
+}
+
+input QuestionUpdateWithoutTopicDataInput {
+  answer: String
+  seniority: SeniorityUpdateOneRequiredWithoutQuestionsInput
+  source: String
+  title: String
+  votes: Int
+  user: UserUpdateOneRequiredInput
+}
+
+input QuestionUpdateWithWhereUniqueWithoutSeniorityInput {
+  where: QuestionWhereUniqueInput!
+  data: QuestionUpdateWithoutSeniorityDataInput!
+}
+
+input QuestionUpdateWithWhereUniqueWithoutTopicInput {
+  where: QuestionWhereUniqueInput!
+  data: QuestionUpdateWithoutTopicDataInput!
+}
+
+input QuestionUpsertWithWhereUniqueWithoutSeniorityInput {
+  where: QuestionWhereUniqueInput!
+  update: QuestionUpdateWithoutSeniorityDataInput!
+  create: QuestionCreateWithoutSeniorityInput!
+}
+
+input QuestionUpsertWithWhereUniqueWithoutTopicInput {
+  where: QuestionWhereUniqueInput!
+  update: QuestionUpdateWithoutTopicDataInput!
+  create: QuestionCreateWithoutTopicInput!
 }
 
 input QuestionWhereInput {
@@ -151,6 +518,22 @@ input QuestionWhereInput {
   answer_not_starts_with: String
   answer_ends_with: String
   answer_not_ends_with: String
+  topic: TopicWhereInput
+  seniority: SeniorityWhereInput
+  source: String
+  source_not: String
+  source_in: [String!]
+  source_not_in: [String!]
+  source_lt: String
+  source_lte: String
+  source_gt: String
+  source_gte: String
+  source_contains: String
+  source_not_contains: String
+  source_starts_with: String
+  source_not_starts_with: String
+  source_ends_with: String
+  source_not_ends_with: String
   title: String
   title_not: String
   title_in: [String!]
@@ -173,6 +556,7 @@ input QuestionWhereInput {
   votes_lte: Int
   votes_gt: Int
   votes_gte: Int
+  user: UserWhereInput
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -194,15 +578,389 @@ input QuestionWhereInput {
   NOT: [QuestionWhereInput!]
 }
 
+input QuestionWhereUniqueInput {
+  id: ID
+  title: String
+}
+
+type Seniority {
+  id: ID!
+  name: String!
+  user: User!
+  questions(where: QuestionWhereInput, orderBy: QuestionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Question!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type SeniorityConnection {
+  pageInfo: PageInfo!
+  edges: [SeniorityEdge]!
+  aggregate: AggregateSeniority!
+}
+
+input SeniorityCreateInput {
+  name: String!
+  user: UserCreateOneInput!
+  questions: QuestionCreateManyWithoutSeniorityInput
+}
+
+input SeniorityCreateOneInput {
+  create: SeniorityCreateInput
+  connect: SeniorityWhereUniqueInput
+}
+
+input SeniorityCreateOneWithoutQuestionsInput {
+  create: SeniorityCreateWithoutQuestionsInput
+  connect: SeniorityWhereUniqueInput
+}
+
+input SeniorityCreateWithoutQuestionsInput {
+  name: String!
+  user: UserCreateOneInput!
+}
+
+type SeniorityEdge {
+  node: Seniority!
+  cursor: String!
+}
+
+enum SeniorityOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type SeniorityPreviousValues {
+  id: ID!
+  name: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type SenioritySubscriptionPayload {
+  mutation: MutationType!
+  node: Seniority
+  updatedFields: [String!]
+  previousValues: SeniorityPreviousValues
+}
+
+input SenioritySubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: SeniorityWhereInput
+  AND: [SenioritySubscriptionWhereInput!]
+  OR: [SenioritySubscriptionWhereInput!]
+  NOT: [SenioritySubscriptionWhereInput!]
+}
+
+input SeniorityUpdateDataInput {
+  name: String
+  user: UserUpdateOneRequiredInput
+  questions: QuestionUpdateManyWithoutSeniorityInput
+}
+
+input SeniorityUpdateInput {
+  name: String
+  user: UserUpdateOneRequiredInput
+  questions: QuestionUpdateManyWithoutSeniorityInput
+}
+
+input SeniorityUpdateOneRequiredInput {
+  create: SeniorityCreateInput
+  update: SeniorityUpdateDataInput
+  upsert: SeniorityUpsertNestedInput
+  connect: SeniorityWhereUniqueInput
+}
+
+input SeniorityUpdateOneRequiredWithoutQuestionsInput {
+  create: SeniorityCreateWithoutQuestionsInput
+  update: SeniorityUpdateWithoutQuestionsDataInput
+  upsert: SeniorityUpsertWithoutQuestionsInput
+  connect: SeniorityWhereUniqueInput
+}
+
+input SeniorityUpdateWithoutQuestionsDataInput {
+  name: String
+  user: UserUpdateOneRequiredInput
+}
+
+input SeniorityUpsertNestedInput {
+  update: SeniorityUpdateDataInput!
+  create: SeniorityCreateInput!
+}
+
+input SeniorityUpsertWithoutQuestionsInput {
+  update: SeniorityUpdateWithoutQuestionsDataInput!
+  create: SeniorityCreateWithoutQuestionsInput!
+}
+
+input SeniorityWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  user: UserWhereInput
+  questions_every: QuestionWhereInput
+  questions_some: QuestionWhereInput
+  questions_none: QuestionWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [SeniorityWhereInput!]
+  OR: [SeniorityWhereInput!]
+  NOT: [SeniorityWhereInput!]
+}
+
+input SeniorityWhereUniqueInput {
+  id: ID
+  name: String
+}
+
 type Subscription {
+  job(where: JobSubscriptionWhereInput): JobSubscriptionPayload
   question(where: QuestionSubscriptionWhereInput): QuestionSubscriptionPayload
+  seniority(where: SenioritySubscriptionWhereInput): SenioritySubscriptionPayload
+  topic(where: TopicSubscriptionWhereInput): TopicSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
+}
+
+type Topic {
+  id: ID!
+  name: String!
+  user: User!
+  questions(where: QuestionWhereInput, orderBy: QuestionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Question!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type TopicConnection {
+  pageInfo: PageInfo!
+  edges: [TopicEdge]!
+  aggregate: AggregateTopic!
+}
+
+input TopicCreateInput {
+  name: String!
+  user: UserCreateOneInput!
+  questions: QuestionCreateManyWithoutTopicInput
+}
+
+input TopicCreateManyInput {
+  create: [TopicCreateInput!]
+  connect: [TopicWhereUniqueInput!]
+}
+
+input TopicCreateOneWithoutQuestionsInput {
+  create: TopicCreateWithoutQuestionsInput
+  connect: TopicWhereUniqueInput
+}
+
+input TopicCreateWithoutQuestionsInput {
+  name: String!
+  user: UserCreateOneInput!
+}
+
+type TopicEdge {
+  node: Topic!
+  cursor: String!
+}
+
+enum TopicOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type TopicPreviousValues {
+  id: ID!
+  name: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type TopicSubscriptionPayload {
+  mutation: MutationType!
+  node: Topic
+  updatedFields: [String!]
+  previousValues: TopicPreviousValues
+}
+
+input TopicSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: TopicWhereInput
+  AND: [TopicSubscriptionWhereInput!]
+  OR: [TopicSubscriptionWhereInput!]
+  NOT: [TopicSubscriptionWhereInput!]
+}
+
+input TopicUpdateDataInput {
+  name: String
+  user: UserUpdateOneRequiredInput
+  questions: QuestionUpdateManyWithoutTopicInput
+}
+
+input TopicUpdateInput {
+  name: String
+  user: UserUpdateOneRequiredInput
+  questions: QuestionUpdateManyWithoutTopicInput
+}
+
+input TopicUpdateManyInput {
+  create: [TopicCreateInput!]
+  delete: [TopicWhereUniqueInput!]
+  connect: [TopicWhereUniqueInput!]
+  disconnect: [TopicWhereUniqueInput!]
+  update: [TopicUpdateWithWhereUniqueNestedInput!]
+  upsert: [TopicUpsertWithWhereUniqueNestedInput!]
+}
+
+input TopicUpdateOneRequiredWithoutQuestionsInput {
+  create: TopicCreateWithoutQuestionsInput
+  update: TopicUpdateWithoutQuestionsDataInput
+  upsert: TopicUpsertWithoutQuestionsInput
+  connect: TopicWhereUniqueInput
+}
+
+input TopicUpdateWithoutQuestionsDataInput {
+  name: String
+  user: UserUpdateOneRequiredInput
+}
+
+input TopicUpdateWithWhereUniqueNestedInput {
+  where: TopicWhereUniqueInput!
+  data: TopicUpdateDataInput!
+}
+
+input TopicUpsertWithoutQuestionsInput {
+  update: TopicUpdateWithoutQuestionsDataInput!
+  create: TopicCreateWithoutQuestionsInput!
+}
+
+input TopicUpsertWithWhereUniqueNestedInput {
+  where: TopicWhereUniqueInput!
+  update: TopicUpdateDataInput!
+  create: TopicCreateInput!
+}
+
+input TopicWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  user: UserWhereInput
+  questions_every: QuestionWhereInput
+  questions_some: QuestionWhereInput
+  questions_none: QuestionWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [TopicWhereInput!]
+  OR: [TopicWhereInput!]
+  NOT: [TopicWhereInput!]
+}
+
+input TopicWhereUniqueInput {
+  id: ID
+  name: String
 }
 
 type User {
   id: ID!
   name: String!
   email: String!
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: [Permission!]!
 }
 
 type UserConnection {
@@ -214,6 +972,19 @@ type UserConnection {
 input UserCreateInput {
   name: String!
   email: String!
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: UserCreatepermissionsInput
+}
+
+input UserCreateOneInput {
+  create: UserCreateInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreatepermissionsInput {
+  set: [Permission!]
 }
 
 type UserEdge {
@@ -228,6 +999,12 @@ enum UserOrderByInput {
   name_DESC
   email_ASC
   email_DESC
+  password_ASC
+  password_DESC
+  resetToken_ASC
+  resetToken_DESC
+  resetTokenExpiry_ASC
+  resetTokenExpiry_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -238,6 +1015,10 @@ type UserPreviousValues {
   id: ID!
   name: String!
   email: String!
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: [Permission!]!
 }
 
 type UserSubscriptionPayload {
@@ -258,9 +1039,38 @@ input UserSubscriptionWhereInput {
   NOT: [UserSubscriptionWhereInput!]
 }
 
+input UserUpdateDataInput {
+  name: String
+  email: String
+  password: String
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: UserUpdatepermissionsInput
+}
+
 input UserUpdateInput {
   name: String
   email: String
+  password: String
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: UserUpdatepermissionsInput
+}
+
+input UserUpdateOneRequiredInput {
+  create: UserCreateInput
+  update: UserUpdateDataInput
+  upsert: UserUpsertNestedInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdatepermissionsInput {
+  set: [Permission!]
+}
+
+input UserUpsertNestedInput {
+  update: UserUpdateDataInput!
+  create: UserCreateInput!
 }
 
 input UserWhereInput {
@@ -306,7 +1116,48 @@ input UserWhereInput {
   email_not_starts_with: String
   email_ends_with: String
   email_not_ends_with: String
+  password: String
+  password_not: String
+  password_in: [String!]
+  password_not_in: [String!]
+  password_lt: String
+  password_lte: String
+  password_gt: String
+  password_gte: String
+  password_contains: String
+  password_not_contains: String
+  password_starts_with: String
+  password_not_starts_with: String
+  password_ends_with: String
+  password_not_ends_with: String
+  resetToken: String
+  resetToken_not: String
+  resetToken_in: [String!]
+  resetToken_not_in: [String!]
+  resetToken_lt: String
+  resetToken_lte: String
+  resetToken_gt: String
+  resetToken_gte: String
+  resetToken_contains: String
+  resetToken_not_contains: String
+  resetToken_starts_with: String
+  resetToken_not_starts_with: String
+  resetToken_ends_with: String
+  resetToken_not_ends_with: String
+  resetTokenExpiry: Float
+  resetTokenExpiry_not: Float
+  resetTokenExpiry_in: [Float!]
+  resetTokenExpiry_not_in: [Float!]
+  resetTokenExpiry_lt: Float
+  resetTokenExpiry_lte: Float
+  resetTokenExpiry_gt: Float
+  resetTokenExpiry_gte: Float
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]
+}
+
+input UserWhereUniqueInput {
+  id: ID
+  email: String
 }

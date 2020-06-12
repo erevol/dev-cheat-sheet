@@ -1,0 +1,97 @@
+mutation {
+  user01: createUser(data: {
+    name: "Eugenia Revol"
+    email: "euge.revol@gmail.com"
+    password: "123"
+  }) { id }
+  user02: createUser(data: {
+    name: "Test User"
+    email: "test@test.com"
+    password: "123"
+  }) { id }
+
+  topic01: createTopic(data: { name: ".NET Core", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic02: createTopic(data: { name: "ADO.NET", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic03: createTopic(data: { name: "ASP.NET", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic04: createTopic(data: { name: "Agile & Scrum", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic05: createTopic(data: { name: "Angular", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic06: createTopic(data: { name: "Big Data", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic07: createTopic(data: { name: "Bootstrap", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic08: createTopic(data: { name: "C#", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic09: createTopic(data: { name: "CSS", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic10: createTopic(data: { name: "Data Science", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic11: createTopic(data: { name: "Design Patterns", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic12: createTopic(data: { name: "DevOps", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic13: createTopic(data: { name: "Flutter", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic14: createTopic(data: { name: "Git", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic15: createTopic(data: { name: "Golang", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic16: createTopic(data: { name: "GraphQL", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic17: createTopic(data: { name: "HTML5", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic18: createTopic(data: { name: "Ionic", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic19: createTopic(data: { name: "JSON", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic20: createTopic(data: { name: "Java", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic21: createTopic(data: { name: "JavaScript", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic22: createTopic(data: { name: "Kotlin", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic23: createTopic(data: { name: "LINQ", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic24: createTopic(data: { name: "Laravel", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic25: createTopic(data: { name: "Microservices", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic26: createTopic(data: { name: "MongoDB", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic27: createTopic(data: { name: "NoSQL", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic28: createTopic(data: { name: "PHP", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic29: createTopic(data: { name: "Python", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic30: createTopic(data: { name: "React", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic31: createTopic(data: { name: "React Native", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic32: createTopic(data: { name: "Ruby", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic33: createTopic(data: { name: "Ruby on Rails", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic34: createTopic(data: { name: "SOA & REST API", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic35: createTopic(data: { name: "SQL", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic36: createTopic(data: { name: "Software Architecture", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic37: createTopic(data: { name: "Software Testing", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic38: createTopic(data: { name: "Spring", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic39: createTopic(data: { name: "Statistics", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic40: createTopic(data: { name: "Swift & iOS", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic41: createTopic(data: { name: "T-SQL", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic42: createTopic(data: { name: "TypeScript", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic43: createTopic(data: { name: "UX Design", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic44: createTopic(data: { name: "Vue.js", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic45: createTopic(data: { name: "Web Security", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic46: createTopic(data: { name: "Webpack", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic47: createTopic(data: { name: "Xamarin", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  topic48: createTopic(data: { name: "jQuery", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+
+
+  seniority01: createSeniority(data: { name: "Junior", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  seniority02: createSeniority(data: { name: "SemiSenior", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  seniority03: createSeniority(data: { name: "Senior", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+  seniority04: createSeniority(data: { name: "Expert", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
+
+
+  question01: createQuestion(data: { answer: "React creates a virtual DOM. When state changes in a component it firstly runs a \"diffing\" algorithm, which identifies what has changed in the virtual DOM. The second step is reconciliation, where it updates the DOM with the results of diff."
+    topic: {connect: {name: "React"}}
+    seniority: {connect: {name: "Junior"}}
+    source: "Magna eu et dolor incididunt consectetur Lorem id."
+    title: "How does React work?"
+    user: {connect: { email: "euge.revol@gmail.com"
+  }}}){ id }
+  question02: createQuestion(data: { answer: "React is an open-source JavaScript library created by Facebook for building complex, interactive UIs in web and mobile applications. React's core purpose is to build UI components; it is often referred to as just the \"V\" (View) in an \"MVC\" architecture."
+    topic: {connect: {name: "React"}}
+    seniority: {connect: {name: "Junior"}}
+    source: "Magna eu et dolor incididunt consectetur Lorem id."
+    title: "What is React?"
+    user: {connect: { email: "euge.revol@gmail.com"
+  }}}){ id }
+  question03: createQuestion(data: { answer: "Props are properties that are passed into a child component from its parent, and are readonly."
+    topic: {connect: {name: "React"}}
+    seniority: {connect: {name: "Junior"}}
+    source: "Sint nisi est in ullamco anim esse cillum sit dolore incididunt."
+    title: "What are props in React?"
+    user: {connect: { email: "euge.revol@gmail.com"
+  }}}){ id }
+  question04: createQuestion(data: { answer: "For example: ↵↵```html↵<div style={{ height: 10 }}>↵```"
+    topic: {connect: {name: "React"}}
+    seniority: {connect: {name: "Junior"}}
+    source: "https://github.com/WebPredict/react-interview-questions"
+    title: "How would you write an inline style in React?"
+    user: {connect: { email: "euge.revol@gmail.com"
+  }}}){ id }
+}

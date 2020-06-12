@@ -1,11 +1,9 @@
-import Questions from '../components/Questions';
+import Home from '../components/Home';
 
-const Home = () => {
+const HomePage = () => {
   return (
-    <div>
-      <Questions />
-    </div>
+    <Home />
   );
 };
 
-export default Home;
+export default HomePage;

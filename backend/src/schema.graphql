@@ -1,9 +1,42 @@
 # import * from './generated/prisma-client/prisma.graphql'
+type SuccessMessage {
+  message: String
+}
 
 type Mutation {
-  createQuestion(answer: String, title: String) : Question!
+  createQuestion(title: String!, topic: String!, seniority: String!, source: String!, answer: String!) : Question!
+  updateQuestion(id: ID!, title: String, topic: String, seniority: String, source: String, answer: String) : Question!
+  createJob(jobTitle: String!, company: String!, topics: [String], seniority: String!, location: String!, description: String!, contact: String!) : Job!
+  updateJob(id: ID!, jobTitle: String, company: String, topics: String, seniority: String, location: String, description: String, contact: String) : Job!
+  createSeniority(name: String!) : Seniority!
+  updateSeniority(id: ID!, name: String) : Seniority!
+  createTopic(name: String!) : Topic!
+  updateTopic(id: ID!, name: String) : Topic!
+  signup(email: String!, password: String!, name: String!): User!
+  signin(email: String!, password: String!): User!
+  signout: SuccessMessage
+  requestReset(email: String!): SuccessMessage
+  resetPassword(resetToken: String!, password: String!, confirmPassword: String!): User!
+  updatePermissions(permissions: [Permission], userId: ID!): User
 }
 
 type Query {
-  questions: [Question]!
+  question(where: QuestionWhereUniqueInput!): Question
+  # questions: [Question]!
+  questions(where: QuestionWhereInput): [Question]!
+  job(where: JobWhereUniqueInput!): Job
+  jobs: [Job]!
+  seniority(where: SeniorityWhereUniqueInput!): Seniority
+  seniorities: [Seniority]!
+  topic(where: TopicWhereUniqueInput!): Topic
+  topics: [Topic]!
+  me: User
+  users: [User]!
+}
+
+type User{
+  id: ID!
+  name: String!
+  email: String!
+  permissions: [Permission!]!
 }

@@ -1,8 +1,12 @@
 const theme = {
   red: '#ee5253',
+  red_darken20: '#bb1f20',
   green: '#10ac84',
+  green_darken20: '#007951',
   blue: '#1e3799',
+  blue_darken20: '#000466',
   yellow: '#feca57',
+  yellow_darken20: '#CB9724',
   white: '#ffffff',
   offWhite: '#ededed',
   grey1: '#e1e1e1',
