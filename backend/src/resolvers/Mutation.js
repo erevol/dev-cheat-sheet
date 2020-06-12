@@ -28,7 +28,18 @@ const mutations = {
   },
   async updateQuestion(parent, args, ctx, info) {
     const data = { ...args };
+    // Check if they own that question, or have the permissions
+    const ownsQuestion = data.id === ctx.request.userId;
+    const hasPermissions = ctx.request.user.permissions.some(permission =>
+      ['ADMIN', 'ITEMUPDATE'].includes(permission)
+    );
+
+    if (!ownsQuestion && !hasPermissions) {
+      throw new Error("You don't have permission to update the question.");
+    }
+
     delete data.id;
+
     return ctx.db.mutation.updateQuestion(
       {
         data: {

@@ -5,6 +5,7 @@ import Router from 'next/router';
 import NProgress from 'nprogress';
 import logo from '../static/crown.svg';
 import { Image } from 'semantic-ui-react';
+import Search from './Search';
 
 Router.onRouteChangeStart = () => {
   NProgress.start();
@@ -93,7 +94,7 @@ const Header = () => {
         <Nav />
       </div>
       <div className="sub-bar">
-        <p>&#x1f50e; search...</p>
+        <Search />
       </div>
     </StyledHeader>
   );

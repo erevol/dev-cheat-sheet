@@ -15,6 +15,7 @@ import {
 import { StyledFormContainer } from './PostJob';
 import paragraph from '../static/paragraph.png';
 import CreateQuestionQuery from './CreateQuestionQuery';
+import Router from 'next/router';
 
 const CREATE_QUESTION_MUTATION = gql`
   mutation CREATE_QUESTION_MUTATION(
@@ -113,13 +114,10 @@ class CreateQuestion extends React.Component {
                     <Form size="large"
                       onSubmit={async e => {
                         e.preventDefault();
-                        const response = await createQuestion();
-                        this.setState({
-                          title: '',
-                          topic: '',
-                          seniority: '',
-                          source: '',
-                          answer: '',
+                        const res = await createQuestion();
+                        Router.push({
+                          pathname: '/question',
+                          query: { id: res.data.createQuestion.id },
                         });
                       }}
                       error={error}
@@ -141,6 +139,7 @@ class CreateQuestion extends React.Component {
                       <Form.Select
                         id="topic"
                         fluid
+                        search
                         label="Topic"
                         options={data.topics}
                         placeholder="Topic"
@@ -150,6 +149,7 @@ class CreateQuestion extends React.Component {
                       <Form.Select
                         id="seniority"
                         fluid
+                        search
                         label="Seniority"
                         options={data.seniorities}
                         placeholder="Seniority"

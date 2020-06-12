@@ -15,6 +15,7 @@ import {
 import paragraph from '../static/paragraph.png';
 import PostJobQuery from './PostJobQuery';
 import { ALL_JOBS_QUERY } from './JobsQuery';
+import Router from 'next/router';
 
 const StyledFormContainer = styled.div`
   max-width: 400px;
@@ -129,15 +130,10 @@ class PostJob extends React.Component {
                     <Form size="mini"
                       onSubmit={async e => {
                         e.preventDefault();
-                        const response = await createJob();
-                        this.setState({
-                          company: '',
-                          contact: '',
-                          description: '',
-                          jobTitle: '',
-                          location: '',
-                          seniority: '',
-                          topics: [],
+                        const res = await createJob();
+                        Router.push({
+                          pathname: '/job',
+                          query: { id: res.data.createJob.id },
                         });
                       }}
                       error={error}
@@ -182,6 +178,7 @@ class PostJob extends React.Component {
                       <Form.Select
                         id="seniority"
                         fluid
+                        search
                         label="Seniority"
                         options={data.seniorities}
                         placeholder="Seniority"
@@ -207,10 +204,10 @@ class PostJob extends React.Component {
                         onChange={this.handleChange}
                       />
                       <Form.Field>
-                        <label>Contact</label>
+                        <label>Contact email</label>
                         <input
                           id="contact"
-                          placeholder="Contact"
+                          placeholder="john.doe@company.com"
                           type="text"
                           name="contact"
                           value={this.state.contact}

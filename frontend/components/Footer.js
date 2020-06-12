@@ -47,16 +47,16 @@ const Footer = () => {
         <Divider inverted section />
         <Image centered size='mini' src={logo} />
         <List horizontal inverted divided link size='small'>
-          <List.Item as='a' href='#'>
+          <List.Item as='a'>
             Site Map
           </List.Item>
-          <List.Item as='a' href='#'>
+          <List.Item as='a'>
             Contact Us
           </List.Item>
-          <List.Item as='a' href='#'>
+          <List.Item as='a'>
             Terms and Conditions
           </List.Item>
-          <List.Item as='a' href='#'>
+          <List.Item as='a'>
             Privacy Policy
           </List.Item>
         </List>

@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
 import Link from 'next/link';
 import { CURRENT_USER_QUERY } from './User';
+import Router from 'next/router';
 
 const RESET_MUTATION = gql`
   mutation RESET_MUTATION($resetToken: String!, $password: String!, $confirmPassword: String!) {
@@ -54,7 +55,7 @@ class Reset extends React.Component {
                 onSubmit={async e => {
                   e.preventDefault();
                   await reset();
-                  this.setState({ password: '', confirmPassword: '' });
+                  Router.push('/');
                 }}
               >
                 <Segment stacked>

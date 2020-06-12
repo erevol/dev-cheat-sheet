@@ -41,7 +41,7 @@ class QuestionsList extends React.Component {
                               </Segment>
           if(!data.questions || data.questions.length <= 0) return <Message
                                     header="Nothing to see here 😬"
-                                    content="There are no questions yet! In the mean while, check another topic questions and the latest answers from top interview questions. Success you interview!"
+                                    content="There are no questions for this topic yet! In the mean while, check another topic questions and the latest answers from top interview questions. Success you interview!"
                                   />
           return (
             <>

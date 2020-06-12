@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
 import Link from 'next/link';
 import { CURRENT_USER_QUERY } from './User';
+import Router from 'next/router';
 
 const SIGNUP_MUTATION = gql`
   mutation SIGNUP_MUTATION($email: String!, $name: String!, $password: String!) {
@@ -50,11 +51,7 @@ class SignUp extends React.Component {
                 onSubmit={async e => {
                   e.preventDefault();
                   await signup();
-                  this.setState({
-                    name: '',
-                    email: '',
-                    password: '',
-                  });
+                  Router.push('/');
                 }}
               >
                 <Segment stacked>

@@ -11,9 +11,11 @@ import {
   Card,
   Button,
   Grid,
+  Label,
 } from 'semantic-ui-react';
 import paragraph from '../static/paragraph.png';
 import curriculum from '../static/curriculum.svg';
+import { colors } from './Job';
 
 const StyledContainer = styled.div`
   display: flex;
@@ -140,9 +142,7 @@ class JobsList extends React.Component {
                               {job.description}
                             </Card.Description>
                           </StyledCardDescription>
-                          <StyledButtonGroup floated='left'>
-                            { job.topics.map( topic => <Button key={topic.name} size='mini'>{topic.name}</Button>)}
-                          </StyledButtonGroup>
+                          {job.topics.length > 0 && job.topics.map((topic, index) => <Label key={topic.id} color={colors[index]} size="mini">{topic.name}</Label>)}
                         </Card.Content>
                         <Card.Content extra>
                         <StyledButton>
@@ -152,7 +152,7 @@ class JobsList extends React.Component {
                                 pathname: '/job',
                                 query: { id: job.id },
                               }}
-                            ><a>Apply</a></Link>
+                            ><a>See more</a></Link>
                           </Button>
                         </StyledButton>
                         </Card.Content>

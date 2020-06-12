@@ -17,6 +17,7 @@ import {
 } from 'semantic-ui-react';
 import paragraph from '../static/paragraph.png';
 import { StyledContainer } from './JobsList';
+import styled from '@emotion/styled';
 
 const SINGLE_QUESTION_QUERY = gql`
   query SINGLE_QUESTION_QUERY($id: ID!) {
@@ -29,6 +30,14 @@ const SINGLE_QUESTION_QUERY = gql`
       votes
       source
     }
+  }
+`;
+
+const StyledButton = styled.div`
+  width: 100px;
+  margin-top: 20px;
+  a {
+    color: ${props => props.theme.white};
   }
 `;
 
@@ -72,10 +81,6 @@ class SingleQuestion extends React.Component {
               </Header>
               <Divider />
               <p>{answer}</p>
-              <Grid.Row>
-                <Button size='mini'>{seniority.name}</Button>
-                <Button size='mini'>{topic.name}</Button>
-              </Grid.Row>
               <Divider />
               <Header as="h3">Learn more about <Link
                   href={{
@@ -92,8 +97,20 @@ class SingleQuestion extends React.Component {
                 >
                   <a>{seniority.name}</a>
                 </Link> questions</Header>
-            </Container>
 
+                <StyledButton>
+                  <Button color="red" size="large" fluid>
+                    <Link
+                      href={{
+                        pathname: '/update-question',
+                        query: { id },
+                      }}
+                    >
+                      <a>Update</a>
+                    </Link>
+                  </Button>
+                </StyledButton>
+            </Container>
           </StyledContainer>
         }}
       </Query>

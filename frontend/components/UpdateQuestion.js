@@ -15,6 +15,7 @@ import {
 import paragraph from '../static/paragraph.png';
 import { StyledFormContainer } from './PostJob';
 import UpdateQuestionQuery from './UpdateQuestionQuery';
+import Router from 'next/router';
 
 const UPDATE_QUESTION_MUTATION = gql`
   mutation UPDATE_QUESTION_MUTATION(
@@ -68,6 +69,10 @@ class UpdateQuestion extends React.Component {
         id: this.props.id,
         ...this.state,
       },
+    });
+    Router.push({
+      pathname: '/question',
+      query: { id: res.data.updateQuestion.id },
     });
   };
 
@@ -137,6 +142,7 @@ class UpdateQuestion extends React.Component {
                       <Form.Select
                         id="topic"
                         fluid
+                        search
                         label="Topic"
                         options={data.topics}
                         placeholder="Topic"
@@ -147,6 +153,7 @@ class UpdateQuestion extends React.Component {
                       <Form.Select
                         id="seniority"
                         fluid
+                        search
                         label="Seniority"
                         options={data.seniorities}
                         placeholder="Seniority"
