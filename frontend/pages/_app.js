@@ -42,6 +42,12 @@ const injectGlobal = css`
     font-weight: normal;
     font-style: normal;
   }
+  @font-face {
+    font-family: 'outline-icons';
+    src: url('/static/outline-icons.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
   html {
     box-sizing: border-box;
     font-size: 10px;

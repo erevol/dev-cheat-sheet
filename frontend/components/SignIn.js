@@ -50,7 +50,7 @@ class SignIn extends React.Component {
                 onSubmit={async e => {
                   e.preventDefault();
                   await signin();
-                  Router.push('/');
+                  Router.back();
                 }}
               >
                 <Segment stacked>

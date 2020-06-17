@@ -57,6 +57,10 @@ const StyledQuestionListItem = styled.li`
       margin-left: -1em;
     }
   }
+
+  .ui.checkbox {
+    margin: 0 8px 0 20px;
+  }
 `;
 
 class Question extends React.Component {
