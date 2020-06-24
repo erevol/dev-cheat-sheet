@@ -76,6 +76,10 @@ class LikeButton extends React.Component {
           userId: this.props.user.id,
           questionId: this.props.questionId
         }}
+        refetchQueries={[{
+          query: SINGLE_QUESTION_QUERY,
+          variables: { id: this.props.questionId }
+        }]}
       >
         {(updateLikes, { loading, error }) => (
           <Button style={{ marginLeft: '10px' }} as="div" labelPosition="right" onClick={(e) => this.handleClick(e, updateLikes, !this.state.toggle)}>
