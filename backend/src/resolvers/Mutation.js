@@ -259,6 +259,27 @@ const mutations = {
       info
     );
   },
+  async updateLikes(parent, args, ctx, info) {
+    const data = { ...args };
+    const likes = data.likes;
+    const questionId = data.questionId;
+
+    delete data.userId;
+    delete data.questionId;
+
+    return ctx.db.mutation.updateQuestion(
+      {
+        data: {
+          ...data,
+          likes: likes ? { set: likes} : {},
+        },
+        where: {
+          id: questionId,
+        },
+      },
+      info
+    );
+  },
 };
 
 module.exports = mutations;

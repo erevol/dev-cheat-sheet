@@ -362,35 +362,39 @@ export type JobWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
 }>;
 
-export interface TopicUpsertWithWhereUniqueNestedInput {
-  where: TopicWhereUniqueInput;
-  update: TopicUpdateDataInput;
-  create: TopicCreateInput;
+export interface UserCreateOneInput {
+  create?: UserCreateInput;
+  connect?: UserWhereUniqueInput;
 }
 
-export interface QuestionUpdateWithoutTopicDataInput {
-  answer?: String;
-  seniority?: SeniorityUpdateOneRequiredWithoutQuestionsInput;
-  source?: String;
-  title?: String;
-  votes?: Int;
+export interface UserUpsertNestedInput {
+  update: UserUpdateDataInput;
+  create: UserCreateInput;
+}
+
+export interface UserCreateInput {
+  name: String;
+  email: String;
+  password: String;
+  resetToken?: String;
+  resetTokenExpiry?: Float;
+  permissions?: UserCreatepermissionsInput;
+  questions?: QuestionCreateManyWithoutUserInput;
+}
+
+export interface JobUpdateInput {
+  jobTitle?: String;
+  company?: String;
+  topics?: TopicUpdateManyInput;
+  seniority?: SeniorityUpdateOneRequiredInput;
+  location?: String;
+  description?: String;
+  contact?: String;
   user?: UserUpdateOneRequiredInput;
 }
 
-export interface QuestionUpsertWithWhereUniqueWithoutTopicInput {
-  where: QuestionWhereUniqueInput;
-  update: QuestionUpdateWithoutTopicDataInput;
-  create: QuestionCreateWithoutTopicInput;
-}
-
-export interface TopicCreateWithoutQuestionsInput {
-  name: String;
-  user: UserCreateOneInput;
-}
-
-export interface SeniorityUpsertWithoutQuestionsInput {
-  update: SeniorityUpdateWithoutQuestionsDataInput;
-  create: SeniorityCreateWithoutQuestionsInput;
+export interface UserCreatepermissionsInput {
+  set?: Permission[] | Permission;
 }
 
 export interface UserSubscriptionWhereInput {
@@ -402,6 +406,11 @@ export interface UserSubscriptionWhereInput {
   AND?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
   OR?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
   NOT?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
+}
+
+export interface QuestionCreateManyWithoutUserInput {
+  create?: QuestionCreateWithoutUserInput[] | QuestionCreateWithoutUserInput;
+  connect?: QuestionWhereUniqueInput[] | QuestionWhereUniqueInput;
 }
 
 export interface QuestionWhereInput {
@@ -493,6 +502,16 @@ export interface QuestionWhereInput {
   NOT?: QuestionWhereInput[] | QuestionWhereInput;
 }
 
+export interface QuestionCreateWithoutUserInput {
+  answer: String;
+  topic: TopicCreateOneWithoutQuestionsInput;
+  seniority: SeniorityCreateOneWithoutQuestionsInput;
+  source: String;
+  title: String;
+  likes?: QuestionCreatelikesInput;
+  votes?: Int;
+}
+
 export interface QuestionSubscriptionWhereInput {
   mutation_in?: MutationType[] | MutationType;
   updatedFields_contains?: String;
@@ -504,15 +523,9 @@ export interface QuestionSubscriptionWhereInput {
   NOT?: QuestionSubscriptionWhereInput[] | QuestionSubscriptionWhereInput;
 }
 
-export interface JobCreateInput {
-  jobTitle: String;
-  company: String;
-  topics?: TopicCreateManyInput;
-  seniority: SeniorityCreateOneInput;
-  location: String;
-  description: String;
-  contact: String;
-  user: UserCreateOneInput;
+export interface TopicCreateOneWithoutQuestionsInput {
+  create?: TopicCreateWithoutQuestionsInput;
+  connect?: TopicWhereUniqueInput;
 }
 
 export interface JobWhereInput {
@@ -626,9 +639,9 @@ export interface JobWhereInput {
   NOT?: JobWhereInput[] | JobWhereInput;
 }
 
-export interface TopicCreateManyInput {
-  create?: TopicCreateInput[] | TopicCreateInput;
-  connect?: TopicWhereUniqueInput[] | TopicWhereUniqueInput;
+export interface TopicCreateWithoutQuestionsInput {
+  name: String;
+  user: UserCreateOneInput;
 }
 
 export interface UserUpdateInput {
@@ -638,12 +651,12 @@ export interface UserUpdateInput {
   resetToken?: String;
   resetTokenExpiry?: Float;
   permissions?: UserUpdatepermissionsInput;
+  questions?: QuestionUpdateManyWithoutUserInput;
 }
 
-export interface TopicCreateInput {
-  name: String;
-  user: UserCreateOneInput;
-  questions?: QuestionCreateManyWithoutTopicInput;
+export interface SeniorityCreateOneWithoutQuestionsInput {
+  create?: SeniorityCreateWithoutQuestionsInput;
+  connect?: SeniorityWhereUniqueInput;
 }
 
 export interface SeniorityUpdateInput {
@@ -652,9 +665,9 @@ export interface SeniorityUpdateInput {
   questions?: QuestionUpdateManyWithoutSeniorityInput;
 }
 
-export interface UserCreateOneInput {
-  create?: UserCreateInput;
-  connect?: UserWhereUniqueInput;
+export interface SeniorityCreateWithoutQuestionsInput {
+  name: String;
+  user: UserCreateOneInput;
 }
 
 export interface QuestionCreateInput {
@@ -663,17 +676,13 @@ export interface QuestionCreateInput {
   seniority: SeniorityCreateOneWithoutQuestionsInput;
   source: String;
   title: String;
+  likes?: QuestionCreatelikesInput;
   votes?: Int;
-  user: UserCreateOneInput;
+  user: UserCreateOneWithoutQuestionsInput;
 }
 
-export interface UserCreateInput {
-  name: String;
-  email: String;
-  password: String;
-  resetToken?: String;
-  resetTokenExpiry?: Float;
-  permissions?: UserCreatepermissionsInput;
+export interface QuestionCreatelikesInput {
+  set?: ID_Input[] | ID_Input;
 }
 
 export interface SeniorityUpsertNestedInput {
@@ -681,18 +690,29 @@ export interface SeniorityUpsertNestedInput {
   create: SeniorityCreateInput;
 }
 
-export interface UserCreatepermissionsInput {
-  set?: Permission[] | Permission;
-}
-
-export interface TopicUpsertWithoutQuestionsInput {
-  update: TopicUpdateWithoutQuestionsDataInput;
-  create: TopicCreateWithoutQuestionsInput;
-}
-
 export interface QuestionCreateManyWithoutTopicInput {
   create?: QuestionCreateWithoutTopicInput[] | QuestionCreateWithoutTopicInput;
   connect?: QuestionWhereUniqueInput[] | QuestionWhereUniqueInput;
+}
+
+export interface QuestionUpdateWithoutSeniorityDataInput {
+  answer?: String;
+  topic?: TopicUpdateOneRequiredWithoutQuestionsInput;
+  source?: String;
+  title?: String;
+  likes?: QuestionUpdatelikesInput;
+  votes?: Int;
+  user?: UserUpdateOneRequiredWithoutQuestionsInput;
+}
+
+export interface QuestionCreateWithoutTopicInput {
+  answer: String;
+  seniority: SeniorityCreateOneWithoutQuestionsInput;
+  source: String;
+  title: String;
+  likes?: QuestionCreatelikesInput;
+  votes?: Int;
+  user: UserCreateOneWithoutQuestionsInput;
 }
 
 export interface TopicWhereInput {
@@ -749,35 +769,9 @@ export interface TopicWhereInput {
   NOT?: TopicWhereInput[] | TopicWhereInput;
 }
 
-export interface QuestionCreateWithoutTopicInput {
-  answer: String;
-  seniority: SeniorityCreateOneWithoutQuestionsInput;
-  source: String;
-  title: String;
-  votes?: Int;
-  user: UserCreateOneInput;
-}
-
-export interface TopicUpdateOneRequiredWithoutQuestionsInput {
-  create?: TopicCreateWithoutQuestionsInput;
-  update?: TopicUpdateWithoutQuestionsDataInput;
-  upsert?: TopicUpsertWithoutQuestionsInput;
-  connect?: TopicWhereUniqueInput;
-}
-
-export interface SeniorityCreateOneWithoutQuestionsInput {
-  create?: SeniorityCreateWithoutQuestionsInput;
-  connect?: SeniorityWhereUniqueInput;
-}
-
-export type TopicWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-  name?: String;
-}>;
-
-export interface SeniorityCreateWithoutQuestionsInput {
-  name: String;
-  user: UserCreateOneInput;
+export interface UserCreateOneWithoutQuestionsInput {
+  create?: UserCreateWithoutQuestionsInput;
+  connect?: UserWhereUniqueInput;
 }
 
 export interface QuestionUpdateManyWithoutSeniorityInput {
@@ -795,15 +789,30 @@ export interface QuestionUpdateManyWithoutSeniorityInput {
     | QuestionUpsertWithWhereUniqueWithoutSeniorityInput;
 }
 
-export interface SeniorityUpdateWithoutQuestionsDataInput {
-  name?: String;
-  user?: UserUpdateOneRequiredInput;
+export interface UserCreateWithoutQuestionsInput {
+  name: String;
+  email: String;
+  password: String;
+  resetToken?: String;
+  resetTokenExpiry?: Float;
+  permissions?: UserCreatepermissionsInput;
 }
 
-export type UserWhereUniqueInput = AtLeastOne<{
+export type TopicWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
-  email?: String;
+  name?: String;
 }>;
+
+export interface QuestionUpdateWithWhereUniqueWithoutTopicInput {
+  where: QuestionWhereUniqueInput;
+  data: QuestionUpdateWithoutTopicDataInput;
+}
+
+export interface TopicUpsertWithWhereUniqueNestedInput {
+  where: TopicWhereUniqueInput;
+  update: TopicUpdateDataInput;
+  create: TopicCreateInput;
+}
 
 export interface SeniorityCreateInput {
   name: String;
@@ -811,65 +820,222 @@ export interface SeniorityCreateInput {
   questions?: QuestionCreateManyWithoutSeniorityInput;
 }
 
-export interface SeniorityWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  user?: UserWhereInput;
-  questions_every?: QuestionWhereInput;
-  questions_some?: QuestionWhereInput;
-  questions_none?: QuestionWhereInput;
-  createdAt?: DateTimeInput;
-  createdAt_not?: DateTimeInput;
-  createdAt_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
-  createdAt_lt?: DateTimeInput;
-  createdAt_lte?: DateTimeInput;
-  createdAt_gt?: DateTimeInput;
-  createdAt_gte?: DateTimeInput;
-  updatedAt?: DateTimeInput;
-  updatedAt_not?: DateTimeInput;
-  updatedAt_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
-  updatedAt_lt?: DateTimeInput;
-  updatedAt_lte?: DateTimeInput;
-  updatedAt_gt?: DateTimeInput;
-  updatedAt_gte?: DateTimeInput;
-  AND?: SeniorityWhereInput[] | SeniorityWhereInput;
-  OR?: SeniorityWhereInput[] | SeniorityWhereInput;
-  NOT?: SeniorityWhereInput[] | SeniorityWhereInput;
-}
+export type UserWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+  email?: String;
+}>;
 
 export interface QuestionCreateManyWithoutSeniorityInput {
   create?:
     | QuestionCreateWithoutSeniorityInput[]
     | QuestionCreateWithoutSeniorityInput;
   connect?: QuestionWhereUniqueInput[] | QuestionWhereUniqueInput;
+}
+
+export interface UserUpdateWithoutQuestionsDataInput {
+  name?: String;
+  email?: String;
+  password?: String;
+  resetToken?: String;
+  resetTokenExpiry?: Float;
+  permissions?: UserUpdatepermissionsInput;
+}
+
+export interface QuestionCreateWithoutSeniorityInput {
+  answer: String;
+  topic: TopicCreateOneWithoutQuestionsInput;
+  source: String;
+  title: String;
+  likes?: QuestionCreatelikesInput;
+  votes?: Int;
+  user: UserCreateOneWithoutQuestionsInput;
+}
+
+export interface QuestionUpdateWithoutTopicDataInput {
+  answer?: String;
+  seniority?: SeniorityUpdateOneRequiredWithoutQuestionsInput;
+  source?: String;
+  title?: String;
+  likes?: QuestionUpdatelikesInput;
+  votes?: Int;
+  user?: UserUpdateOneRequiredWithoutQuestionsInput;
+}
+
+export interface QuestionUpdateManyWithoutTopicInput {
+  create?: QuestionCreateWithoutTopicInput[] | QuestionCreateWithoutTopicInput;
+  delete?: QuestionWhereUniqueInput[] | QuestionWhereUniqueInput;
+  connect?: QuestionWhereUniqueInput[] | QuestionWhereUniqueInput;
+  disconnect?: QuestionWhereUniqueInput[] | QuestionWhereUniqueInput;
+  update?:
+    | QuestionUpdateWithWhereUniqueWithoutTopicInput[]
+    | QuestionUpdateWithWhereUniqueWithoutTopicInput;
+  upsert?:
+    | QuestionUpsertWithWhereUniqueWithoutTopicInput[]
+    | QuestionUpsertWithWhereUniqueWithoutTopicInput;
+}
+
+export interface JobCreateInput {
+  jobTitle: String;
+  company: String;
+  topics?: TopicCreateManyInput;
+  seniority: SeniorityCreateOneInput;
+  location: String;
+  description: String;
+  contact: String;
+  user: UserCreateOneInput;
+}
+
+export interface TopicUpdateManyInput {
+  create?: TopicCreateInput[] | TopicCreateInput;
+  delete?: TopicWhereUniqueInput[] | TopicWhereUniqueInput;
+  connect?: TopicWhereUniqueInput[] | TopicWhereUniqueInput;
+  disconnect?: TopicWhereUniqueInput[] | TopicWhereUniqueInput;
+  update?:
+    | TopicUpdateWithWhereUniqueNestedInput[]
+    | TopicUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | TopicUpsertWithWhereUniqueNestedInput[]
+    | TopicUpsertWithWhereUniqueNestedInput;
+}
+
+export interface TopicCreateInput {
+  name: String;
+  user: UserCreateOneInput;
+  questions?: QuestionCreateManyWithoutTopicInput;
+}
+
+export interface TopicUpdateWithWhereUniqueNestedInput {
+  where: TopicWhereUniqueInput;
+  data: TopicUpdateDataInput;
+}
+
+export interface TopicSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: TopicWhereInput;
+  AND?: TopicSubscriptionWhereInput[] | TopicSubscriptionWhereInput;
+  OR?: TopicSubscriptionWhereInput[] | TopicSubscriptionWhereInput;
+  NOT?: TopicSubscriptionWhereInput[] | TopicSubscriptionWhereInput;
+}
+
+export interface TopicUpdateDataInput {
+  name?: String;
+  user?: UserUpdateOneRequiredInput;
+  questions?: QuestionUpdateManyWithoutTopicInput;
+}
+
+export interface JobSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: JobWhereInput;
+  AND?: JobSubscriptionWhereInput[] | JobSubscriptionWhereInput;
+  OR?: JobSubscriptionWhereInput[] | JobSubscriptionWhereInput;
+  NOT?: JobSubscriptionWhereInput[] | JobSubscriptionWhereInput;
+}
+
+export interface UserUpdateOneRequiredInput {
+  create?: UserCreateInput;
+  update?: UserUpdateDataInput;
+  upsert?: UserUpsertNestedInput;
+  connect?: UserWhereUniqueInput;
+}
+
+export interface TopicUpdateInput {
+  name?: String;
+  user?: UserUpdateOneRequiredInput;
+  questions?: QuestionUpdateManyWithoutTopicInput;
+}
+
+export interface UserUpdateDataInput {
+  name?: String;
+  email?: String;
+  password?: String;
+  resetToken?: String;
+  resetTokenExpiry?: Float;
+  permissions?: UserUpdatepermissionsInput;
+  questions?: QuestionUpdateManyWithoutUserInput;
+}
+
+export type QuestionWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+  title?: String;
+}>;
+
+export interface UserUpdatepermissionsInput {
+  set?: Permission[] | Permission;
+}
+
+export type SeniorityWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+  name?: String;
+}>;
+
+export interface QuestionUpdateManyWithoutUserInput {
+  create?: QuestionCreateWithoutUserInput[] | QuestionCreateWithoutUserInput;
+  delete?: QuestionWhereUniqueInput[] | QuestionWhereUniqueInput;
+  connect?: QuestionWhereUniqueInput[] | QuestionWhereUniqueInput;
+  disconnect?: QuestionWhereUniqueInput[] | QuestionWhereUniqueInput;
+  update?:
+    | QuestionUpdateWithWhereUniqueWithoutUserInput[]
+    | QuestionUpdateWithWhereUniqueWithoutUserInput;
+  upsert?:
+    | QuestionUpsertWithWhereUniqueWithoutUserInput[]
+    | QuestionUpsertWithWhereUniqueWithoutUserInput;
+}
+
+export interface SeniorityUpdateDataInput {
+  name?: String;
+  user?: UserUpdateOneRequiredInput;
+  questions?: QuestionUpdateManyWithoutSeniorityInput;
+}
+
+export interface QuestionUpdateWithWhereUniqueWithoutUserInput {
+  where: QuestionWhereUniqueInput;
+  data: QuestionUpdateWithoutUserDataInput;
+}
+
+export interface QuestionUpsertWithWhereUniqueWithoutTopicInput {
+  where: QuestionWhereUniqueInput;
+  update: QuestionUpdateWithoutTopicDataInput;
+  create: QuestionCreateWithoutTopicInput;
+}
+
+export interface QuestionUpdateWithoutUserDataInput {
+  answer?: String;
+  topic?: TopicUpdateOneRequiredWithoutQuestionsInput;
+  seniority?: SeniorityUpdateOneRequiredWithoutQuestionsInput;
+  source?: String;
+  title?: String;
+  likes?: QuestionUpdatelikesInput;
+  votes?: Int;
+}
+
+export interface UserUpdateOneRequiredWithoutQuestionsInput {
+  create?: UserCreateWithoutQuestionsInput;
+  update?: UserUpdateWithoutQuestionsDataInput;
+  upsert?: UserUpsertWithoutQuestionsInput;
+  connect?: UserWhereUniqueInput;
+}
+
+export interface TopicUpdateOneRequiredWithoutQuestionsInput {
+  create?: TopicCreateWithoutQuestionsInput;
+  update?: TopicUpdateWithoutQuestionsDataInput;
+  upsert?: TopicUpsertWithoutQuestionsInput;
+  connect?: TopicWhereUniqueInput;
+}
+
+export interface TopicCreateManyInput {
+  create?: TopicCreateInput[] | TopicCreateInput;
+  connect?: TopicWhereUniqueInput[] | TopicWhereUniqueInput;
+}
+
+export interface TopicUpdateWithoutQuestionsDataInput {
+  name?: String;
+  user?: UserUpdateOneRequiredInput;
 }
 
 export interface SenioritySubscriptionWhereInput {
@@ -883,13 +1049,70 @@ export interface SenioritySubscriptionWhereInput {
   NOT?: SenioritySubscriptionWhereInput[] | SenioritySubscriptionWhereInput;
 }
 
-export interface QuestionCreateWithoutSeniorityInput {
-  answer: String;
-  topic: TopicCreateOneWithoutQuestionsInput;
-  source: String;
-  title: String;
+export interface TopicUpsertWithoutQuestionsInput {
+  update: TopicUpdateWithoutQuestionsDataInput;
+  create: TopicCreateWithoutQuestionsInput;
+}
+
+export interface QuestionUpdateInput {
+  answer?: String;
+  topic?: TopicUpdateOneRequiredWithoutQuestionsInput;
+  seniority?: SeniorityUpdateOneRequiredWithoutQuestionsInput;
+  source?: String;
+  title?: String;
+  likes?: QuestionUpdatelikesInput;
   votes?: Int;
-  user: UserCreateOneInput;
+  user?: UserUpdateOneRequiredWithoutQuestionsInput;
+}
+
+export interface SeniorityUpdateOneRequiredWithoutQuestionsInput {
+  create?: SeniorityCreateWithoutQuestionsInput;
+  update?: SeniorityUpdateWithoutQuestionsDataInput;
+  upsert?: SeniorityUpsertWithoutQuestionsInput;
+  connect?: SeniorityWhereUniqueInput;
+}
+
+export interface QuestionUpdateWithWhereUniqueWithoutSeniorityInput {
+  where: QuestionWhereUniqueInput;
+  data: QuestionUpdateWithoutSeniorityDataInput;
+}
+
+export interface UserUpsertWithoutQuestionsInput {
+  update: UserUpdateWithoutQuestionsDataInput;
+  create: UserCreateWithoutQuestionsInput;
+}
+
+export interface QuestionUpsertWithWhereUniqueWithoutUserInput {
+  where: QuestionWhereUniqueInput;
+  update: QuestionUpdateWithoutUserDataInput;
+  create: QuestionCreateWithoutUserInput;
+}
+
+export interface QuestionUpdatelikesInput {
+  set?: ID_Input[] | ID_Input;
+}
+
+export interface SeniorityUpsertWithoutQuestionsInput {
+  update: SeniorityUpdateWithoutQuestionsDataInput;
+  create: SeniorityCreateWithoutQuestionsInput;
+}
+
+export interface SeniorityUpdateWithoutQuestionsDataInput {
+  name?: String;
+  user?: UserUpdateOneRequiredInput;
+}
+
+export interface SeniorityUpdateOneRequiredInput {
+  create?: SeniorityCreateInput;
+  update?: SeniorityUpdateDataInput;
+  upsert?: SeniorityUpsertNestedInput;
+  connect?: SeniorityWhereUniqueInput;
+}
+
+export interface QuestionUpsertWithWhereUniqueWithoutSeniorityInput {
+  where: QuestionWhereUniqueInput;
+  update: QuestionUpdateWithoutSeniorityDataInput;
+  create: QuestionCreateWithoutSeniorityInput;
 }
 
 export interface UserWhereInput {
@@ -971,185 +1194,66 @@ export interface UserWhereInput {
   resetTokenExpiry_lte?: Float;
   resetTokenExpiry_gt?: Float;
   resetTokenExpiry_gte?: Float;
+  questions_every?: QuestionWhereInput;
+  questions_some?: QuestionWhereInput;
+  questions_none?: QuestionWhereInput;
   AND?: UserWhereInput[] | UserWhereInput;
   OR?: UserWhereInput[] | UserWhereInput;
   NOT?: UserWhereInput[] | UserWhereInput;
 }
 
-export interface TopicCreateOneWithoutQuestionsInput {
-  create?: TopicCreateWithoutQuestionsInput;
-  connect?: TopicWhereUniqueInput;
-}
-
-export interface QuestionUpdateInput {
-  answer?: String;
-  topic?: TopicUpdateOneRequiredWithoutQuestionsInput;
-  seniority?: SeniorityUpdateOneRequiredWithoutQuestionsInput;
-  source?: String;
-  title?: String;
-  votes?: Int;
-  user?: UserUpdateOneRequiredInput;
-}
-
-export interface SeniorityUpdateOneRequiredWithoutQuestionsInput {
-  create?: SeniorityCreateWithoutQuestionsInput;
-  update?: SeniorityUpdateWithoutQuestionsDataInput;
-  upsert?: SeniorityUpsertWithoutQuestionsInput;
-  connect?: SeniorityWhereUniqueInput;
-}
-
-export interface QuestionUpsertWithWhereUniqueWithoutSeniorityInput {
-  where: QuestionWhereUniqueInput;
-  update: QuestionUpdateWithoutSeniorityDataInput;
-  create: QuestionCreateWithoutSeniorityInput;
-}
-
-export interface JobUpdateInput {
-  jobTitle?: String;
-  company?: String;
-  topics?: TopicUpdateManyInput;
-  seniority?: SeniorityUpdateOneRequiredInput;
-  location?: String;
-  description?: String;
-  contact?: String;
-  user?: UserUpdateOneRequiredInput;
-}
-
-export interface TopicUpdateWithoutQuestionsDataInput {
+export interface SeniorityWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
   name?: String;
-  user?: UserUpdateOneRequiredInput;
-}
-
-export interface TopicUpdateManyInput {
-  create?: TopicCreateInput[] | TopicCreateInput;
-  delete?: TopicWhereUniqueInput[] | TopicWhereUniqueInput;
-  connect?: TopicWhereUniqueInput[] | TopicWhereUniqueInput;
-  disconnect?: TopicWhereUniqueInput[] | TopicWhereUniqueInput;
-  update?:
-    | TopicUpdateWithWhereUniqueNestedInput[]
-    | TopicUpdateWithWhereUniqueNestedInput;
-  upsert?:
-    | TopicUpsertWithWhereUniqueNestedInput[]
-    | TopicUpsertWithWhereUniqueNestedInput;
-}
-
-export interface QuestionUpdateWithWhereUniqueWithoutSeniorityInput {
-  where: QuestionWhereUniqueInput;
-  data: QuestionUpdateWithoutSeniorityDataInput;
-}
-
-export interface TopicUpdateWithWhereUniqueNestedInput {
-  where: TopicWhereUniqueInput;
-  data: TopicUpdateDataInput;
-}
-
-export interface SeniorityUpdateOneRequiredInput {
-  create?: SeniorityCreateInput;
-  update?: SeniorityUpdateDataInput;
-  upsert?: SeniorityUpsertNestedInput;
-  connect?: SeniorityWhereUniqueInput;
-}
-
-export interface TopicUpdateDataInput {
-  name?: String;
-  user?: UserUpdateOneRequiredInput;
-  questions?: QuestionUpdateManyWithoutTopicInput;
-}
-
-export interface JobSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: JobWhereInput;
-  AND?: JobSubscriptionWhereInput[] | JobSubscriptionWhereInput;
-  OR?: JobSubscriptionWhereInput[] | JobSubscriptionWhereInput;
-  NOT?: JobSubscriptionWhereInput[] | JobSubscriptionWhereInput;
-}
-
-export interface UserUpdateOneRequiredInput {
-  create?: UserCreateInput;
-  update?: UserUpdateDataInput;
-  upsert?: UserUpsertNestedInput;
-  connect?: UserWhereUniqueInput;
-}
-
-export type QuestionWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-  title?: String;
-}>;
-
-export interface UserUpdateDataInput {
-  name?: String;
-  email?: String;
-  password?: String;
-  resetToken?: String;
-  resetTokenExpiry?: Float;
-  permissions?: UserUpdatepermissionsInput;
-}
-
-export interface QuestionUpdateWithoutSeniorityDataInput {
-  answer?: String;
-  topic?: TopicUpdateOneRequiredWithoutQuestionsInput;
-  source?: String;
-  title?: String;
-  votes?: Int;
-  user?: UserUpdateOneRequiredInput;
-}
-
-export interface QuestionUpdateWithWhereUniqueWithoutTopicInput {
-  where: QuestionWhereUniqueInput;
-  data: QuestionUpdateWithoutTopicDataInput;
-}
-
-export interface QuestionUpdateManyWithoutTopicInput {
-  create?: QuestionCreateWithoutTopicInput[] | QuestionCreateWithoutTopicInput;
-  delete?: QuestionWhereUniqueInput[] | QuestionWhereUniqueInput;
-  connect?: QuestionWhereUniqueInput[] | QuestionWhereUniqueInput;
-  disconnect?: QuestionWhereUniqueInput[] | QuestionWhereUniqueInput;
-  update?:
-    | QuestionUpdateWithWhereUniqueWithoutTopicInput[]
-    | QuestionUpdateWithWhereUniqueWithoutTopicInput;
-  upsert?:
-    | QuestionUpsertWithWhereUniqueWithoutTopicInput[]
-    | QuestionUpsertWithWhereUniqueWithoutTopicInput;
-}
-
-export interface UserUpsertNestedInput {
-  update: UserUpdateDataInput;
-  create: UserCreateInput;
-}
-
-export interface UserUpdatepermissionsInput {
-  set?: Permission[] | Permission;
-}
-
-export interface SeniorityUpdateDataInput {
-  name?: String;
-  user?: UserUpdateOneRequiredInput;
-  questions?: QuestionUpdateManyWithoutSeniorityInput;
-}
-
-export type SeniorityWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-  name?: String;
-}>;
-
-export interface TopicUpdateInput {
-  name?: String;
-  user?: UserUpdateOneRequiredInput;
-  questions?: QuestionUpdateManyWithoutTopicInput;
-}
-
-export interface TopicSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: TopicWhereInput;
-  AND?: TopicSubscriptionWhereInput[] | TopicSubscriptionWhereInput;
-  OR?: TopicSubscriptionWhereInput[] | TopicSubscriptionWhereInput;
-  NOT?: TopicSubscriptionWhereInput[] | TopicSubscriptionWhereInput;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  user?: UserWhereInput;
+  questions_every?: QuestionWhereInput;
+  questions_some?: QuestionWhereInput;
+  questions_none?: QuestionWhereInput;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: SeniorityWhereInput[] | SeniorityWhereInput;
+  OR?: SeniorityWhereInput[] | SeniorityWhereInput;
+  NOT?: SeniorityWhereInput[] | SeniorityWhereInput;
 }
 
 export interface NodeNode {
@@ -1222,6 +1326,17 @@ export interface User extends Promise<UserNode>, Fragmentable {
   resetToken: () => Promise<String>;
   resetTokenExpiry: () => Promise<Float>;
   permissions: () => Promise<Permission[]>;
+  questions: <T = Promise<Array<QuestionNode>>>(
+    args?: {
+      where?: QuestionWhereInput;
+      orderBy?: QuestionOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
 }
 
 export interface UserSubscription
@@ -1234,6 +1349,17 @@ export interface UserSubscription
   resetToken: () => Promise<AsyncIterator<String>>;
   resetTokenExpiry: () => Promise<AsyncIterator<Float>>;
   permissions: () => Promise<AsyncIterator<Permission[]>>;
+  questions: <T = Promise<AsyncIterator<Array<QuestionSubscription>>>>(
+    args?: {
+      where?: QuestionWhereInput;
+      orderBy?: QuestionOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
 }
 
 export interface JobEdgeNode {
@@ -1626,6 +1752,7 @@ export interface QuestionNode {
   answer: String;
   source: String;
   title: String;
+  likes: ID_Output[];
   votes?: Int;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
@@ -1638,6 +1765,7 @@ export interface Question extends Promise<QuestionNode>, Fragmentable {
   seniority: <T = Seniority>() => T;
   source: () => Promise<String>;
   title: () => Promise<String>;
+  likes: () => Promise<ID_Output[]>;
   votes: () => Promise<Int>;
   user: <T = User>() => T;
   createdAt: () => Promise<DateTimeOutput>;
@@ -1653,6 +1781,7 @@ export interface QuestionSubscription
   seniority: <T = SenioritySubscription>() => T;
   source: () => Promise<AsyncIterator<String>>;
   title: () => Promise<AsyncIterator<String>>;
+  likes: () => Promise<AsyncIterator<ID_Output[]>>;
   votes: () => Promise<AsyncIterator<Int>>;
   user: <T = UserSubscription>() => T;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -1792,6 +1921,7 @@ export interface QuestionPreviousValuesNode {
   answer: String;
   source: String;
   title: String;
+  likes: ID_Output[];
   votes?: Int;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
@@ -1804,6 +1934,7 @@ export interface QuestionPreviousValues
   answer: () => Promise<String>;
   source: () => Promise<String>;
   title: () => Promise<String>;
+  likes: () => Promise<ID_Output[]>;
   votes: () => Promise<Int>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -1816,6 +1947,7 @@ export interface QuestionPreviousValuesSubscription
   answer: () => Promise<AsyncIterator<String>>;
   source: () => Promise<AsyncIterator<String>>;
   title: () => Promise<AsyncIterator<String>>;
+  likes: () => Promise<AsyncIterator<ID_Output[]>>;
   votes: () => Promise<AsyncIterator<Int>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
