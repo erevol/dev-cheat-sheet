@@ -272,6 +272,7 @@ const mutations = {
         data: {
           ...data,
           likes: likes ? { set: likes} : {},
+          votes: likes.length,
         },
         where: {
           id: questionId,

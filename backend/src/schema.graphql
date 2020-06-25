@@ -23,8 +23,7 @@ type Mutation {
 
 type Query {
   question(where: QuestionWhereUniqueInput!): Question
-  # questions: [Question]!
-  questions(where: QuestionWhereInput): [Question]!
+  questions(where: QuestionWhereInput, orderBy: QuestionOrderByInput, first: Int): [Question]!
   job(where: JobWhereUniqueInput!): Job
   jobs: [Job]!
   seniority(where: SeniorityWhereUniqueInput!): Seniority

@@ -156,18 +156,25 @@ class SingleQuestion extends React.Component {
                   <a>{seniority.name}</a>
                 </Link> questions</Header>
 
-                <StyledButton>
-                  <Button color="red" size="large" fluid>
-                    <Link
-                      href={{
-                        pathname: '/update-question',
-                        query: { id },
-                      }}
-                    >
-                      <a>Update</a>
-                    </Link>
-                  </Button>
-                </StyledButton>
+              <User>
+                {({ data }) => {
+                  const me = data ? data.me : null;
+                  return (
+                    me && <StyledButton>
+                    <Button color="red" size="large" fluid>
+                      <Link
+                        href={{
+                          pathname: '/update-question',
+                          query: { id },
+                        }}
+                      >
+                        <a>Update</a>
+                      </Link>
+                    </Button>
+                  </StyledButton>
+                  )
+                }}
+              </User>
             </Container>
           </StyledContainer>
         }}

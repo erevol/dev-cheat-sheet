@@ -69,7 +69,7 @@ class QuestionsList extends React.Component {
           />
           return (
             <>
-              <StyledHeading>{data.questions[0].topic.name} Questions</StyledHeading>
+              <StyledHeading>{this.props.pathname.includes('topic') ? data.questions[0].topic.name : data.questions[0].seniority.name} Questions</StyledHeading>
               <User>
                 {({ data }) => {
                   const me = data ? data.me : null;
@@ -97,6 +97,7 @@ class QuestionsList extends React.Component {
                 { data.questions.map(question => <Question
                   question={question}
                   key={question.id}
+                  pathname={this.props.pathname}
                   />) }
               </QuestionsOrderedList>
               <StyledPrintContainer>

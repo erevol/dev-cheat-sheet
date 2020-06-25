@@ -29,6 +29,20 @@ To seed the database run the next command
 $ prisma seed
 ```
 
+To export the database run the next command
+
+```bash
+$ prisma export
+```
+This creates a new file called export-__TIMESTAMP__.zip where __TIMESTAMP__ represents the exact time of the export.
+Example: export-2020-06-25T04:36:43.314Z.zip
+
+To import the database to a new service run the next command
+
+```bash
+$ prisma import --data export-__TIMESTAMP__.zip
+```
+
 To build the project run the next command
 
 ```bash
