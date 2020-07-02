@@ -94,7 +94,12 @@ const mutations = {
   async createTopic(parent, args, ctx, info) {
     const topic = await ctx.db.mutation.createTopic({
       data: {
-        ...args
+        ...args,
+        user: {
+          connect: {
+            id: ctx.request.userId,
+          }
+        }
       }
     }, info);
 
@@ -116,7 +121,12 @@ const mutations = {
   async createSeniority(parent, args, ctx, info) {
     const seniority = await ctx.db.mutation.createSeniority({
       data: {
-        ...args
+        ...args,
+        user: {
+          connect: {
+            id: ctx.request.userId,
+          }
+        }
       }
     }, info);
 

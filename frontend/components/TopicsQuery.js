@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const ALL_TOPICS_QUERY = gql`
   query ALL_TOPICS_QUERY {
-    topics {
+    topics(orderBy: name_ASC) {
       id
       name
     }
