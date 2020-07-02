@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import Button from './Button';
+import User from './User';
 
 const StyledItem = styled.div`
   display: inline-block;
@@ -57,6 +58,10 @@ const StyledQuestionListItem = styled.li`
       margin-left: -1em;
     }
   }
+
+  .ui.checkbox {
+    margin: 0 8px 0 20px;
+  }
 `;
 
 class Question extends React.Component {
@@ -75,16 +80,31 @@ class Question extends React.Component {
             <a>{question.title}</a>
           </Link>
         </StyledItem>
-        <Button color="green">{question.seniority.name}</Button>
-        <Button position="right" color="red"><Link
+        {this.props.pathname.includes('topic') ? <Button color="green"><Link
             href={{
-              pathname: '/update-question',
-              query: { id: question.id },
+              pathname: '/seniority',
+              query: { id: question.seniority.id },
             }}
           >
-            <a>Update</a>
+            <a>{question.seniority.name}</a>
           </Link>
-        </Button>
+        </Button> : null}
+        <User>
+          {({ data }) => {
+            const me = data ? data.me : null;
+            return (
+              me && <Button position="right" color="red"><Link
+                href={{
+                  pathname: '/update-question',
+                  query: { id: question.id },
+                }}
+              >
+                <a>Update</a>
+              </Link>
+            </Button>
+            )
+          }}
+        </User>
       </StyledQuestionListItem>
     );
   }

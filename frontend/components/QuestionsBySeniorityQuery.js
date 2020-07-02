@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const ALL_QUESTIONS_QUERY = gql`
   query ALL_QUESTIONS_QUERY($id: ID!) {
-    questions(where: {OR: [{topic: {id: $id}}, {seniority: {id: $id}}]}) {
+    questions(where: {seniority: {id: $id}}) {
       id
       title
       answer
@@ -16,7 +16,7 @@ const ALL_QUESTIONS_QUERY = gql`
   }
 `;
 
-const QuestionsByTopicQuery = props => (
+const QuestionsBySeniorityQuery = props => (
   <Query {...props}
     query={ALL_QUESTIONS_QUERY}
     variables={{
@@ -27,9 +27,9 @@ const QuestionsByTopicQuery = props => (
   </Query>
 );
 
-QuestionsByTopicQuery.propTypes = {
+QuestionsBySeniorityQuery.propTypes = {
   children: PropTypes.func.isRequired,
 };
 
-export default QuestionsByTopicQuery;
+export default QuestionsBySeniorityQuery;
 export { ALL_QUESTIONS_QUERY };

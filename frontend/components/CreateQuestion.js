@@ -16,6 +16,7 @@ import { StyledFormContainer } from './PostJob';
 import paragraph from '../static/paragraph.png';
 import CreateQuestionQuery from './CreateQuestionQuery';
 import Router from 'next/router';
+import { CREATE_QUESTION_QUERY } from './CreateQuestionQuery';
 
 const CREATE_QUESTION_MUTATION = gql`
   mutation CREATE_QUESTION_MUTATION(
@@ -38,6 +39,24 @@ const CREATE_QUESTION_MUTATION = gql`
       seniority { id name }
       source
       answer
+    }
+  }
+`;
+
+const CREATE_TOPIC_MUTATION = gql`
+  mutation CREATE_TOPIC_MUTATION($name: String!){
+    createTopic(name: $name) {
+      id
+      name
+    }
+  }
+`;
+
+const CREATE_SENIORITY_MUTATION = gql`
+  mutation CREATE_SENIORITY_MUTATION($name: String!){
+    createSeniority(name: $name) {
+      id
+      name
     }
   }
 `;
@@ -65,6 +84,18 @@ class CreateQuestion extends React.Component {
     const val = type === 'number' ? parseFloat(value) : value;
     this.setState({ [name]: val });
   };
+
+  handleTopicAddition = (e, createTopic, value) => {
+    if (value) {
+      this.setState({ newTopic: value }, () => createTopic());
+    }
+  }
+
+  handleSeniorityAddition = (e, createSeniority, value) => {
+    if (value) {
+      this.setState({ newSeniority: value }, () => createSeniority());
+    }
+  }
 
   render() {
     return (
@@ -136,26 +167,48 @@ class CreateQuestion extends React.Component {
                           onChange={this.handleChangeInput}
                         />
                       </Form.Field>
-                      <Form.Select
-                        id="topic"
-                        fluid
-                        search
-                        label="Topic"
-                        options={data.topics}
-                        placeholder="Topic"
-                        value={this.state.topic}
-                        onChange={this.handleChange}
-                      />
-                      <Form.Select
-                        id="seniority"
-                        fluid
-                        search
-                        label="Seniority"
-                        options={data.seniorities}
-                        placeholder="Seniority"
-                        value={this.state.seniority}
-                        onChange={this.handleChange}
-                      />
+                      <Mutation
+                        mutation={CREATE_TOPIC_MUTATION}
+                        variables={{name: this.state.newTopic}}
+                        refetchQueries={[{ query: CREATE_QUESTION_QUERY }]}
+                      >
+                        {(createTopic) => (
+                          <Form.Select
+                            id="topic"
+                            fluid
+                            search
+                            label="Topic"
+                            options={data.topics}
+                            placeholder="Topic"
+                            value={this.state.topic}
+                            onChange={this.handleChange}
+                            allowAdditions
+                            onAddItem={(e, { value }) => this.handleTopicAddition(e, createTopic, value)}
+                            closeOnEscape
+                          />
+                        )}
+                      </Mutation>
+                      <Mutation
+                        mutation={CREATE_SENIORITY_MUTATION}
+                        variables={{name: this.state.newSeniority}}
+                        refetchQueries={[{ query: CREATE_QUESTION_QUERY }]}
+                      >
+                        {(createSeniority) => (
+                        <Form.Select
+                          id="seniority"
+                          fluid
+                          search
+                          label="Seniority"
+                          options={data.seniorities}
+                          placeholder="Seniority"
+                          value={this.state.seniority}
+                          onChange={this.handleChange}
+                          allowAdditions
+                          onAddItem={(e, { value }) => this.handleSeniorityAddition(e, createSeniority, value)}
+                          closeOnEscape
+                        />
+                      )}
+                      </Mutation>
                       <Form.Field>
                         <label>Source</label>
                         <input

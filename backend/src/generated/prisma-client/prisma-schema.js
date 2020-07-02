@@ -322,6 +322,7 @@ type Question {
   seniority: Seniority!
   source: String!
   title: String!
+  likes: [ID!]!
   votes: Int
   user: User!
   createdAt: DateTime!
@@ -340,8 +341,13 @@ input QuestionCreateInput {
   seniority: SeniorityCreateOneWithoutQuestionsInput!
   source: String!
   title: String!
+  likes: QuestionCreatelikesInput
   votes: Int
-  user: UserCreateOneInput!
+  user: UserCreateOneWithoutQuestionsInput!
+}
+
+input QuestionCreatelikesInput {
+  set: [ID!]
 }
 
 input QuestionCreateManyWithoutSeniorityInput {
@@ -354,13 +360,19 @@ input QuestionCreateManyWithoutTopicInput {
   connect: [QuestionWhereUniqueInput!]
 }
 
+input QuestionCreateManyWithoutUserInput {
+  create: [QuestionCreateWithoutUserInput!]
+  connect: [QuestionWhereUniqueInput!]
+}
+
 input QuestionCreateWithoutSeniorityInput {
   answer: String!
   topic: TopicCreateOneWithoutQuestionsInput!
   source: String!
   title: String!
+  likes: QuestionCreatelikesInput
   votes: Int
-  user: UserCreateOneInput!
+  user: UserCreateOneWithoutQuestionsInput!
 }
 
 input QuestionCreateWithoutTopicInput {
@@ -368,8 +380,19 @@ input QuestionCreateWithoutTopicInput {
   seniority: SeniorityCreateOneWithoutQuestionsInput!
   source: String!
   title: String!
+  likes: QuestionCreatelikesInput
   votes: Int
-  user: UserCreateOneInput!
+  user: UserCreateOneWithoutQuestionsInput!
+}
+
+input QuestionCreateWithoutUserInput {
+  answer: String!
+  topic: TopicCreateOneWithoutQuestionsInput!
+  seniority: SeniorityCreateOneWithoutQuestionsInput!
+  source: String!
+  title: String!
+  likes: QuestionCreatelikesInput
+  votes: Int
 }
 
 type QuestionEdge {
@@ -399,6 +422,7 @@ type QuestionPreviousValues {
   answer: String!
   source: String!
   title: String!
+  likes: [ID!]!
   votes: Int
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -428,8 +452,13 @@ input QuestionUpdateInput {
   seniority: SeniorityUpdateOneRequiredWithoutQuestionsInput
   source: String
   title: String
+  likes: QuestionUpdatelikesInput
   votes: Int
-  user: UserUpdateOneRequiredInput
+  user: UserUpdateOneRequiredWithoutQuestionsInput
+}
+
+input QuestionUpdatelikesInput {
+  set: [ID!]
 }
 
 input QuestionUpdateManyWithoutSeniorityInput {
@@ -450,13 +479,23 @@ input QuestionUpdateManyWithoutTopicInput {
   upsert: [QuestionUpsertWithWhereUniqueWithoutTopicInput!]
 }
 
+input QuestionUpdateManyWithoutUserInput {
+  create: [QuestionCreateWithoutUserInput!]
+  delete: [QuestionWhereUniqueInput!]
+  connect: [QuestionWhereUniqueInput!]
+  disconnect: [QuestionWhereUniqueInput!]
+  update: [QuestionUpdateWithWhereUniqueWithoutUserInput!]
+  upsert: [QuestionUpsertWithWhereUniqueWithoutUserInput!]
+}
+
 input QuestionUpdateWithoutSeniorityDataInput {
   answer: String
   topic: TopicUpdateOneRequiredWithoutQuestionsInput
   source: String
   title: String
+  likes: QuestionUpdatelikesInput
   votes: Int
-  user: UserUpdateOneRequiredInput
+  user: UserUpdateOneRequiredWithoutQuestionsInput
 }
 
 input QuestionUpdateWithoutTopicDataInput {
@@ -464,8 +503,19 @@ input QuestionUpdateWithoutTopicDataInput {
   seniority: SeniorityUpdateOneRequiredWithoutQuestionsInput
   source: String
   title: String
+  likes: QuestionUpdatelikesInput
   votes: Int
-  user: UserUpdateOneRequiredInput
+  user: UserUpdateOneRequiredWithoutQuestionsInput
+}
+
+input QuestionUpdateWithoutUserDataInput {
+  answer: String
+  topic: TopicUpdateOneRequiredWithoutQuestionsInput
+  seniority: SeniorityUpdateOneRequiredWithoutQuestionsInput
+  source: String
+  title: String
+  likes: QuestionUpdatelikesInput
+  votes: Int
 }
 
 input QuestionUpdateWithWhereUniqueWithoutSeniorityInput {
@@ -478,6 +528,11 @@ input QuestionUpdateWithWhereUniqueWithoutTopicInput {
   data: QuestionUpdateWithoutTopicDataInput!
 }
 
+input QuestionUpdateWithWhereUniqueWithoutUserInput {
+  where: QuestionWhereUniqueInput!
+  data: QuestionUpdateWithoutUserDataInput!
+}
+
 input QuestionUpsertWithWhereUniqueWithoutSeniorityInput {
   where: QuestionWhereUniqueInput!
   update: QuestionUpdateWithoutSeniorityDataInput!
@@ -488,6 +543,12 @@ input QuestionUpsertWithWhereUniqueWithoutTopicInput {
   where: QuestionWhereUniqueInput!
   update: QuestionUpdateWithoutTopicDataInput!
   create: QuestionCreateWithoutTopicInput!
+}
+
+input QuestionUpsertWithWhereUniqueWithoutUserInput {
+  where: QuestionWhereUniqueInput!
+  update: QuestionUpdateWithoutUserDataInput!
+  create: QuestionCreateWithoutUserInput!
 }
 
 input QuestionWhereInput {
@@ -962,6 +1023,7 @@ type User {
   resetToken: String
   resetTokenExpiry: Float
   permissions: [Permission!]!
+  questions(where: QuestionWhereInput, orderBy: QuestionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Question!]
 }
 
 type UserConnection {
@@ -977,6 +1039,7 @@ input UserCreateInput {
   resetToken: String
   resetTokenExpiry: Float
   permissions: UserCreatepermissionsInput
+  questions: QuestionCreateManyWithoutUserInput
 }
 
 input UserCreateOneInput {
@@ -984,8 +1047,22 @@ input UserCreateOneInput {
   connect: UserWhereUniqueInput
 }
 
+input UserCreateOneWithoutQuestionsInput {
+  create: UserCreateWithoutQuestionsInput
+  connect: UserWhereUniqueInput
+}
+
 input UserCreatepermissionsInput {
   set: [Permission!]
+}
+
+input UserCreateWithoutQuestionsInput {
+  name: String!
+  email: String!
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: UserCreatepermissionsInput
 }
 
 type UserEdge {
@@ -1047,6 +1124,7 @@ input UserUpdateDataInput {
   resetToken: String
   resetTokenExpiry: Float
   permissions: UserUpdatepermissionsInput
+  questions: QuestionUpdateManyWithoutUserInput
 }
 
 input UserUpdateInput {
@@ -1056,6 +1134,7 @@ input UserUpdateInput {
   resetToken: String
   resetTokenExpiry: Float
   permissions: UserUpdatepermissionsInput
+  questions: QuestionUpdateManyWithoutUserInput
 }
 
 input UserUpdateOneRequiredInput {
@@ -1065,13 +1144,34 @@ input UserUpdateOneRequiredInput {
   connect: UserWhereUniqueInput
 }
 
+input UserUpdateOneRequiredWithoutQuestionsInput {
+  create: UserCreateWithoutQuestionsInput
+  update: UserUpdateWithoutQuestionsDataInput
+  upsert: UserUpsertWithoutQuestionsInput
+  connect: UserWhereUniqueInput
+}
+
 input UserUpdatepermissionsInput {
   set: [Permission!]
+}
+
+input UserUpdateWithoutQuestionsDataInput {
+  name: String
+  email: String
+  password: String
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: UserUpdatepermissionsInput
 }
 
 input UserUpsertNestedInput {
   update: UserUpdateDataInput!
   create: UserCreateInput!
+}
+
+input UserUpsertWithoutQuestionsInput {
+  update: UserUpdateWithoutQuestionsDataInput!
+  create: UserCreateWithoutQuestionsInput!
 }
 
 input UserWhereInput {
@@ -1153,6 +1253,9 @@ input UserWhereInput {
   resetTokenExpiry_lte: Float
   resetTokenExpiry_gt: Float
   resetTokenExpiry_gte: Float
+  questions_every: QuestionWhereInput
+  questions_some: QuestionWhereInput
+  questions_none: QuestionWhereInput
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]

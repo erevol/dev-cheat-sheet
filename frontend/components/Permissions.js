@@ -99,7 +99,7 @@ class UserPermissions extends React.Component {
     permissions: this.props.user.permissions,
   };
 
-  handlePermissionChange = (e, updatePermissions) => {
+  handlePermissionChange = (e) => {
     const checkbox = e.target;
     let updatedPermissions = [...this.state.permissions];
     if (checkbox.checked) {

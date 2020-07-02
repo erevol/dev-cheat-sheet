@@ -8,6 +8,7 @@ import {
   Segment,
 } from 'semantic-ui-react';
 import logo from '../static/crown.svg';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -17,23 +18,23 @@ const Footer = () => {
           <Grid.Column width={3}>
             <Header inverted as='h4' content='About Dev Cheat Sheet' />
             <List link inverted>
-              <List.Item as='a'>About Us</List.Item>
+              <Link href="/about-us"><List.Item as='a'>About Us</List.Item></Link>
             </List>
           </Grid.Column>
           <Grid.Column width={3}>
             <Header inverted as='h4' content='My Account' />
             <List link inverted>
-              <List.Item as='a'>Sign Up</List.Item>
-              <List.Item as='a'>Sign In</List.Item>
-              <List.Item as='a'>Create a Question</List.Item>
-              <List.Item as='a'>Post a Job</List.Item>
+              <Link href="/signup"><List.Item as='a'>Sign Up</List.Item></Link>
+              <Link href="/signin"><List.Item as='a'>Sign In</List.Item></Link>
+              <Link href="/create-question"><List.Item as='a'>Create a Question</List.Item></Link>
+              <Link href="/post-job"><List.Item as='a'>Post a Job</List.Item></Link>
             </List>
           </Grid.Column>
           <Grid.Column width={3}>
             <Header inverted as='h4' content='Help & FAQs' />
             <List link inverted>
-              <List.Item as='a'>FAQs</List.Item>
-              <List.Item as='a'>Contact Us</List.Item>
+            <Link href="/about-us"><List.Item as='a'>FAQs</List.Item></Link>
+            <Link href="/about-us"><List.Item as='a'>Contact Us</List.Item></Link>
             </List>
           </Grid.Column>
           <Grid.Column width={7}>
@@ -47,18 +48,10 @@ const Footer = () => {
         <Divider inverted section />
         <Image centered size='mini' src={logo} />
         <List horizontal inverted divided link size='small'>
-          <List.Item as='a'>
-            Site Map
-          </List.Item>
-          <List.Item as='a'>
-            Contact Us
-          </List.Item>
-          <List.Item as='a'>
-            Terms and Conditions
-          </List.Item>
-          <List.Item as='a'>
-            Privacy Policy
-          </List.Item>
+          <Link href="/about-us"><List.Item as='a'>Site Map</List.Item></Link>
+          <Link href="/about-us"><List.Item as='a'>Contact Us</List.Item></Link>
+          <Link href="/about-us"><List.Item as='a'>Terms and Conditions</List.Item></Link>
+          <Link href="/about-us"><List.Item as='a'>Privacy Policy</List.Item></Link>
         </List>
       </Container>
     </Segment>

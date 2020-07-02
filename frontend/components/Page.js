@@ -3,7 +3,9 @@ import Meta from './Meta';
 import styled from '@emotion/styled';
 import Footer from './Footer';
 import TopicsList from './TopicsList';
+import SenioritiesList from './SenioritiesList';
 import JobsList from './JobsList';
+import TopQuestion from './TopQuestion';
 import {
   Grid,
 } from 'semantic-ui-react';
@@ -28,6 +30,12 @@ class Page extends React.Component {
           <Grid stackable textAlign="center">
             <Grid.Row verticalAlign="middle">
               {this.props.children}
+            </Grid.Row>
+            <Grid.Row verticalAlign="middle">
+              <TopQuestion />
+            </Grid.Row>
+            <Grid.Row verticalAlign="middle">
+              <SenioritiesList />
             </Grid.Row>
             <Grid.Row verticalAlign="middle">
               <TopicsList />

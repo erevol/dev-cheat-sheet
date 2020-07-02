@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import Link from 'next/link';
-import TopicsQuery from './TopicsQuery';
+import SenioritiesQuery from './SenioritiesQuery';
 import {
   Dimmer,
   Image,
@@ -47,10 +47,10 @@ const StyledItem = styled.div`
 `;
 
 
-class TopicsList extends React.Component {
+class SenioritiesList extends React.Component {
   render() {
     return (
-      <TopicsQuery>
+      <SenioritiesQuery>
         {({ data, error, loading }) => {
           if(error) {
             return (
@@ -58,7 +58,7 @@ class TopicsList extends React.Component {
                 <Message
                   error
                   header="Error ❗️"
-                  content={`There was an error fetching the topics. ${error.message}`}
+                  content={`There was an error fetching the seniorities. ${error.message}`}
                 />
               </ContainerSegment>
             )
@@ -73,7 +73,7 @@ class TopicsList extends React.Component {
               </ContainerSegment>
             )
           }
-          if(!data.topics || data.topics.length <= 0) {
+          if(!data.seniorities || data.seniorities.length <= 0) {
             return (
               <ContainerSegment>
                 <Message
@@ -85,21 +85,21 @@ class TopicsList extends React.Component {
           }
           return (
             <ContainerSegment>
-              { data.topics.map(topic => <StyledItem key={topic.id}>
+              { data.seniorities.map(seniority => <StyledItem key={seniority.id}>
                 <Link
                   href={{
-                    pathname: '/topic',
-                    query: { id: topic.id },
+                    pathname: '/seniority',
+                    query: { id: seniority.id },
                   }}
-                ><a>{topic.name}</a></Link>
+                ><a>{seniority.name}</a></Link>
                 </StyledItem>
               )}
             </ContainerSegment>
           )
         }}
-      </TopicsQuery>
+      </SenioritiesQuery>
     );
   }
 }
 
-export default TopicsList;
+export default SenioritiesList;

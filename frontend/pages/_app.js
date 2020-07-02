@@ -4,11 +4,9 @@ import 'semantic-ui-css/semantic.min.css';
 import { ThemeProvider } from 'emotion-theming';
 import { ApolloProvider } from 'react-apollo';
 import theme from './theme';
-// import { Global, css } from '@emotion/core';
 import { CacheProvider, css, Global } from '@emotion/core';
 import withData from '../lib/withData';
 
-// Use only { cache } from 'emotion'. Don't use { css }.
 import { cache } from 'emotion';
 
 const injectGlobal = css`
@@ -39,6 +37,12 @@ const injectGlobal = css`
   @font-face {
     font-family: 'Icons';
     src: url('/static/icons.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'outline-icons';
+    src: url('/static/outline-icons.woff') format('woff');
     font-weight: normal;
     font-style: normal;
   }
@@ -74,8 +78,9 @@ class MyApp extends App {
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
-    // this exposes the query to the user
+    // this exposes the query and pathname to the user
     pageProps.query = ctx.query;
+    pageProps.pathname = ctx.pathname;
     return { pageProps };
   }
 

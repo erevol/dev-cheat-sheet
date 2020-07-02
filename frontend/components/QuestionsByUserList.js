@@ -2,7 +2,7 @@ import User from './User';
 import styled from '@emotion/styled';
 import css from '@emotion/css';
 import Question from './Question';
-import QuestionsByTopicQuery from './QuestionsByTopicQuery';
+import QuestionsByUserQuery from './QuestionsByUserQuery';
 import ReactToPrint from 'react-to-print';
 import ComponentToPrint from './ComponentToPrint';
 import {
@@ -47,15 +47,15 @@ const StyledIcon = styled.div`
   ${commonMargin}
 `;
 
-class QuestionsList extends React.Component {
+class QuestionsByUserList extends React.Component {
   render() {
     return (
-      <QuestionsByTopicQuery id={this.props.id}>
+      <QuestionsByUserQuery id={this.props.id}>
         {({ data, error, loading }) => {
           if(error) return <Message
           error={error}
           header="Error"
-          content={`There was an error fetching the question. ${error.message}`}
+          content={`There was an error fetching the questions. ${error.message}`}
           />
           if(loading) return  <Segment>
                                 <Dimmer active inverted>
@@ -63,13 +63,13 @@ class QuestionsList extends React.Component {
                                 </Dimmer>
                                 <Image src={paragraph} />
                               </Segment>
-          if(!data.questions || data.questions.length <= 0) return <Message
+          if(!data.questionsByUser || !data.questionsByUser.questions || data.questionsByUser.questions.length <= 0 ) return <Message
           header="Nothing to see here 😬"
-          content="There are no questions for this topic yet! In the mean while, check another topic questions and the latest answers from top interview questions. Success you interview!"
+          content="There are no questions yet! In the mean while, check another topic questions and the latest answers from top interview questions. Success you interview!"
           />
           return (
             <>
-              <StyledHeading>{this.props.pathname.includes('topic') ? data.questions[0].topic.name : data.questions[0].seniority.name} Questions</StyledHeading>
+              <StyledHeading>{data.questionsByUser.name} Questions</StyledHeading>
               <User>
                 {({ data }) => {
                   const me = data ? data.me : null;
@@ -94,7 +94,7 @@ class QuestionsList extends React.Component {
                 }}
               </User>
               <QuestionsOrderedList >
-                { data.questions.map(question => <Question
+                { data.questionsByUser.questions.map(question => <Question
                   question={question}
                   key={question.id}
                   pathname={this.props.pathname}
@@ -103,16 +103,16 @@ class QuestionsList extends React.Component {
               <StyledPrintContainer>
                 <ComponentToPrint
                   ref={element => (this.componentRef = element)}
-                  questions={data.questions}
-                  topic={data.questions[0].topic.name}
+                  questions={data.questionsByUser.questions}
+                  topic={data.questionsByUser.questions[0].topic.name}
                 />
               </StyledPrintContainer>
             </>
           )
         }}
-      </QuestionsByTopicQuery>
+      </QuestionsByUserQuery>
     );
   }
 }
 
-export default QuestionsList;
+export default QuestionsByUserList;

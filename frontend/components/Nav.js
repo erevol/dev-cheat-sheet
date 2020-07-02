@@ -36,7 +36,7 @@ const StyledNav = styled.div`
     position: relative;
     text-transform: uppercase;
     font-weight: 900;
-    font-size: 1.1rem;
+    font-size: 1rem;
     background: none;
     border: 0;
     cursor: pointer;
@@ -104,9 +104,14 @@ const Nav = () => {
         <>
           <StyledNav>
             {me && <Header size='medium'>👋&nbsp;&nbsp;&nbsp;Hi {me.name}!</Header>}
-            <Link href="/about-us">
-              <a>About Us</a>
-            </Link>
+            {me && <Link
+              href={{
+                pathname: '/my-questions',
+                query: { id: me.id },
+              }}
+            >
+              <a>My Questions</a>
+            </Link>}
             {me && <Link href="/create-question">
               <a>Add Question</a>
             </Link>}

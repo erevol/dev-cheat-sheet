@@ -94,7 +94,12 @@ const mutations = {
   async createTopic(parent, args, ctx, info) {
     const topic = await ctx.db.mutation.createTopic({
       data: {
-        ...args
+        ...args,
+        user: {
+          connect: {
+            id: ctx.request.userId,
+          }
+        }
       }
     }, info);
 
@@ -116,7 +121,12 @@ const mutations = {
   async createSeniority(parent, args, ctx, info) {
     const seniority = await ctx.db.mutation.createSeniority({
       data: {
-        ...args
+        ...args,
+        user: {
+          connect: {
+            id: ctx.request.userId,
+          }
+        }
       }
     }, info);
 
@@ -254,6 +264,28 @@ const mutations = {
         },
         where: {
           id: args.userId,
+        },
+      },
+      info
+    );
+  },
+  async updateLikes(parent, args, ctx, info) {
+    const data = { ...args };
+    const likes = data.likes;
+    const questionId = data.questionId;
+
+    delete data.userId;
+    delete data.questionId;
+
+    return ctx.db.mutation.updateQuestion(
+      {
+        data: {
+          ...data,
+          likes: likes ? { set: likes} : {},
+          votes: likes.length,
+        },
+        where: {
+          id: questionId,
         },
       },
       info

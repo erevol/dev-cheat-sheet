@@ -18,25 +18,27 @@ type Mutation {
   requestReset(email: String!): SuccessMessage
   resetPassword(resetToken: String!, password: String!, confirmPassword: String!): User!
   updatePermissions(permissions: [Permission], userId: ID!): User
+  updateLikes(likes: [ID!], userId: ID!, questionId: ID!): Question!
 }
 
 type Query {
   question(where: QuestionWhereUniqueInput!): Question
-  # questions: [Question]!
-  questions(where: QuestionWhereInput): [Question]!
+  questions(where: QuestionWhereInput, orderBy: QuestionOrderByInput, first: Int): [Question]!
   job(where: JobWhereUniqueInput!): Job
   jobs: [Job]!
   seniority(where: SeniorityWhereUniqueInput!): Seniority
-  seniorities: [Seniority]!
+  seniorities(orderBy: SeniorityOrderByInput): [Seniority]!
   topic(where: TopicWhereUniqueInput!): Topic
-  topics: [Topic]!
+  topics(orderBy: TopicOrderByInput): [Topic]!
   me: User
   users: [User]!
+  questionsByUser(where: UserWhereInput): User
 }
 
-type User{
+type User {
   id: ID!
   name: String!
   email: String!
+  questions: [Question!]
   permissions: [Permission!]!
 }

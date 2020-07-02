@@ -12,6 +12,17 @@ const Query = {
   */
   question: forwardTo('db'),
   questions: forwardTo('db'),
+  async questionsByUser(parent, args, ctx, info) {
+    if (!args.where.id) {
+      return null;
+    }
+    return ctx.db.query.user(
+      {
+        where: { id: args.where.id },
+      },
+      info
+    );
+  },
   job: forwardTo('db'),
   jobs: forwardTo('db'),
   seniority: forwardTo('db'),
@@ -36,7 +47,7 @@ const Query = {
     }
     hasPermission(ctx.request.user, ['ADMIN', 'PERMISSIONUPDATE']);
 
-    return ctx.db.query.users({}, info);
+    return ctx.db.query.users({where: {}}, info);
   },
 };
 

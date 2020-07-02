@@ -9,6 +9,11 @@ mutation {
     email: "test@test.com"
     password: "123"
   }) { id }
+  user03: createUser(data: {
+    name: "Casandra Amarras"
+    email: "o@o.com"
+    password: "123"
+  }) { id }
 
   topic01: createTopic(data: { name: ".NET Core", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
   topic02: createTopic(data: { name: "ADO.NET", user: {connect: { email: "euge.revol@gmail.com" }}}) { id }
@@ -75,21 +80,21 @@ mutation {
   }}}){ id }
   question02: createQuestion(data: { answer: "React is an open-source JavaScript library created by Facebook for building complex, interactive UIs in web and mobile applications. React's core purpose is to build UI components; it is often referred to as just the \"V\" (View) in an \"MVC\" architecture."
     topic: {connect: {name: "React"}}
-    seniority: {connect: {name: "Junior"}}
+    seniority: {connect: {name: "SemiSenior"}}
     source: "Magna eu et dolor incididunt consectetur Lorem id."
     title: "What is React?"
     user: {connect: { email: "euge.revol@gmail.com"
   }}}){ id }
   question03: createQuestion(data: { answer: "Props are properties that are passed into a child component from its parent, and are readonly."
     topic: {connect: {name: "React"}}
-    seniority: {connect: {name: "Junior"}}
+    seniority: {connect: {name: "Senior"}}
     source: "Sint nisi est in ullamco anim esse cillum sit dolore incididunt."
     title: "What are props in React?"
     user: {connect: { email: "euge.revol@gmail.com"
   }}}){ id }
-  question04: createQuestion(data: { answer: "For example: ↵↵```html↵<div style={{ height: 10 }}>↵```"
+  question04: createQuestion(data: { answer: "For example: <div style={{ height: 10 }}>"
     topic: {connect: {name: "React"}}
-    seniority: {connect: {name: "Junior"}}
+    seniority: {connect: {name: "Expert"}}
     source: "https://github.com/WebPredict/react-interview-questions"
     title: "How would you write an inline style in React?"
     user: {connect: { email: "euge.revol@gmail.com"
