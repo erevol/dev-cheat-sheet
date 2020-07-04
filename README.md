@@ -2,12 +2,12 @@
 
 ## Overview
 
-Provide answers on different IT topics for preparing for interviews.
+Provide answers on different IT topics for preparing for interviews.  
 Meeting point and link between users interested in posting a job position and those who are looking for it.
 
 ## Demo
 
-Working demo [here](https://dev-cheat-sheet-next-prod.herokuapp.com/)
+Working demo [here](https://dev-cheat-sheet-next-prod.herokuapp.com/)  
 GraphQL Playground [here](https://dev-cheat-sheet.herokuapp.com/)
 
 ## Used Libraries
