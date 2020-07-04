@@ -10,6 +10,7 @@ import {
 } from 'semantic-ui-react';
 import paragraph from '../static/paragraph.png';
 import { ContainerSegment } from './JobsList';
+import { StyledParagraph } from './Job';
 
 class TopQuestion extends React.Component {
   render() {
@@ -57,7 +58,7 @@ class TopQuestion extends React.Component {
                 </Header>
                 <Divider />
                 <Header as="h3">{title}</Header>
-                <p>{answer}</p>
+                <StyledParagraph>{answer}</StyledParagraph>
                 <Divider />
               </Container>
             </ContainerSegment>

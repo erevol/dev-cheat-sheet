@@ -1,8 +1,7 @@
-import { Query } from 'react-apollo';
-import Link from 'next/link';
+import styled from '@emotion/styled';
 import gql from 'graphql-tag';
+import { Query } from 'react-apollo';
 import {
-  Button,
   Container,
   Dimmer,
   Divider,
@@ -50,6 +49,10 @@ const colors = [
   'black',
 ];
 
+const StyledParagraph = styled.p`
+  white-space: pre-line;
+`;
+
 class Job extends React.Component {
   render() {
     return (
@@ -92,7 +95,7 @@ class Job extends React.Component {
                 <Header.Subheader>{location}</Header.Subheader>
               </Header>
               <Divider />
-              <p>{description}</p>
+              <StyledParagraph>{description}</StyledParagraph>
               <Grid.Row>
                 {topics.length > 0 && topics.map((topic, index) => <Label key={topic.id} color={colors[index]} size="medium">{topic.name}</Label>)}
                 <Header as="h3">
@@ -123,4 +126,5 @@ export default Job;
 export {
   JOB_QUERY,
   colors,
+  StyledParagraph,
 };

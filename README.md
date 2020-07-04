@@ -1,7 +1,8 @@
 # Dev Cheat Sheet
 
 #### Demo
-You can see a Demo at: ...(TBD)
+Working demo [here](https://dev-cheat-sheet-next-prod.herokuapp.com/)
+GraphQL Playground [here](https://dev-cheat-sheet.herokuapp.com/)
 
 ## Used Libraries
 

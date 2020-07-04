@@ -1,7 +1,7 @@
-import { Query, Mutation } from 'react-apollo';
-import User from './User';
-import Link from 'next/link';
+import styled from '@emotion/styled';
 import gql from 'graphql-tag';
+import Link from 'next/link';
+import { Mutation, Query } from 'react-apollo';
 import {
   Button,
   Container,
@@ -16,8 +16,9 @@ import {
   Segment,
 } from 'semantic-ui-react';
 import paragraph from '../static/paragraph.png';
+import { StyledParagraph } from './Job';
 import { StyledContainer } from './JobsList';
-import styled from '@emotion/styled';
+import User from './User';
 
 const UPDATE_LIKES_MUTATION = gql`
   mutation updateLikes($likes: [ID!], $userId: ID!, $questionId: ID!) {
@@ -138,7 +139,7 @@ class SingleQuestion extends React.Component {
               </User>
               </Header>
               <Divider />
-              <p>{answer}</p>
+              <StyledParagraph>{answer}</StyledParagraph>
               <Divider />
               <Header as="h3">Learn more about <Link
                   href={{
@@ -184,4 +185,5 @@ class SingleQuestion extends React.Component {
 }
 
 export default SingleQuestion;
-export {SINGLE_QUESTION_QUERY};
+export { SINGLE_QUESTION_QUERY };
+

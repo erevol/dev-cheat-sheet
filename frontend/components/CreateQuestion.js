@@ -32,6 +32,7 @@ const CREATE_QUESTION_MUTATION = gql`
       seniority: $seniority
       source: $source
       answer: $answer
+      votes: 0
     ) {
       id
       title
@@ -39,6 +40,7 @@ const CREATE_QUESTION_MUTATION = gql`
       seniority { id name }
       source
       answer
+      votes
     }
   }
 `;
